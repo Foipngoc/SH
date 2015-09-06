@@ -9,7 +9,7 @@ import java.io.OutputStream;
 import java.util.Date;
 import java.util.Locale;
 
-public class FileUtils {
+public class FileUtils extends org.apache.commons.io.FileUtils {
 	/**
 	 * 检查目录是否存在，不存在创建之
 	 */
