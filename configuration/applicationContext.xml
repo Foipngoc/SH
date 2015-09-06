@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd 
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
+    http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<!-- 自动扫描Spring注解配置 -->
+	<context:component-scan base-package="com" />
+
+	<!-- 自动加载属性配置文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+
+	<!-- 配置dhcp2数据库源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<!-- 数据库基本信息配置 -->
+		<property name="url" value="${jdbc.url}" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+
+		<property name="maxTotal" value="${dbcp2.maxTotal}"></property>
+		<property name="maxIdle" value="${dbcp2.maxIdle}" />
+		<property name="minIdle" value="${dbcp2.minIdle}" />
+		<property name="initialSize" value="${dbcp2.initialSize}" />
+		<property name="maxWaitMillis" value="${dhcp2.maxWaitMillis}" />
+
+		<property name="validationQuery" value="${dbcp2.validationQuery}" />
+		<property name="testOnBorrow" value="${dbcp2.testOnBorrow}" />
+		<property name="testOnReturn" value="${dbcp2.testOnReturn}" />
+		<property name="testWhileIdle" value="${dbcp2.testWhileIdle}" />
+
+		<property name="timeBetweenEvictionRunsMillis" value="${dbcp2.timeBetweenEvictionRunsMillis}" />
+
+		<property name="poolPreparedStatements" value="${dbcp2.poolPreparedStatements}" />
+		<property name="maxOpenPreparedStatements" value="${dbcp2.maxOpenPreparedStatements}" />
+	</bean>
+
+	<!-- 配置sqlSessionFactory -->
+	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 实例化sqlSessionFactory时需要使用上述配置好的数据源以及SQL映射文件 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 自动扫描com/目录下的所有SQL映射的xml文件 -->
+		<property name="mapperLocations" value="classpath*:/com/**/*.mybatis.xml" />
+	</bean>
+
+	<!-- 配置扫描器 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 扫描me.gacl.dao这个包以及它的子包下的所有映射接口类 -->
+		<property name="basePackage" value="com" />
+		<property name="sqlSessionFactoryBeanName" value="sessionFactory" />
+	</bean>
+
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 配置声明式事务：在Service实现类或者public实现方法上使用注解@Transactional，则此类或方法就会启用事务机制 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+</beans>
