@@ -33,7 +33,7 @@ public class Example {
 	 */
 	@RequestMapping(value = "/jsp/noinput")
 	public String tojsp() {
-		return "example/tojsp"; // 返回的的视图会由springmvc-servlet中的视图解析器解析
+		return "page/example/tojsp"; // 返回的的视图会由springmvc-servlet中的视图解析器解析
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class Example {
 		model.addAttribute("name", "test");
 		model.addAttribute("age", 28);
 		model.addAttribute("****@email.com");// key为value对应的类型名，这里为String
-		return "example/tojspoutput"; // 返回的的视图会由springmvc-servlet中的视图解析器解析
+		return "page/example/tojspoutput"; // 返回的的视图会由springmvc-servlet中的视图解析器解析
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class Example {
 		model.addAttribute("age", request.getParameter("age"));
 		model.addAttribute("string", request.getParameter("name2"));
 		model.addAttribute("name2", request.getParameter("name2"));
-		return "example/tojspoutput";
+		return "page/example/tojspoutput";
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class Example {
 		model.addAttribute("name", name);
 		model.addAttribute("age", age);
 		model.addAttribute("name2", name2);
-		return "example/tojspoutput";
+		return "page/example/tojspoutput";
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class Example {
 	@RequestMapping(value = "/jsp/pojoinput")
 	public String pojoinput(POJOModel modelinput, Model model) {
 		model.addAttribute(modelinput);
-		return "example/tojspoutput2";
+		return "page/example/tojspoutput2";
 	}
 
 	/**
@@ -128,6 +128,23 @@ public class Example {
 			HttpServletResponse response) throws IllegalStateException,
 			IOException {
 		FileUpload.upload(request, response, "d:/");
+		return new BaseResultOK();
+	}
+
+	public void doexception() throws Exception {
+		@SuppressWarnings("unused")
+		int s = 10 / 0;
+	}
+
+	/**
+	 * 异常捕获
+	 */
+	@RequestMapping("/exception")
+	@ResponseBody
+	public BaseResult exception(Boolean on) throws Exception {
+		if (on) {
+			doexception();
+		}
 		return new BaseResultOK();
 	}
 }
