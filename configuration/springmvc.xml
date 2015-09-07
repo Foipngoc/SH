@@ -12,6 +12,8 @@
 
 	<!--spring 组件扫描配置 -->
 	<context:component-scan base-package="com" />
+
+	<!-- 添加json转换器，使用fastjson -->
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
 			<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->

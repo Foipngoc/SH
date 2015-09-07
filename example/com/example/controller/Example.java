@@ -15,8 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.common.baseresult.BaseResult;
-import com.common.baseresult.BaseResultOK;
+import com.common.base.BaseResult;
+import com.common.base.BaseResultOK;
 import com.common.framework.FileDownload;
 import com.common.framework.FileUpload;
 import com.example.model.JSONModel;
