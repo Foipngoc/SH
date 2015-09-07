@@ -15,7 +15,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.common.baseresult.BaseResult;
+import com.common.baseresult.BaseResultOK;
 import com.common.framework.FileDownload;
+import com.common.framework.FileUpload;
 import com.example.model.JSONModel;
 import com.example.model.POJOModel;
 
@@ -106,10 +109,25 @@ public class Example {
 		return jsonModel;
 	}
 
-	@RequestMapping("download")
+	/**
+	 * 文件下载
+	 */
+	@RequestMapping("/download")
 	public void download(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 		String path = "e:/cn_windows_7_ultimate_with_sp1_x64_dvd_618537.iso";
 		FileDownload.download(new File(path), "win7.iso", request, response);
+	}
+
+	/**
+	 * 文件上传
+	 */
+	@RequestMapping("/upload")
+	@ResponseBody
+	public BaseResult upload(HttpServletRequest request,
+			HttpServletResponse response) throws IllegalStateException,
+			IOException {
+		FileUpload.upload(request, response, "d:/");
+		return new BaseResultOK();
 	}
 }
