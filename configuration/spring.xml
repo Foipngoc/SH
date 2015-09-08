@@ -20,6 +20,7 @@
 
 	<!-- 自动扫描Spring注解配置 -->
 	<context:component-scan base-package="com" />
+	<context:annotation-config />
 
 	<!-- 自动加载属性配置文件 -->
 	<context:property-placeholder location="classpath:jdbc.properties" />
@@ -131,19 +132,22 @@
 		</property>
 	</bean>
 
-	<!-- 配置义过滤 -->
+	<!-- 配置拦截器 -->
 	<mvc:interceptors>
-		<!-- 开启openSessionInView -->
-		<bean
-			class="org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor">
-			<property name="sessionFactory" ref="sessionFactory" />
-		</bean>
+		<!-- 开启openSessionInView 但不拦截包含download的功能，建议下载功能添加download作为url一部分 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/**/download/**" />
+			<bean
+				class="org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor">
+				<property name="sessionFactory" ref="sessionFactory" />
+			</bean>
+		</mvc:interceptor>
 	</mvc:interceptors>
 
-
-	<task:annotation-driven />
-	<context:annotation-config />
-	<bean
-		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
-
+	<!-- 开启注解式定时器 -->
+	<task:annotation-driven executor="taskExecutor"
+		scheduler="taskScheduler" />
+	<task:executor id="taskExecutor" pool-size="5" />
+	<task:scheduler id="taskScheduler" pool-size="10" />
 </beans>

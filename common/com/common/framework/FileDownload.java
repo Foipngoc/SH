@@ -62,14 +62,14 @@ public class FileDownload {
 		return rtn;
 	}
 
-	public static void download(File file, String filename,
-			HttpServletRequest request, HttpServletResponse response)
-			throws IOException {
+	public static void download(String filepath, HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
+		File file = new File(filepath);
 		// 清空response
 		response.reset();
 		// 设置response的Header
 		response.addHeader("Content-Disposition", "attachment;"
-				+ filenameEncode(request, filename)); // 转码之后下载的文件不会出现中文乱码
+				+ filenameEncode(request, file.getName())); // 转码之后下载的文件不会出现中文乱码
 		response.addHeader("Content-Length", "" + file.length());
 		response.setContentType("application/octet-stream;charset=UTF-8");
 		InputStream fis = null;
@@ -78,10 +78,10 @@ public class FileDownload {
 			fis = new BufferedInputStream(new FileInputStream(file));
 			fos = new BufferedOutputStream(response.getOutputStream());
 
-			byte[] buffer = new byte[4096];
+			byte[] buffer = new byte[1024];
 			int readlen = 0;
 
-			while ((readlen = fis.read(buffer, 0, 4096)) > 0) {
+			while ((readlen = fis.read(buffer, 0, 1024)) > 0) {
 				fos.write(buffer, 0, readlen);
 			}
 			fos.flush();

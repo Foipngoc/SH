@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -120,13 +120,14 @@ public class Example {
 
 	/**
 	 * 文件下载
+	 * @return 
+	 * @return 
 	 */
 	@RequestMapping("/download")
 	public void download(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
-		String path = "e:/cn_windows_7_ultimate_with_sp1_x64_dvd_618537.iso";
-		FileDownload.download(new File(path), "win7.iso", request, response);
-		logger.warn("Download return!!!!");
+		String path = "E:\\cn_windows_7_ultimate_with_sp1_x64_dvd_618537.iso";
+		FileDownload.download(path, request, response);
 	}
 
 	/**
@@ -190,5 +191,13 @@ public class Example {
 	public BaseQueryRecords<Room> queryAllRoom() {
 		BaseQueryRecords<Room> rm = this.exampleService.queryRoom(2);
 		return rm;
+	}
+
+	/**
+	 * 定时任务
+	 */
+	@Scheduled(cron="* * * * * ?")
+	public void timer() {
+		//System.out.println("Do Timer");
 	}
 }
