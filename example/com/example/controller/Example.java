@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import com.common.base.BaseResult;
 import com.common.base.BaseResultOK;
 import com.common.framework.FileDownload;
 import com.common.framework.FileUpload;
+import com.common.utils.LogUtils;
 import com.example.model.JSONModel;
 import com.example.model.POJOModel;
 
@@ -26,6 +28,7 @@ import com.example.model.POJOModel;
 @RequestMapping("/example")
 // 统一的namespace， 可不定义
 public class Example {
+	Logger logger = LogUtils.getLogger(Example.class);
 
 	/**
 	 * 跳转到页面视图，页面最终由 springmvc.xml中配置的prefix+返回值+suffix组成返回
@@ -33,6 +36,7 @@ public class Example {
 	 */
 	@RequestMapping(value = "/jsp/noinput")
 	public String tojsp() {
+		logger.debug("tojsp!!");
 		return "page/example/tojsp"; // 返回的的视图会由springmvc-servlet中的视图解析器解析
 	}
 
