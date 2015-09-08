@@ -1,42 +1,76 @@
 package com.example.dao;
+// default package
 
-import java.util.Date;
+import java.sql.Timestamp;
 
-public class Student {
-	private int id;
+/**
+ * Student entity. @author MyEclipse Persistence Tools
+ */
+
+public class Student implements java.io.Serializable {
+
+	// Fields
+
+	private Integer id;
+	private Room room;
 	private String name;
-	private int age;
-	private Date born;
+	private Integer age;
+	private Timestamp born;
 
-	public int getId() {
-		return id;
+	// Constructors
+
+	/** default constructor */
+	public Student() {
 	}
 
-	public void setId(int id) {
+	/** full constructor */
+	public Student(Room room, String name, Integer age, Timestamp born) {
+		this.room = room;
+		this.name = name;
+		this.age = age;
+		this.born = born;
+	}
+
+	// Property accessors
+
+	public Integer getId() {
+		return this.id;
+	}
+
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
+	public Room getRoom() {
+		return this.room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public int getAge() {
-		return age;
+	public Integer getAge() {
+		return this.age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 
-	public Date getBorn() {
-		return born;
+	public Timestamp getBorn() {
+		return this.born;
 	}
 
-	public void setBorn(Date born) {
+	public void setBorn(Timestamp born) {
 		this.born = born;
 	}
+
 }

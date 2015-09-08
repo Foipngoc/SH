@@ -2,8 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:p="http://www.springframework.org/schema/p" xmlns:task="http://www.springframework.org/schema/task"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
+	http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
 	http://www.springframework.org/schema/task 
 	http://www.springframework.org/schema/task/spring-task-3.1.xsd 
 	http://www.springframework.org/schema/beans 
@@ -53,6 +56,8 @@
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext
+				</prop>
 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
 				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
 				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
@@ -67,8 +72,78 @@
 
 	<!-- 配置声明式事务：在Service实现类或者public实现方法上使用注解@Transactional，则此类或方法就会启用事务机制 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 添加json转换器，使用fastjson -->
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
+			<bean id="fastJsonHttpMessageConverter"
+				class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+				<property name="supportedMediaTypes" value="application/json;charset=UTF-8" />
+				<property name="features">
+					<array>
+						<!-- 输出key时是否使用双引号,默认为true -->
+						<value>QuoteFieldNames</value>
+						<!-- 是否输出值为null的字段,默认为false -->
+						<value>WriteMapNullValue</value>
+						<!-- 数值字段如果为null,输出为0,而非null -->
+						<value>WriteNullNumberAsZero</value>
+						<!-- List字段如果为null,输出为[],而非null -->
+						<value>WriteNullListAsEmpty</value>
+						<!-- Boolean字段如果为null,输出为false,而非null -->
+						<value>WriteNullBooleanAsFalse</value>
+						<!-- 字符类型字段如果为null,输出为"",而非null -->
+						<value>WriteNullStringAsEmpty</value>
+					</array>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- 配置视图解析器 (该配置的是jstl解析器的一个扩展解析类) -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+	<!-- 配置文件上传解析器 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8"></property>
+		<property name="maxUploadSize" value="10485760000"></property>
+		<property name="maxInMemorySize" value="40960"></property>
+	</bean>
+
+	<!-- 配置统一异常处理器 -->
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<!-- 定义默认的异常处理页面，当该异常类型的注册时使用 -->
+		<property name="defaultErrorView" value="WEB-INF/page/error"></property>
+		<!-- 定义异常处理页面用来获取异常信息的变量名，默认名为exception -->
+		<property name="exceptionAttribute" value="ex"></property>
+		<!-- 定义需要特殊处理的异常，用类名或完全路径名作为key，异常也页名作为值 -->
+		<property name="exceptionMappings">
+			<props>
+				<!-- 这里还可以继续扩展对不同异常类型的处理 -->
+				<!--prop key="cn.basttg.core.exception.BusinessException">error-business</prop -->
+			</props>
+		</property>
+	</bean>
+
+	<!-- 配置义过滤 -->
+	<mvc:interceptors>
+		<!-- 开启openSessionInView -->
+		<bean
+			class="org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor">
+			<property name="sessionFactory" ref="sessionFactory" />
+		</bean>
+	</mvc:interceptors>
+
+
 	<task:annotation-driven />
 	<context:annotation-config />
 	<bean
 		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
 </beans>

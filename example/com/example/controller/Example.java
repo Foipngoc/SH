@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,6 +24,7 @@ import com.common.framework.FileUpload;
 import com.common.utils.LogUtils;
 import com.example.model.JSONModel;
 import com.example.model.POJOModel;
+import com.example.service.ExampleService;
 
 @Controller
 @RequestMapping("/example")
@@ -150,5 +152,21 @@ public class Example {
 			doexception();
 		}
 		return new BaseResultOK();
+	}
+
+	@Resource(name = "exampleService")
+	private ExampleService exampleService;
+
+	/**
+	 * 查看所有学生
+	 */
+	@RequestMapping("/queryallstu")
+	@ResponseBody
+	public BaseResult queryAllStu() {
+		logger.error("Example start call service!");
+		BaseResult result = new BaseResultOK(
+				this.exampleService.queryAllStudent());
+
+		return result;
 	}
 }

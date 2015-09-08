@@ -113,8 +113,8 @@ public class BaseDaoDB implements BaseDao {
 	 * @return: 对象集
 	 */
 	@Override
-	public BaseQueryRecords<?> find(Object o) {
-		return this.find(o, -1, -1);
+	public BaseQueryRecords<?> find(Class<?> cls) {
+		return this.find(cls, -1, -1);
 	}
 
 	/**
@@ -130,14 +130,13 @@ public class BaseDaoDB implements BaseDao {
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public BaseQueryRecords<?> find(Object o, long page, long rows) {
+	public BaseQueryRecords<?> find(Class<?> cls, long page, long rows) {
 		try {
-			Criteria criteria = getCurrentSession()
-					.createCriteria(o.getClass());
+			Criteria criteria = getCurrentSession().createCriteria(cls);
 
 			// page和rows 都 >0 时返回分页数据
 			if (page > 0 && rows > 0) {
-				long total = count(o);
+				long total = count(cls);
 				criteria.setFirstResult((int) ((page - 1) * rows));
 				criteria.setMaxResults((int) rows);
 				return new BaseQueryRecords(criteria.list(), total, page, rows);
@@ -162,8 +161,8 @@ public class BaseDaoDB implements BaseDao {
 	 * @return: 对象集
 	 */
 	@Override
-	public BaseQueryRecords<?> find(Object o, String key, Object value) {
-		return this.find(o, key, value, -1, -1);
+	public BaseQueryRecords<?> find(Class<?> cls, String key, Object value) {
+		return this.find(cls, key, value, -1, -1);
 	}
 
 	/**
@@ -183,16 +182,15 @@ public class BaseDaoDB implements BaseDao {
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public BaseQueryRecords<?> find(Object o, String key, Object value,
+	public BaseQueryRecords<?> find(Class<?> cls, String key, Object value,
 			long page, long rows) {
 		try {
-			Criteria criteria = getCurrentSession()
-					.createCriteria(o.getClass());
+			Criteria criteria = getCurrentSession().createCriteria(cls);
 
 			criteria.add(Restrictions.eq(key, value));
 
 			if (page > 0 && rows > 0) {
-				long total = count(o, key, value);
+				long total = count(cls, key, value);
 				criteria.setFirstResult((int) ((page - 1) * rows));
 				criteria.setMaxResults((int) rows);
 				return new BaseQueryRecords(criteria.list(), total, page, rows);
@@ -217,8 +215,8 @@ public class BaseDaoDB implements BaseDao {
 	 * @return: 对象
 	 */
 	@Override
-	public Object findUnique(Object o, String key, Object value) {
-		List<?> lists = this.find(o, key, value, 1, 1).getData();
+	public Object findUnique(Class<?> cls, String key, Object value) {
+		List<?> lists = this.find(cls, key, value, 1, 1).getData();
 		if (lists.size() > 0) {
 			return lists.get(0);
 		}
@@ -233,10 +231,9 @@ public class BaseDaoDB implements BaseDao {
 	 * @return： 对象的数量
 	 */
 	@Override
-	public long count(Object o) {
+	public long count(Class<?> cls) {
 		try {
-			Criteria criteria = getCurrentSession()
-					.createCriteria(o.getClass());
+			Criteria criteria = getCurrentSession().createCriteria(cls);
 			criteria.setProjection(Projections.rowCount());
 			Object cntObj = criteria.uniqueResult();
 			if (cntObj != null) {
@@ -265,10 +262,9 @@ public class BaseDaoDB implements BaseDao {
 	 * @return ： 对象数量
 	 */
 	@Override
-	public long count(Object o, String key, Object value) {
+	public long count(Class<?> cls, String key, Object value) {
 		try {
-			Criteria criteria = getCurrentSession()
-					.createCriteria(o.getClass());
+			Criteria criteria = getCurrentSession().createCriteria(cls);
 			criteria.setProjection(Projections.rowCount());
 
 			criteria.add(Restrictions.eq(key, value));
@@ -299,9 +295,9 @@ public class BaseDaoDB implements BaseDao {
 	 *            : true--> DESC排序,false--> ASC排序
 	 */
 	@Override
-	public BaseQueryRecords<?> findOrderBy(Object o, String orderby,
+	public BaseQueryRecords<?> findOrderBy(Class<?> cls, String orderby,
 			boolean ifdesc) {
-		return findOrderBy(o, orderby, ifdesc, -1, -1);
+		return findOrderBy(cls, orderby, ifdesc, -1, -1);
 	}
 
 	/**
@@ -320,11 +316,10 @@ public class BaseDaoDB implements BaseDao {
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public BaseQueryRecords<?> findOrderBy(Object o, String orderby,
+	public BaseQueryRecords<?> findOrderBy(Class<?> cls, String orderby,
 			boolean ifdesc, long page, long rows) {
 		try {
-			Criteria criteria = getCurrentSession()
-					.createCriteria(o.getClass());
+			Criteria criteria = getCurrentSession().createCriteria(cls);
 			if (orderby != null && !orderby.equals("")) {
 				if (ifdesc)
 					criteria.addOrder(Order.desc(orderby));
@@ -333,7 +328,7 @@ public class BaseDaoDB implements BaseDao {
 			}
 			// page和rows 都 >0 时返回分页数据
 			if (page > 0 && rows > 0) {
-				long total = count(o);
+				long total = count(cls);
 				criteria.setFirstResult((int) ((page - 1) * rows));
 				criteria.setMaxResults((int) rows);
 				return new BaseQueryRecords(criteria.list(), total, page, rows);
@@ -361,9 +356,9 @@ public class BaseDaoDB implements BaseDao {
 	 *            : true--> DESC排序,false--> ASC排序
 	 */
 	@Override
-	public BaseQueryRecords<?> findOrderBy(Object o, String key, Object value,
-			String orderby, boolean ifdesc) {
-		return findOrderBy(o, key, value, orderby, ifdesc, -1, -1);
+	public BaseQueryRecords<?> findOrderBy(Class<?> cls, String key,
+			Object value, String orderby, boolean ifdesc) {
+		return findOrderBy(cls, key, value, orderby, ifdesc, -1, -1);
 	}
 
 	/**
@@ -386,11 +381,10 @@ public class BaseDaoDB implements BaseDao {
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public BaseQueryRecords<?> findOrderBy(Object o, String key, Object value,
-			String orderby, boolean ifdesc, long page, long rows) {
+	public BaseQueryRecords<?> findOrderBy(Class<?> cls, String key,
+			Object value, String orderby, boolean ifdesc, long page, long rows) {
 		try {
-			Criteria criteria = getCurrentSession()
-					.createCriteria(o.getClass());
+			Criteria criteria = getCurrentSession().createCriteria(cls);
 
 			if (orderby != null && !orderby.equals("")) {
 				if (ifdesc)
@@ -402,7 +396,7 @@ public class BaseDaoDB implements BaseDao {
 			criteria.add(Restrictions.eq(key, value));
 
 			if (page > 0 && rows > 0) {
-				long total = count(o, key, value);
+				long total = count(cls, key, value);
 				criteria.setFirstResult((int) ((page - 1) * rows));
 				criteria.setMaxResults((int) rows);
 				return new BaseQueryRecords(criteria.list(), total, page, rows);
