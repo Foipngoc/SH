@@ -123,6 +123,7 @@ public class Example {
 			HttpServletResponse response) throws IOException {
 		String path = "e:/cn_windows_7_ultimate_with_sp1_x64_dvd_618537.iso";
 		FileDownload.download(new File(path), "win7.iso", request, response);
+		logger.warn("Download return!!!!");
 	}
 
 	/**
@@ -161,12 +162,9 @@ public class Example {
 	 * 查看所有学生
 	 */
 	@RequestMapping("/queryallstu")
-	@ResponseBody
-	public BaseResult queryAllStu() {
+	public String queryAllStu(Model model) {
 		logger.error("Example start call service!");
-		BaseResult result = new BaseResultOK(
-				this.exampleService.queryAllStudent());
-
-		return result;
+		model.addAttribute("stu", this.exampleService.queryAllStudent().getData().get(0));
+		return "page/example/stulist";
 	}
 }

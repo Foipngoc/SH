@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
 encoding//WebRoot/page/example/upload.jsp=UTF-8
 encoding//configuration/jdbc.properties=UTF-8
+encoding//configuration/log4j.properties=UTF-8
