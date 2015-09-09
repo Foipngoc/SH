@@ -6,18 +6,18 @@
 -->
 <hibernate-mapping>
     <class name="com.example.dao.Student" table="student" catalog="sh">
-        <id name="id" type="java.lang.Integer">
-            <column name="id" />
+        <id name="stuid" type="java.lang.Integer">
+            <column name="stuid" />
             <generator class="identity" />
         </id>
         <many-to-one name="room" class="com.example.dao.Room" fetch="select">
-            <column name="room" />
+            <column name="romid" />
         </many-to-one>
         <property name="name" type="java.lang.String">
-            <column name="name" length="20" />
+            <column name="name" length="64" not-null="true" />
         </property>
         <property name="age" type="java.lang.Integer">
-            <column name="age" />
+            <column name="age" not-null="true" />
         </property>
         <property name="born" type="java.sql.Timestamp">
             <column name="born" length="0" />

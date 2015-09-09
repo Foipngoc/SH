@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.common.base.BaseQueryRecords;
 import com.common.utils.LogUtils;
 import com.example.dao.ExampleDao;
+import com.example.dao.Room;
 import com.example.dao.Student;
 
 @Service("exampleService")
@@ -25,5 +26,13 @@ public class ExampleService {
 				.find(Student.class);
 		logger.error("ExampleService End");
 		return result;
+	}
+
+	public Student queryStu(int id) {
+		return this.exampleDao.queryStu(id);
+	}
+
+	public BaseQueryRecords<Room> queryRoom(int id) {
+		return this.exampleDao.queryRoom(id);
 	}
 }

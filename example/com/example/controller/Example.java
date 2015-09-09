@@ -17,11 +17,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.common.base.BaseQueryRecords;
 import com.common.base.BaseResult;
 import com.common.base.BaseResultOK;
 import com.common.framework.FileDownload;
 import com.common.framework.FileUpload;
 import com.common.utils.LogUtils;
+import com.example.dao.Room;
+import com.example.dao.Student;
 import com.example.model.JSONModel;
 import com.example.model.POJOModel;
 import com.example.service.ExampleService;
@@ -164,7 +167,28 @@ public class Example {
 	@RequestMapping("/queryallstu")
 	public String queryAllStu(Model model) {
 		logger.error("Example start call service!");
-		model.addAttribute("stu", this.exampleService.queryAllStudent().getData().get(0));
+		model.addAttribute("stu", this.exampleService.queryAllStudent()
+				.getData().get(0));
 		return "page/example/stulist";
+	}
+
+	/**
+	 * 查看所有学生
+	 */
+	@RequestMapping("/queryallstujson")
+	@ResponseBody
+	public Student queryAllStu() {
+		Student stu = this.exampleService.queryStu(2);
+		return stu;
+	}
+
+	/**
+	 * 查看班级
+	 */
+	@RequestMapping("/queryallroomjson")
+	@ResponseBody
+	public BaseQueryRecords<Room> queryAllRoom() {
+		BaseQueryRecords<Room> rm = this.exampleService.queryRoom(2);
+		return rm;
 	}
 }

@@ -1,5 +1,4 @@
 package com.example.dao;
-// default package
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,7 +11,7 @@ public class Room implements java.io.Serializable {
 
 	// Fields
 
-	private Integer id;
+	private Integer romid;
 	private Integer roomnum;
 	private Set students = new HashSet(0);
 
@@ -20,6 +19,11 @@ public class Room implements java.io.Serializable {
 
 	/** default constructor */
 	public Room() {
+	}
+
+	/** minimal constructor */
+	public Room(Integer roomnum) {
+		this.roomnum = roomnum;
 	}
 
 	/** full constructor */
@@ -30,12 +34,12 @@ public class Room implements java.io.Serializable {
 
 	// Property accessors
 
-	public Integer getId() {
-		return this.id;
+	public Integer getRomid() {
+		return this.romid;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setRomid(Integer romid) {
+		this.romid = romid;
 	}
 
 	public Integer getRoomnum() {

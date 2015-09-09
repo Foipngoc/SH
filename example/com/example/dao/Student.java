@@ -1,5 +1,4 @@
 package com.example.dao;
-// default package
 
 import java.sql.Timestamp;
 
@@ -11,7 +10,7 @@ public class Student implements java.io.Serializable {
 
 	// Fields
 
-	private Integer id;
+	private Integer stuid;
 	private Room room;
 	private String name;
 	private Integer age;
@@ -21,6 +20,12 @@ public class Student implements java.io.Serializable {
 
 	/** default constructor */
 	public Student() {
+	}
+
+	/** minimal constructor */
+	public Student(String name, Integer age) {
+		this.name = name;
+		this.age = age;
 	}
 
 	/** full constructor */
@@ -33,12 +38,12 @@ public class Student implements java.io.Serializable {
 
 	// Property accessors
 
-	public Integer getId() {
-		return this.id;
+	public Integer getStuid() {
+		return this.stuid;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setStuid(Integer stuid) {
+		this.stuid = stuid;
 	}
 
 	public Room getRoom() {

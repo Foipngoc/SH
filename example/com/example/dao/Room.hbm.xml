@@ -6,16 +6,16 @@
 -->
 <hibernate-mapping>
     <class name="com.example.dao.Room" table="room" catalog="sh">
-        <id name="id" type="java.lang.Integer">
-            <column name="id" />
+        <id name="romid" type="java.lang.Integer">
+            <column name="romid" />
             <generator class="identity" />
         </id>
         <property name="roomnum" type="java.lang.Integer">
-            <column name="roomnum" />
+            <column name="roomnum" not-null="true" />
         </property>
         <set name="students" inverse="true">
             <key>
-                <column name="room" />
+                <column name="romid" />
             </key>
             <one-to-many class="com.example.dao.Student" />
         </set>
