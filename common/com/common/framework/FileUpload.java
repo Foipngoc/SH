@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
-import com.common.utils.FileMd5;
 import com.common.utils.FileUtils;
 
 public class FileUpload {
@@ -22,7 +21,7 @@ public class FileUpload {
 	/**
 	 * 文件上传
 	 * 
-	 * 将多个文件上传并保存到指定目录中去，如果目录中有同名但不同的文件，则自动重命名
+	 * 将多个文件上传并保存到指定目录中去，如果目录中有同名的文件，则自动重命名
 	 * 
 	 * 返回所有上传文件最终保存后的文件名，如果文件名重复，则返回重命名后的文件名
 	 */
@@ -35,19 +34,13 @@ public class FileUpload {
 			public String saveFile(MultipartFile file, String orifilename)
 					throws IOException {
 				// 判断同名文件是否存在
-				String filemd5 = FileMd5.getMd5ByFile(file.getInputStream());
-
-				if (FileUtils.ifFileExist(savedir + "/" + orifilename, filemd5)) { // 如果相同文件存在，则无需保存。
-					return orifilename;
-				} else {
-					if (FileUtils.ifFileExist(savedir + "/" + orifilename)) { // 如果文件名相同，但是文件不同，则重命名文件
-						orifilename = FileUtils.renameFileName(orifilename, ""
-								+ new Date().getTime());
-					}
-					File localFile = new File(savedir + "/" + orifilename);
-					file.transferTo(localFile);
-					return orifilename;
+				if (FileUtils.ifFileExist(savedir + "/" + orifilename)) {
+					orifilename = FileUtils.renameFileName(orifilename, ""
+							+ new Date().getTime());
 				}
+				File localFile = new File(savedir + "/" + orifilename);
+				file.transferTo(localFile);
+				return orifilename;
 			}
 		});
 	}
