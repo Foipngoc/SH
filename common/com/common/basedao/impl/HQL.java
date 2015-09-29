@@ -3,15 +3,13 @@ package com.common.basedao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.common.basedao.BaseExpression;
-
 /**
  * HQL语句适配器
  * 
  * @author DongJun
  * 
  */
-public class HQL implements BaseExpression {
+public class HQL {
 	private String hql = null;
 	private List<Object> mparams = null;
 

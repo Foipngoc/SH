@@ -1,5 +1,6 @@
 package com.common.base;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +20,11 @@ public class BaseQueryRecords<T> {
 	 * 默认构造
 	 */
 	public BaseQueryRecords() {
-
+		this.data = new ArrayList<>();
+		this.total = 0;
+		this.page = 1;
+		this.rows = 1;
+		this.pages = 0;
 	}
 
 	/**

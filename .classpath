@@ -50,6 +50,7 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-orm-4.2.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/javax.servlet.jsp.jstl.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jstl-impl-1.2.2.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/barcode-core-3.2.0.jar"/>
 	<classpathentry kind="con" path="com.genuitec.runtime.library/com.genuitec.generic_7.0">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>

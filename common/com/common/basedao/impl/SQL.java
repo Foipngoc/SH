@@ -3,15 +3,13 @@ package com.common.basedao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.common.basedao.BaseExpression;
-
 /**
  * SQL适配器
  * 
  * @author DongJun
  * 
  */
-public class SQL implements BaseExpression {
+public class SQL {
 	private String sql = null;
 	private List<Object> mparams = null;
 
