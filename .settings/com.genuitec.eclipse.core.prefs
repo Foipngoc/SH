@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/common/common/jquery-1.11.3.min.js,WebRoot/common/highcharts-4.1.8/highcharts.src.js,WebRoot/common/common/js/jquery-1.11.3.min.js,WebRoot/common/jquery/jquery-1.11.3.min.js,WebRoot/common/datatables-1.10.8/media/js/jquery.js
+validator.Unchecked=
