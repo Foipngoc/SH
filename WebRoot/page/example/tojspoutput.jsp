@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -27,8 +28,15 @@
 <body>
 	Page test1
 	<br> name: ${name }
-	<br> age:${age }
+	<br> age: ${age }
 	<br> string: ${string }
 	<br> name2: ${name2 }
+	
+	
+	<hr>
+	<c:forEach items="${ss}" var="it">
+		<c:out value="${it }"></c:out><br>
+	</c:forEach>
+	
 </body>
 </html>

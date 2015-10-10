@@ -1,10 +1,7 @@
 package com.example.dao;
 
 import org.hibernate.Criteria;
-import org.hibernate.FetchMode;
-import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.metamodel.domain.Superclass;
 import org.hibernate.sql.JoinType;
 import org.springframework.stereotype.Repository;
 
@@ -14,8 +11,10 @@ import com.common.basedao.impl.BaseDaoDB;
 @Repository("exampleDao")
 public class ExampleDao extends BaseDaoDB {
 	public BaseQueryRecords<Student> queryAllStu() {
-		return (BaseQueryRecords<Student>) super.find(super.getCriteria(
-				Student.class).createCriteria("room"));
+		BaseQueryRecords<Student> student = (BaseQueryRecords<Student>) super
+				.find(super.getCriteria(Student.class));
+		
+		return student;
 	}
 
 	public Student queryStu(int id) {

@@ -50,9 +50,16 @@ public class Example {
 	 */
 	@RequestMapping(value = "/jsp/output")
 	public String tojspoutput(Model model) {
+		List<String> ss = new ArrayList<>();
+		ss.add("a");
+		ss.add("b");
+		ss.add("c");
+		ss.add("d");
+
+		model.addAttribute("ss", ss);
 		model.addAttribute("name", "test");
 		model.addAttribute("age", 28);
-		model.addAttribute("****@email.com");// key为value对应的类型名，这里为String
+		model.addAttribute("ss", "****@email.com");// key为value对应的类型名，这里为String
 		return "page/example/tojspoutput"; // 返回的的视图会由springmvc-servlet中的视图解析器解析
 	}
 
@@ -85,6 +92,7 @@ public class Example {
 	 */
 	@RequestMapping(value = "/jsp/pojoinput")
 	public String pojoinput(POJOModel modelinput, Model model) {
+		modelinput.setString("xxxxx");
 		model.addAttribute(modelinput);
 		return "page/example/tojspoutput2";
 	}
@@ -120,8 +128,9 @@ public class Example {
 
 	/**
 	 * 文件下载
-	 * @return 
-	 * @return 
+	 * 
+	 * @return
+	 * @return
 	 */
 	@RequestMapping("/download")
 	public void download(HttpServletRequest request,
@@ -166,11 +175,11 @@ public class Example {
 	 * 查看所有学生
 	 */
 	@RequestMapping("/queryallstu")
-	public String queryAllStu(Model model) {
-		logger.error("Example start call service!");
-		model.addAttribute("stu", this.exampleService.queryAllStudent()
-				.getData().get(0));
-		return "page/example/stulist";
+	@ResponseBody
+	public BaseQueryRecords<Student> queryAllStu(HttpServletRequest request,
+			HttpServletResponse response, Model model) {
+		BaseQueryRecords<Student> stu = this.exampleService.queryAllStudent();
+		return stu;
 	}
 
 	/**
@@ -196,8 +205,8 @@ public class Example {
 	/**
 	 * 定时任务
 	 */
-	@Scheduled(cron="* * * * * ?")
+	@Scheduled(cron = "* * * * * ?")
 	public void timer() {
-		//System.out.println("Do Timer");
+		// System.out.println("Do Timer");
 	}
 }
