@@ -136,6 +136,16 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 	}
 
 	/**
+	 * 判断同名文件是否存在，如果存在，进行重命名并保存 返回文件名 ,写入失败，返回null
+	 */
+	public static String writeToFile2(File file, String path) {
+		if (FileUtils.ifFileExist(path)) { // 文件名相同，需要进行重命名
+			path = FileUtils.renameFileName(path, "" + new Date().getTime());
+		}
+		return writeToFile(file, path);
+	}
+
+	/**
 	 * 检查文件的md5是否为参数md5对应的值
 	 */
 	public static boolean checkFileMd5(String filepath, String md5) {
