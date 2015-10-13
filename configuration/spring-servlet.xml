@@ -19,60 +19,10 @@
     http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
 	<!-- 自动扫描Spring注解配置 -->
-	<context:component-scan base-package="com" />
+	<context:component-scan base-package="com" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
 	<context:annotation-config />
-
-	<!-- 自动加载属性配置文件 -->
-	<context:property-placeholder location="classpath:jdbc.properties" />
-
-	<!-- 配置dhcp2数据库源 -->
-	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
-		<!-- 数据库基本信息配置 -->
-		<property name="url" value="${jdbc.url}" />
-		<property name="driverClassName" value="${jdbc.driver}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
-
-		<property name="maxTotal" value="${dbcp2.maxTotal}"></property>
-		<property name="maxIdle" value="${dbcp2.maxIdle}" />
-		<property name="minIdle" value="${dbcp2.minIdle}" />
-		<property name="initialSize" value="${dbcp2.initialSize}" />
-		<property name="maxWaitMillis" value="${dhcp2.maxWaitMillis}" />
-
-		<property name="validationQuery" value="${dbcp2.validationQuery}" />
-		<property name="testOnBorrow" value="${dbcp2.testOnBorrow}" />
-		<property name="testOnReturn" value="${dbcp2.testOnReturn}" />
-		<property name="testWhileIdle" value="${dbcp2.testWhileIdle}" />
-
-		<property name="timeBetweenEvictionRunsMillis" value="${dbcp2.timeBetweenEvictionRunsMillis}" />
-
-		<property name="poolPreparedStatements" value="${dbcp2.poolPreparedStatements}" />
-		<property name="maxOpenPreparedStatements" value="${dbcp2.maxOpenPreparedStatements}" />
-	</bean>
-
-	<!-- 配置Hibernate的数据源代理工厂：使用p属性通配符，按文件名搜索匹配的映射文件 -->
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
-		p:dataSource-ref="dataSource" p:mappingLocations="classpath*:/com/**/*.hbm.xml">
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
-				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext
-				</prop>
-				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
-				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
-				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
-			</props>
-		</property>
-	</bean>
-
-	<!-- 配置事务管理器 -->
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager"
-		p:sessionFactory-ref="sessionFactory" />
-
-	<!-- 配置声明式事务：在Service实现类或者public实现方法上使用注解@Transactional，则此类或方法就会启用事务机制 -->
-	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<bean id="hibernateFilter" class="com.common.framework.FastJsonHibernateLazyModeFilter"></bean>
 
@@ -137,22 +87,9 @@
 	</bean>
 
 	<!-- 配置OpenSessionInView拦截器 -->
-	<!-- 暂时注销opensessioninview，原因是jsoncvt并不会将lazy的数据进行解析 ， 只要action中不调用lazy的数据，就不会报错
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/**" />
-			<mvc:exclude-mapping path="/**/download/**" />
-			<bean
-				class="org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor">
-				<property name="sessionFactory" ref="sessionFactory" />
-			</bean>
-		</mvc:interceptor>
-	</mvc:interceptors>
-	-->
-
-	<!-- 开启注解式定时器 -->
-	<task:annotation-driven executor="taskExecutor"
-		scheduler="taskScheduler" />
-	<task:executor id="taskExecutor" pool-size="5" />
-	<task:scheduler id="taskScheduler" pool-size="10" />
+	<!-- 暂时注销opensessioninview，原因是jsoncvt并不会将lazy的数据进行解析 ， 只要action中不调用lazy的数据，就不会报错 
+		<mvc:interceptors> <mvc:interceptor> <mvc:mapping path="/**" /> <mvc:exclude-mapping 
+		path="/**/download/**" /> <bean class="org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor"> 
+		<property name="sessionFactory" ref="sessionFactory" /> </bean> </mvc:interceptor> 
+		</mvc:interceptors> -->
 </beans>

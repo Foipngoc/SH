@@ -15,6 +15,10 @@ import com.example.dao.Student;
 public class ExampleService {
 	@Resource(name = "exampleDao")
 	private ExampleDao exampleDao;
+	
+	public ExampleService() {
+		System.out.println("ExampleService inited!");
+	}
 
 	public BaseQueryRecords<Student> queryAllStudent() {
 		return this.exampleDao.queryAllStu();

@@ -10,6 +10,11 @@ import com.common.basedao.impl.BaseDaoDB;
 
 @Repository("exampleDao")
 public class ExampleDao extends BaseDaoDB {
+	
+	public ExampleDao() {
+		System.out.println("ExampleDao inited!!");
+	}
+	
 	public BaseQueryRecords<Student> queryAllStu() {
 		BaseQueryRecords<Student> student = (BaseQueryRecords<Student>) super
 				.find(super.getCriteria(Student.class));

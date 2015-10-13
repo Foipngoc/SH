@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +34,11 @@ import com.example.service.ExampleService;
 public class Example {
 	Logger logger = LogUtils.getLogger(Example.class);
 
+	public Example() {
+		System.out.println("Example inited!!!");
+		
+	}
+	
 	/**
 	 * 跳转到页面视图，页面最终由 springmvc.xml中配置的prefix+返回值+suffix组成返回
 	 * 接口名为/example/jsp/noinput，其中/example来自类上的RequestMapping注解
@@ -200,13 +204,5 @@ public class Example {
 	public BaseQueryRecords<Room> queryAllRoom() {
 		BaseQueryRecords<Room> rm = this.exampleService.queryRoom(2);
 		return rm;
-	}
-
-	/**
-	 * 定时任务
-	 */
-	@Scheduled(cron = "* * * * * ?")
-	public void timer() {
-		// System.out.println("Do Timer");
 	}
 }
