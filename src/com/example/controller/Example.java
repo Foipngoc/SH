@@ -16,9 +16,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.common.base.BaseQueryRecords;
+import com.common.base.BaseRecords;
 import com.common.base.BaseResult;
-import com.common.base.BaseResultOK;
 import com.common.framework.FileDownload;
 import com.common.framework.FileUpload;
 import com.common.utils.LogUtils;
@@ -152,7 +151,7 @@ public class Example {
 			HttpServletResponse response) throws IllegalStateException,
 			IOException {
 		FileUpload.upload(request, response, "d:/");
-		return new BaseResultOK();
+		return BaseResult.newResultOK();
 	}
 
 	public void doexception() throws Exception {
@@ -169,7 +168,7 @@ public class Example {
 		if (on) {
 			doexception();
 		}
-		return new BaseResultOK();
+		return BaseResult.newResultOK();
 	}
 
 	@Resource(name = "exampleService")
@@ -180,9 +179,9 @@ public class Example {
 	 */
 	@RequestMapping("/queryallstu")
 	@ResponseBody
-	public BaseQueryRecords<Student> queryAllStu(HttpServletRequest request,
+	public BaseRecords<Student> queryAllStu(HttpServletRequest request,
 			HttpServletResponse response, Model model) {
-		BaseQueryRecords<Student> stu = this.exampleService.queryAllStudent();
+		BaseRecords<Student> stu = this.exampleService.queryAllStudent();
 		return stu;
 	}
 
@@ -201,8 +200,8 @@ public class Example {
 	 */
 	@RequestMapping("/queryallroomjson")
 	@ResponseBody
-	public BaseQueryRecords<Room> queryAllRoom() {
-		BaseQueryRecords<Room> rm = this.exampleService.queryRoom(2);
+	public BaseRecords<Room> queryAllRoom() {
+		BaseRecords<Room> rm = this.exampleService.queryRoom(2);
 		return rm;
 	}
 }

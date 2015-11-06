@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author DongJun
  */
-public class BaseQueryRecords<T> {
+public class BaseRecords<T> {
     private List<T> data;// 返回数据
     private long total;// 记录总数
     private long page;// 页码
@@ -18,7 +18,7 @@ public class BaseQueryRecords<T> {
     /**
      * 默认构造
      */
-    public BaseQueryRecords() {
+    public BaseRecords() {
         this.data = new ArrayList<>();
         this.total = 0;
         this.page = 1;
@@ -34,7 +34,7 @@ public class BaseQueryRecords<T> {
      * @param page，当前页号，从1开始
      * @param rows，每页记录条数
      */
-    public BaseQueryRecords(List<T> data, long total, long page, long rows) {
+    public BaseRecords(List<T> data, long total, long page, long rows) {
         this.data = data;
         this.total = total;
         this.page = page;
@@ -47,7 +47,7 @@ public class BaseQueryRecords<T> {
      *
      * @param data，数据
      */
-    public BaseQueryRecords(List<T> data) {
+    public BaseRecords(List<T> data) {
         this.data = data;
         this.total = data.size();
         this.page = 1;

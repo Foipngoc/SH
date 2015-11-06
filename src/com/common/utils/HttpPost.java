@@ -28,8 +28,6 @@ public class HttpPost {
 	 * @param actionUrl
 	 * @param params
 	 * @return
-	 * @throws InvalidParameterException
-	 * @throws NetWorkException
 	 * @throws IOException
 	 * @throws Exception
 	 */
@@ -47,8 +45,6 @@ public class HttpPost {
 	 * @param params
 	 * @param timeout 超时时间  毫秒
 	 * @return
-	 * @throws InvalidParameterException
-	 * @throws NetWorkException
 	 * @throws IOException
 	 * @throws Exception
 	 */

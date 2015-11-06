@@ -15,7 +15,7 @@ public class BaseResult {
     public static final int RESULT_OK = 0; // 成功结果码
     public static final int RESULT_FAILED = -1; // 失败结果码
 
-    private BaseQueryRecords<?> records = null; // 返回查询结果
+    private BaseRecords<?> records = null; // 返回查询结果
     private Map<String, Object> map = null;// 返回自定义数据
     private Object obj = null;// 返回自定义数据
 
@@ -43,7 +43,7 @@ public class BaseResult {
      * @param desc
      * @param records
      */
-    public BaseResult(int code, String desc, BaseQueryRecords<?> records) {
+    public BaseResult(int code, String desc, BaseRecords<?> records) {
         this.resultcode = code;
         this.resultdesc = desc;
         this.records = records;
@@ -199,7 +199,7 @@ public class BaseResult {
      *
      * @return
      */
-    public BaseQueryRecords<?> getRecords() {
+    public BaseRecords<?> getRecords() {
         return records;
     }
 
@@ -209,7 +209,7 @@ public class BaseResult {
      * @param records
      * @return 自身
      */
-    public BaseResult setRecords(BaseQueryRecords<?> records) {
+    public BaseResult setRecords(BaseRecords<?> records) {
         this.records = records;
         return this;
     }
@@ -221,5 +221,126 @@ public class BaseResult {
      */
     public boolean ifResultOK() {
         return this.resultcode == RESULT_OK;
+    }
+
+    /**
+     * 失败结果， 错误原因为： 未知原因
+     */
+    public static BaseResult newResultFailed() {
+        return new BaseResult(RESULT_FAILED, "未知原因");
+    }
+
+    /**
+     * 失败结果，原因
+     *
+     * @param reason
+     */
+    public static BaseResult newResultFailed(String reason) {
+        return new BaseResult(RESULT_FAILED, reason);
+    }
+
+    /**
+     * 构造函数并自带数据
+     *
+     * @param reason
+     * @param map
+     */
+    public static BaseResult newResultFailed(String reason, Map<String, Object> map) {
+        return new BaseResult(RESULT_FAILED, reason, map);
+    }
+
+    /**
+     * 失败结果并自带数据
+     *
+     * @param reason
+     * @param obj
+     */
+    public static BaseResult newResultFailed(String reason, Object obj) {
+        return new BaseResult(RESULT_FAILED, reason, obj);
+    }
+
+    /**
+     * 自定义非0结果码
+     *
+     * @param resultcode
+     */
+    public static BaseResult newResultFailed(int resultcode) {
+        if (resultcode == RESULT_OK)
+            throw new RuntimeException("失败的结果码不能为0");
+        return new BaseResult(resultcode, "未知原因");
+    }
+
+    /**
+     * 自定义非0结果码跟原因
+     *
+     * @param resultcode
+     * @param reason
+     */
+    public static BaseResult newResultFailed(int resultcode, String reason) {
+        if (resultcode == RESULT_OK)
+            throw new RuntimeException("失败的结果码不能为0");
+        return new BaseResult(resultcode, reason);
+    }
+
+    /**
+     * 自定义非0结果码跟原因 并提供map数据
+     *
+     * @param resultcode
+     * @param reason
+     * @param map
+     */
+    public static BaseResult newResultFailed(int resultcode, String reason,
+                                             Map<String, Object> map) {
+        if (resultcode == RESULT_OK)
+            throw new RuntimeException("失败的结果码不能为0");
+        return new BaseResult(resultcode, reason, map);
+    }
+
+    /**
+     * 自定义非0结果码跟原因， 并提供obj数据
+     *
+     * @param resultcode
+     * @param reason
+     * @param obj
+     */
+    public static BaseResult newResultFailed(int resultcode, String reason, Object obj) {
+        if (resultcode == RESULT_OK)
+            throw new RuntimeException("失败的结果码不能为0");
+        return new BaseResult(resultcode, reason, obj);
+    }
+
+
+    /**
+     * 成功
+     */
+    public static BaseResult newResultOK() {
+        return new BaseResult(RESULT_OK, "");
+    }
+
+    /**
+     * 成功，带查询记录集数据
+     *
+     * @param records
+     */
+    public static BaseResult newResultOK(BaseRecords<?> records) {
+        return new BaseResult(RESULT_OK, "", records);
+    }
+
+    /**
+     * 成功，带map数据
+     *
+     * @param map
+     */
+    public static BaseResult newResultOK(Map<String, Object> map) {
+        return new BaseResult(RESULT_OK, "", map);
+    }
+
+    /**
+     * 成功，带obj数据
+     *
+     * @param obj
+     */
+    public static BaseResult newResultOK(Object obj) {
+        return new BaseResult(RESULT_OK, "", obj);
     }
 }
