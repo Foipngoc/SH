@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.common.base.BaseRecords;
@@ -202,5 +203,30 @@ public class Example {
     public BaseRecords<Room> queryAllRoom() {
         BaseRecords<Room> rm = this.exampleService.queryRoom(2);
         return rm;
+    }
+
+
+    @RequestMapping(value = "/test", method = RequestMethod.DELETE)
+    @ResponseBody
+    public BaseResult deletemethod() {
+        return BaseResult.newResultOK("delete");
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.PUT)
+    @ResponseBody
+    public BaseResult putmethod() {
+        return BaseResult.newResultOK("put");
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    @ResponseBody
+    public BaseResult getmethod() {
+        return BaseResult.newResultOK("get");
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    @ResponseBody
+    public BaseResult postmethod() {
+        return BaseResult.newResultOK("post");
     }
 }

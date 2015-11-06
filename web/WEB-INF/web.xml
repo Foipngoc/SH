@@ -39,6 +39,28 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <!-- 图片，js,css,字体文件由default Servlet直接处理，即静态文件-->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <!-- -->
+        <url-pattern>*.js</url-pattern>
+        <!-- -->
+        <url-pattern>*.css</url-pattern>
+        <!-- -->
+        <url-pattern>*.png</url-pattern>
+        <url-pattern>*.gif</url-pattern>
+        <url-pattern>*.jpg</url-pattern>
+        <url-pattern>*.ico</url-pattern>
+
+        <!--字体文件 -->
+        <url-pattern>*.eot</url-pattern>
+        <url-pattern>*.svg</url-pattern>
+        <url-pattern>*.ttf</url-pattern>
+        <url-pattern>*.woff</url-pattern>
+        <url-pattern>*.woff2</url-pattern>
+        <url-pattern>*.otf</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>springMVC</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -52,6 +74,18 @@
         <servlet-name>springMVC</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!-- 浏览器不支持put,delete等method,由该filter将/blog?_method=delete转换为标准的http put delete方法 -->
+    <filter>
+        <filter-name>HiddenHttpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>HiddenHttpMethodFilter</filter-name>
+        <servlet-name>springMVC</servlet-name>
+    </filter-mapping>
+    <!--  -->
 
     <error-page>
         <exception-type>java.lang.Throwable</exception-type>

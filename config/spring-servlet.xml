@@ -19,11 +19,6 @@
 
     <bean id="hibernateJsonFilter" class="com.common.framework.FastJsonHibernateLazyModeFilter"></bean>
 
-    <mvc:resources mapping="/css/**" location="/resources/css/"/>
-    <mvc:resources mapping="/imgs/**" location="/resources/imgs/"/>
-    <mvc:resources mapping="/js/**" location="/resources/js/"/>
-    <mvc:resources mapping="/plugins/**" location="/resources/plugins/"/>
-
     <!-- 添加json转换器，使用fastjson -->
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
@@ -59,7 +54,7 @@
     <!-- 配置视图解析器 (该配置的是jstl解析器的一个扩展解析类) -->
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/page/"></property>
+        <property name="prefix" value="/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
 
@@ -75,7 +70,7 @@
     <bean
             class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <!-- 定义默认的异常处理页面，当该异常类型的注册时使用 -->
-        <property name="defaultErrorView" value="errorpage/error"></property>
+        <property name="defaultErrorView" value="WEB-INF/page/errorpage/error"></property>
         <!-- 定义异常处理页面用来获取异常信息的变量名，默认名为exception -->
         <property name="exceptionAttribute" value="ex"></property>
         <!-- 定义需要特殊处理的异常，用类名或完全路径名作为key，异常也页名作为值 -->
