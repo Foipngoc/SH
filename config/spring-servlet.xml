@@ -19,6 +19,11 @@
 
     <bean id="hibernateJsonFilter" class="com.common.framework.FastJsonHibernateLazyModeFilter"></bean>
 
+    <mvc:resources mapping="/css/**" location="/resources/css/"/>
+    <mvc:resources mapping="/imgs/**" location="/resources/imgs/"/>
+    <mvc:resources mapping="/js/**" location="/resources/js/"/>
+    <mvc:resources mapping="/plugins/**" location="/resources/plugins/"/>
+
     <!-- 添加json转换器，使用fastjson -->
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
