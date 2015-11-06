@@ -54,7 +54,7 @@
     <!-- 配置视图解析器 (该配置的是jstl解析器的一个扩展解析类) -->
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/"></property>
+        <property name="prefix" value="/WEB-INF/page/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
 
@@ -70,7 +70,7 @@
     <bean
             class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <!-- 定义默认的异常处理页面，当该异常类型的注册时使用 -->
-        <property name="defaultErrorView" value="WEB-INF/page/error"></property>
+        <property name="defaultErrorView" value="errorpage/error"></property>
         <!-- 定义异常处理页面用来获取异常信息的变量名，默认名为exception -->
         <property name="exceptionAttribute" value="ex"></property>
         <!-- 定义需要特殊处理的异常，用类名或完全路径名作为key，异常也页名作为值 -->

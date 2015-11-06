@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="SH:war exploded">
-    <output-path>$PROJECT_DIR$/build</output-path>
+  <artifact type="exploded-war" build-on-make="true" name="SH:war exploded">
+    <output-path>$PROJECT_DIR$/build/target</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="SH/web/Web" />
       <element id="directory" name="WEB-INF">
@@ -50,6 +50,9 @@
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/hibernate-commons-annotations-4.0.5.Final.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar" />
+        </element>
+        <element id="directory" name="page">
+          <element id="dir-copy" path="$PROJECT_DIR$/web/WEB-INF/page" />
         </element>
       </element>
     </root>
