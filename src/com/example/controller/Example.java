@@ -1,18 +1,17 @@
 package com.example.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.common.framework.OpenSessionInView;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -36,7 +35,6 @@ public class Example {
 
     public Example() {
         System.out.println("Example inited!!!");
-
     }
 
     /**
@@ -186,13 +184,15 @@ public class Example {
     }
 
     /**
-     * 查看所有学生
+     * 查看学生2所在的班级的所有同学
      */
-    @RequestMapping("/queryallstujson")
-    @ResponseBody
-    public Student queryAllStu() {
-        Student stu = this.exampleService.queryStu(2);
-        return stu;
+    @RequestMapping("/stu/{stuid}")
+    @OpenSessionInView
+    public String queryStu(@PathVariable Integer stuid, Model model) {
+        //因为是lazy模式，room下的学生并未加载，视图中会去访问，从而获得数据
+        Student stu = this.exampleService.queryStu(stuid);
+        model.addAttribute("stu", stu);
+        return "example/sturoomstus";
     }
 
     /**

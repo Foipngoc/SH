@@ -10,7 +10,7 @@
             <column name="stuid" />
             <generator class="identity" />
         </id>
-        <many-to-one name="room" class="com.example.dao.Room" fetch="select">
+        <many-to-one name="room" class="com.example.dao.Room">
             <column name="romid" />
         </many-to-one>
         <property name="name" type="java.lang.String">

@@ -64,7 +64,7 @@ public class BarCodeUtil {
                                     boolean needCompress) throws Exception {
         File file = new File(imgPath);
         if (!file.exists()) {
-            System.err.println("" + imgPath + "   该文件不存在！");
+            System.out.println("" + imgPath + " 该文件不存在!");
             return;
         }
         Image src = ImageIO.read(new File(imgPath));

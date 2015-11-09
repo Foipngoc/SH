@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/config/jdbc.properties" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/config/log4j.properties" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/config/spring-context.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/config/spring-servlet.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/web/example" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/web/example/test.jsp" charset="UTF-8" />
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

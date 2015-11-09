@@ -83,9 +83,12 @@
     </bean>
 
     <!-- 配置OpenSessionInView拦截器 -->
-    <!-- 暂时注销opensessioninview，原因是jsoncvt并不会将lazy的数据进行解析 ， 只要action中不调用lazy的数据，就不会报错
-        <mvc:interceptors> <mvc:interceptor> <mvc:mapping path="/**" /> <mvc:exclude-mapping
-        path="/**/download/**" /> <bean class="org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor">
-        <property name="sessionFactory" ref="sessionFactory" /> </bean> </mvc:interceptor>
-        </mvc:interceptors> -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.common.framework.AnnotationOpenSessionInViewInterceptor">
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
