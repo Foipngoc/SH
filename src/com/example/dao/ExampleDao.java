@@ -23,6 +23,14 @@ public class ExampleDao extends BaseDaoDB {
         return student;
     }
 
+    public BaseRecords<Student> queryAllStu(int page, int rows) {
+        @SuppressWarnings("unchecked")
+        BaseRecords<Student> student = (BaseRecords<Student>) super
+                .find(super.getCriteria(Student.class).createCriteria("room"), page, rows);
+
+        return student;
+    }
+
     public Student queryStu(int id) {
         return (Student) super
                 .find(super.getCriteria(Student.class)

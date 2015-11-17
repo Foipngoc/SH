@@ -13,22 +13,26 @@ import com.example.dao.Student;
 @Service("exampleService")
 @Transactional
 public class ExampleService {
-	@Resource(name = "exampleDao")
-	private ExampleDao exampleDao;
-	
-	public ExampleService() {
-		System.out.println("ExampleService inited!");
-	}
+    @Resource(name = "exampleDao")
+    private ExampleDao exampleDao;
 
-	public BaseRecords<Student> queryAllStudent() {
-		return this.exampleDao.queryAllStu();
-	}
+    public ExampleService() {
+        System.out.println("ExampleService inited!");
+    }
 
-	public Student queryStu(int id) {
-		return this.exampleDao.queryStu(id);
-	}
+    public BaseRecords<Student> queryAllStudent() {
+        return this.exampleDao.queryAllStu();
+    }
 
-	public BaseRecords<Room> queryRoom(int id) {
-		return this.exampleDao.queryRoom(id);
-	}
+    public BaseRecords<Student> queryAllStudent(int page, int rows) {
+        return this.exampleDao.queryAllStu(page, rows);
+    }
+
+    public Student queryStu(int id) {
+        return this.exampleDao.queryStu(id);
+    }
+
+    public BaseRecords<Room> queryRoom(int id) {
+        return this.exampleDao.queryRoom(id);
+    }
 }

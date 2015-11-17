@@ -175,12 +175,26 @@ public class Example {
     /**
      * 查看所有学生
      */
-    @RequestMapping("/queryallstu")
+    @RequestMapping("/json/queryallstu")
     @ResponseBody
-    public BaseRecords<Student> queryAllStu(HttpServletRequest request,
-                                            HttpServletResponse response, Model model) {
+    public BaseRecords<Student> queryAllStuJson(HttpServletRequest request,
+                                                HttpServletResponse response, Model model) {
         BaseRecords<Student> stu = this.exampleService.queryAllStudent();
         return stu;
+    }
+
+    /**
+     * 查看所有学生
+     */
+    @RequestMapping("/queryallstu")
+    public String queryAllStu(Integer page, Integer rows, Model model) {
+        if (page == null)
+            page = 1;
+        if (rows == null)
+            rows = 10;
+        BaseRecords<Student> stu = this.exampleService.queryAllStudent(page, rows);
+        model.addAttribute("stu", stu);
+        return "example/stulist";
     }
 
     /**

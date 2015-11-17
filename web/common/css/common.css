@@ -1,156 +1,45 @@
 @charset "UTF-8";
 
 body {
-	font-family: 微软雅黑;
-	background-color: #f0f0f0;
-	min-width: 1000px;
-}
-
-label {
-	font-weight: normal;
-}
-
-.help-block {
-	color: red;
-	padding: 0px;
-	margin: 3px 0 0 0;
-	height: 20px;
-	line-height: 20px;
+    font-family: 微软雅黑;
 }
 
 .shadow {
-	-webkit-box-shadow: 1px 2px 6px rgba(6, 0, 1, .1);
-	-moz-box-shadow: 1px 2px 6px rgba(6, 0, 1, .1);
-	box-shadow: 1px 2px 1px rgba(6, 0, 1, .1);
-	border: solid 1px #ccc;
-	z-index: 50;
+    -webkit-box-shadow: 1px 2px 6px rgba(6, 0, 1, .1);
+    -moz-box-shadow: 1px 2px 6px rgba(6, 0, 1, .1);
+    box-shadow: 1px 2px 1px rgba(6, 0, 1, .1);
+    border: solid 1px #ccc;
+    z-index: 50;
 }
 
 .nopadding {
-	padding: 0px;
+    padding: 0px;
 }
 
 .nomargin {
-	margin: 0px;
+    margin: 0px;
 }
 
 .noborder {
-	border: 0px;
+    border: 0px;
 }
 
 .border {
-	border: 1px solid #ddd;
+    border: 1px solid #ddd;
 }
 
 .borderleft {
-	border-left: 1px solid #ddd;
+    border-left: 1px solid #ddd;
 }
 
 .borderright {
-	border-right: 1px solid #ddd;
+    border-right: 1px solid #ddd;
 }
 
 .bordertop {
-	border-top: 1px solid #ddd;
+    border-top: 1px solid #ddd;
 }
 
 .borderbottom {
-	border-bottom: 1px solid #ddd;
-}
-
-.navrow {
-	background-color: #337ab7;
-	height: 49px;
-	padding-left: 25px;
-}
-
-.navrow i {
-	color: white;
-	padding-top: 10px;
-}
-
-.navrow i:focus,.navrow i:hover,.navrow i:active {
-	color: #afd9ee;
-	cursor: pointer;
-}
-
-.navrow a,.navrow button {
-	border-radius: 0;
-}
-
-.navrow label {
-	padding: 0px;
-	margin: 0px;
-	height: 49px;
-	line-height: 49px;
-	font-size: 16px;
-	color: white;
-}
-
-.navrow a,.navrow button {
-	height: 49px;
-	line-height: 49px;
-	padding: 0 15px 0 15px;
-	margin: 0;
-	border: 0px;
-	font-size: 16px;
-}
-
-.navline {
-	height: 3px;
-	background: #296292;
-}
-
-.navcontent {
-	background: white;
-	margin: 25px 5px 0 5px;
-}
-
-.navcontenttitle {
-	height: 40px;
-	line-height: 40px;
-	font-size: 14px;
-	color: #333333;
-	font-weight: bold;
-}
-
-.ultree {
-	margin: 0 0 0 0;
-	padding: 0px;
-	list-style-type: none;
-}
-
-.divtree {
-	height: 40px;
-	width: 100%;
-	padding-left: 0px;
-}
-
-.divtree:focus,.divtree:hover,.divtree:active {
-	background-color: #ececec;
-	text-decoration: none;
-}
-
-.divtreeactive {
-	background-color: #e4f0ff;
-	text-decoration: none;
-}
-
-.divtree a {
-	height: 40px;
-	line-height: 40px;
-}
-
-.divtree a:focus,.divtree a:hover,.divtreea:active {
-	text-decoration: none;
-}
-
-.divtree label {
-	color: #333333;
-	font-weight: normal;
-	font-size: 14px;
-}
-
-.divtree span {
-	cursor: pointer;
+    border-bottom: 1px solid #ddd;
 }
