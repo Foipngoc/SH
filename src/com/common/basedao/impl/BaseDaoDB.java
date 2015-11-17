@@ -899,10 +899,11 @@ public class BaseDaoDB implements BaseDao {
         try {
             if (page > 0 && rows > 0) { // 分页
                 long total = 0;
-                total = count(criteria); // 获得总记录数
                 criteria.setFirstResult((int) ((page - 1) * rows));
                 criteria.setMaxResults((int) rows);
-                return new BaseRecords(criteria.list(), total, page, rows);
+                List data = criteria.list();
+                total = count(criteria); // 获得总记录数
+                return new BaseRecords(data, total, page, rows);
             } else {
                 // 不分页
                 return new BaseRecords(criteria.list());
