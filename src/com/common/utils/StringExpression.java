@@ -9,6 +9,7 @@ import java.util.List;
  * @author DongJun
  */
 public class StringExpression {
+    private String token = "\\?";
     private String str = null;
     private List<Object> mparams = null;
 
@@ -40,6 +41,39 @@ public class StringExpression {
         }
     }
 
+
+    /**
+     * 适配带可变参数的hql语句,参数用?通配符替换
+     *
+     * @param token  点位符
+     * @param str
+     * @param params
+     */
+    public StringExpression(String token, String str, Object... params) {
+        this.token = token;
+        this.str = str;
+        this.mparams = new ArrayList<>();
+        for (int i = 0; i < params.length; i++) {
+            mparams.add(params[i]);
+        }
+    }
+
+    /**
+     * 适配带可变参数的hql语句,参数用?通配符替换
+     *
+     * @param token  点位符
+     * @param str
+     * @param params
+     */
+    public StringExpression(String token, String str, List<Object> params) {
+        this.token = token;
+        this.str = str;
+        this.mparams = new ArrayList<>();
+        for (int i = 0; i < params.size(); i++) {
+            mparams.add(params.get(i));
+        }
+    }
+
     /**
      * 转换成hql语句
      */
@@ -53,7 +87,7 @@ public class StringExpression {
                 for (int i = 0; i < mparams.size(); i++) {
                     Object val = mparams.get(i);
                     if (val != null)
-                        ret = ret.replaceFirst("\\?", val.toString());
+                        ret = ret.replaceFirst(token, val.toString());
                 }
             }
         }
