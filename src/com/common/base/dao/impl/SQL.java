@@ -1,4 +1,4 @@
-package com.common.basedao.impl;
+package com.common.base.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -6,7 +6,7 @@ import org.hibernate.sql.JoinType;
 import org.springframework.stereotype.Repository;
 
 import com.common.base.BaseRecords;
-import com.common.basedao.impl.BaseDaoDB;
+import com.common.base.dao.impl.BaseDaoDB;
 
 @Repository("exampleDao")
 public class ExampleDao extends BaseDaoDB {

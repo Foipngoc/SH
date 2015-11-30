@@ -1,4 +1,4 @@
-package com.common.basedao.impl;
+package com.common.base.dao.impl;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.common.base.BaseRecords;
-import com.common.basedao.BaseDao;
+import com.common.base.dao.BaseDao;
 
 // 默认声明baseDao Bean.
 public class BaseDaoDB implements BaseDao {

@@ -1,4 +1,4 @@
-package com.common.basedao;
+package com.common.base.dao;
 
 import com.common.base.BaseRecords;
 
