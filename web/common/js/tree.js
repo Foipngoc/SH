@@ -72,55 +72,58 @@ function gentree(containerdomid, parentid, node, callbkbeforechildrengenfn, call
         li = gentreeli(containerdomid, node, parseInt(layer) + 1);
 
         //父节点的ul中添加li
+        li.css("display", "none");
         $("#" + containerdomid + "ul" + parentid).append(li);
+        li.fadeIn();
     }
 
     if (node.clicked != null && (node.clicked == true || node.clicked == '1')) {
         $('#' + containerdomid + 'divcnt' + node.id).click();
     }
 
+    //先+1,表示正在绘制自己
+    addcurrdrawing(containerdomid, 1);
     //处理子节点
     if (node.inited != null && (node.inited == '1' || node.inited == true)) {
         //先+1，表示我要绘制子节点
         addcurrdrawing(containerdomid, 1);
         if (node.childrendatafn != null) {
-            addcurrdrawing(containerdomid, -1);
             // 调用serverdatafn获取数据
             node.childrendatafn(node, function (nodes) {
-                //设置待绘制的节点数量
-                addcurrdrawing(containerdomid, nodes.length);
-
-                for (var i in nodes) {
-                    var subnode = nodes[i];
-                    if (callbkbeforechildrengenfn != null) {
-                        callbkbeforechildrengenfn(subnode);
-                    }
-                    gentree(containerdomid, node.id, subnode, callbkbeforechildrengenfn, callbkafterchildrengenfn, callbkcomp);
-                    if (getcurrdrawing(containerdomid) == 0) {
-                        if (callbkcomp != null)
-                            callbkcomp();
+                if (node != null) {
+                    for (var i in nodes) {
+                        var subnode = nodes[i];
+                        if (callbkbeforechildrengenfn != null) {
+                            callbkbeforechildrengenfn(subnode);
+                        }
+                        gentree(containerdomid, node.id, subnode, callbkbeforechildrengenfn, callbkafterchildrengenfn, callbkcomp);
                     }
                 }
-                addcurrdrawing(containerdomid, -1);
+                //我已经绘制完所有子节点
+                addcurrdrawing(containerdomid, -1, callbkcomp, node);
             });
         } else {
-            addcurrdrawing(containerdomid, -1);
+            //虽然我要绘制子节点，但是没给我子节点获取的函数
+            addcurrdrawing(containerdomid, -1, callbkcomp, node);
         }
-    } else {
-        //如果不要求画子节点，表示该节点绘制完成
-        addcurrdrawing(containerdomid, -1);
     }
+    //如果不要求画子节点，表示该节点绘制完成
+    addcurrdrawing(containerdomid, -1, callbkcomp, node);
+
     if (callbkafterchildrengenfn != null) {
         callbkafterchildrengenfn(node);
     }
 }
 
-function addcurrdrawing(containerdomid, addval) {
+function addcurrdrawing(containerdomid, addval, compfunc, node) {
     var cntdrawing = $("#" + containerdomid).attr('treenodedrawing');
     if (cntdrawing == null)
         cntdrawing = 0;
     cntdrawing = parseInt(cntdrawing) + addval;
     $("#" + containerdomid).attr('treenodedrawing', cntdrawing);
+    if (cntdrawing == 0 && compfunc != null) {
+        compfunc(node);
+    }
     return cntdrawing;
 }
 
@@ -132,10 +135,15 @@ function getcurrdrawing(containerdomid) {
     return cntdrawing;
 }
 
+function resetcurrdrawing(containerdomid) {
+    $("#" + containerdomid).attr('treenodedrawing', 0);
+}
+
 function createdefaultnodefn(node, container) {
     container.attr('response-select', true);
     container.attr('response-click', true);
     container.attr('response-expand', true);
+    container.css('white-space', 'nowrap');
     container.text(node.name);
 }
 
@@ -309,6 +317,19 @@ $.fn.etreelocationTopath = function (nodepath, compcallbk, speed) {
 }
 
 /**
+ * 自动定位到节点处，如果该节点还未加载，则自动加载该节点
+ * @param nodepathstr，以逗号分隔，待定位的节点路径，工具会尝试自动寻找路径并自动
+ *      加载该节点，如果找到则定位到节点处。第一个节点必须是已加载的节点
+ *      格式如下1,2,3,4,5，每个元素存入节点的id
+ * @param compcallbk , 完成定位后回调
+ * @param speed, 定位时的动画速度
+ */
+$.fn.etreelocationTopathstr = function (nodepathstr, compcallbk, speed) {
+    var nodepath = nodepathstr.split(',');
+    $(this).etreelocationTopath(nodepath, compcallbk, speed);
+}
+
+/**
  * 获取某个节点的属性
  *
  * @param id
@@ -384,7 +405,8 @@ $.fn.etreegetselectednode = function () {
 /**
  * 重新加载某个节点下的树内容，如果该节点保存了如何生成子节点的方法,
  */
-$.fn.etreereload = function (id, callbkafterchildrengenfn) {
+$.fn.etreereload = function (id, compfn) {
+    var containerdomid = $(this).attr('id');
     //保存该树及子树的展开状态，重新加载时根据该状态进行刷新
     var oridata = $(this).etreegetsubnodesall(id);
     var currdata = $(this).etreegetnode(id);
@@ -400,14 +422,14 @@ $.fn.etreereload = function (id, callbkafterchildrengenfn) {
         }
     }
 
-    $(this).etreereloadsubnodes(id, orinodemaps, callbkafterchildrengenfn);
+    $(this).etreereloadsubnodes(id, orinodemaps, compfn);
 
 }
 
 /**
  * 根据保存状态重新加载当前节点的所有子节点
  */
-$.fn.etreereloadsubnodes = function (id, orinodemaps, callbkafterchildrengenfn) {
+$.fn.etreereloadsubnodes = function (id, orinodemaps, compfn) {
     var containerdomid = $(this).attr('id');
     var node = $(this).etreegetnode(id);//当前节点
     var orinode = orinodemaps["" + node.id];
@@ -438,7 +460,7 @@ $.fn.etreereloadsubnodes = function (id, orinodemaps, callbkafterchildrengenfn) 
                             subsubnd.expanded = orisubsubnd.expanded;
                             subsubnd.selected = orisubsubnd.selected;
                         }
-                    }, callbkafterchildrengenfn);
+                    }, null, compfn);
                 }
             });
             return;
