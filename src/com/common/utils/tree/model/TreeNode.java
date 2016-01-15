@@ -21,7 +21,7 @@ public class TreeNode {
     /**
      * 节点描述
      */
-    private String desc;
+    private String describe;
 
     public TreeNode(int id) {
         setId(id);
@@ -51,11 +51,11 @@ public class TreeNode {
         this.type = type;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescribe() {
+        return describe;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescribe(String describe) {
+        this.describe = describe;
     }
 }
