@@ -65,6 +65,13 @@ function gettree(containerdomid) {
     //如果对象不存在，返回空
     if ($("#" + this.containerdomid).length <= 0)
         return null;
+
+    this.getdefaultnode = function (id, name) {
+        return _getdefaultnode(id, name);
+    };
+    this.getdefaultnode1 = function (id, name, attrobj) {
+        return _getdefaultnode1(id, name, attrobj);
+    };
     this.getnode = function (nodeid) {
         return _getnode(containerdomid, {id: nodeid});
     };
@@ -132,6 +139,47 @@ function gettree(containerdomid) {
 
     return this;
 }
+
+/**
+ * 获得默认的node
+ */
+function _getdefaultnode(id, name) {
+    var node = {};
+    node.id = id;
+    node.name = name;
+    node.createnodefn = _defaultcreatenodefn;
+    node.childrendatafn = _defaultchildrendatafn;
+    node.clickfn = _defaultclickfn;
+    node.enterfn = _defaultenterfn;
+    node.leavefn = _defaultleavefn;
+    node.selectedfn = _defaultselectedfn;
+    node.unselectedfn = _defaultunselectedfn;
+    node.expandedfn = _defaultexpandedfn;
+    node.unexpandedfn = _defaultunexpandedfn;
+    node.init_clicked = false;
+    node.init_expanded = false;
+    node.init_selected = false;
+    return node;
+}
+
+/**
+ * 获得默认的node，并attrobj对象的属性合并为生成的node的属性
+ */
+function _getdefaultnode1(id, name, attrobj) {
+    var node = _getdefaultnode(id, name);
+
+    if (attrobj != null) {
+        for (var key in attrobj) {
+            var val = attrobj[key];
+            if (val instanceof Function)
+                continue;
+            else
+                node[key] = val;
+        }
+    }
+    return node;
+}
+
 
 /**
  * 绘制一颗树
@@ -1049,4 +1097,9 @@ function addcurrdrawing(containerdomid, addval, compfunc, node) {
 
 function resetcurrdrawing(containerdomid) {
     $("#" + containerdomid).attr('treenodedrawing', 0);
+}
+
+function rand(n, m) {
+    var c = m - n + 1;
+    return Math.floor(Math.random() * c + n);
 }
