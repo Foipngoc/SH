@@ -118,6 +118,17 @@ public class BaseDaoDB implements BaseDao {
     }
 
     /**
+     * 查找所有类型为E的对象集
+     *
+     * @param cls : 待查找的对象类型
+     * @return : 对象集
+     */
+    @Override
+    public List<?> find2(Class<?> cls) {
+        return this.find2(cls, -1, -1);
+    }
+
+    /**
      * 分页查找所有类型为E的对象集
      *
      * @param cls  : 待查找的对象类型
@@ -148,6 +159,33 @@ public class BaseDaoDB implements BaseDao {
     }
 
     /**
+     * 分页查找所有类型为E的对象集
+     *
+     * @param cls  : 待查找的对象类型
+     * @param page : 页码
+     * @param rows : 每页条数
+     * @return : 对象集
+     */
+    @Override
+    public List<?> find2(Class<?> cls, long page, long rows) {
+        Session session = null;
+        try {
+            session = getSession();
+            Criteria criteria = session.createCriteria(cls);
+
+            // page和rows 都 >0 时返回分页数据
+            if (page > 0 && rows > 0) {
+                criteria.setFirstResult((int) ((page - 1) * rows));
+                criteria.setMaxResults((int) rows);
+            }
+            return criteria.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    /**
      * 查找满足某一条件的所有类型为E的对象
      *
      * @param cls   : 待查找对象类型
@@ -158,6 +196,19 @@ public class BaseDaoDB implements BaseDao {
     @Override
     public BaseRecords<?> find(Class<?> cls, String key, Object value) {
         return this.find(cls, key, value, -1, -1);
+    }
+
+    /**
+     * 查找满足某一条件的所有类型为E的对象
+     *
+     * @param cls   : 待查找对象类型
+     * @param key   : 条件名
+     * @param value ： 条件值
+     * @return ： 对象集
+     */
+    @Override
+    public List<?> find2(Class<?> cls, String key, Object value) {
+        return this.find2(cls, key, value, -1, -1);
     }
 
     /**
@@ -194,6 +245,36 @@ public class BaseDaoDB implements BaseDao {
     }
 
     /**
+     * 分页查找满足某一条件的所有类型为E的对象
+     *
+     * @param cls   : 待查找对象类型
+     * @param key   : 条件名
+     * @param value ： 条件值
+     * @param page  : 页码
+     * @param rows  : 每页行数
+     * @return ： 对象集
+     */
+    @Override
+    public List<?> find2(Class<?> cls, String key, Object value, long page, long rows) {
+        Session session = null;
+        try {
+            session = getSession();
+            Criteria criteria = session.createCriteria(cls);
+
+            criteria.add(Restrictions.eq(key, value));
+
+            if (page > 0 && rows > 0) {
+                criteria.setFirstResult((int) ((page - 1) * rows));
+                criteria.setMaxResults((int) rows);
+            }
+            return criteria.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    /**
      * 排序查找所有对象
      *
      * @param cls     : 待查找对象类型
@@ -204,6 +285,19 @@ public class BaseDaoDB implements BaseDao {
     @Override
     public BaseRecords<?> findOrderBy(Class<?> cls, String orderby, boolean ifdesc) {
         return this.findOrderBy(cls, orderby, ifdesc, -1, -1);
+    }
+
+    /**
+     * 排序查找所有对象
+     *
+     * @param cls     : 待查找对象类型
+     * @param orderby : 待排序字段
+     * @param ifdesc  : true--> DESC排序,false--> ASC排序
+     * @return ： 对象集
+     */
+    @Override
+    public List<?> findOrderBy2(Class<?> cls, String orderby, boolean ifdesc) {
+        return this.findOrderBy2(cls, orderby, ifdesc, -1, -1);
     }
 
     /**
@@ -244,6 +338,40 @@ public class BaseDaoDB implements BaseDao {
     }
 
     /**
+     * 分页排序查找所有对象
+     *
+     * @param cls     : 待查找对象类型
+     * @param orderby : 待排序字段
+     * @param ifdesc  : true--> DESC排序,false--> ASC排序
+     * @param page    : 页码
+     * @param rows    : 每页数量
+     * @return ： 对象集
+     */
+    @Override
+    public List<?> findOrderBy2(Class<?> cls, String orderby, boolean ifdesc, long page, long rows) {
+        Session session = null;
+        try {
+            session = getSession();
+            Criteria criteria = session.createCriteria(cls);
+            if (orderby != null && !orderby.equals("")) {
+                if (ifdesc)
+                    criteria.addOrder(Order.desc(orderby));
+                else
+                    criteria.addOrder(Order.asc(orderby));
+            }
+            // page和rows 都 >0 时返回分页数据
+            if (page > 0 && rows > 0) {
+                criteria.setFirstResult((int) ((page - 1) * rows));
+                criteria.setMaxResults((int) rows);
+            }
+            return criteria.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    /**
      * 排序查找满足某一条件的所有对象带分页
      *
      * @param cls     : 待查找对象类型
@@ -256,6 +384,21 @@ public class BaseDaoDB implements BaseDao {
     @Override
     public BaseRecords<?> findOrderBy(Class<?> cls, String key, Object value, String orderby, boolean ifdesc) {
         return this.findOrderBy(cls, key, value, orderby, ifdesc, -1, -1);
+    }
+
+    /**
+     * 排序查找满足某一条件的所有对象带分页
+     *
+     * @param cls     : 待查找对象类型
+     * @param key     : 条件字段
+     * @param value   : 条件值
+     * @param orderby : 待排序字段
+     * @param ifdesc  : true--> DESC排序,false--> ASC排序
+     * @return ： 对象集
+     */
+    @Override
+    public List<?> findOrderBy2(Class<?> cls, String key, Object value, String orderby, boolean ifdesc) {
+        return this.findOrderBy2(cls, key, value, orderby, ifdesc, -1, -1);
     }
 
     /**
@@ -294,6 +437,45 @@ public class BaseDaoDB implements BaseDao {
             } else {
                 return new BaseRecords(criteria.list());
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    /**
+     * 分页排序查找满足某一条件的所有对象带分页
+     *
+     * @param cls     : 待查找对象类型
+     * @param key     : 条件字段
+     * @param value   : 条件值
+     * @param orderby : 待排序字段
+     * @param ifdesc  : true--> DESC排序,false--> ASC排序
+     * @param page    : 页码
+     * @param rows    : 每页数量
+     * @return ： 对象集
+     */
+    @Override
+    public List<?> findOrderBy2(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, long page, long rows) {
+        Session session = null;
+        try {
+            session = getSession();
+            Criteria criteria = session.createCriteria(cls);
+
+            if (orderby != null && !orderby.equals("")) {
+                if (ifdesc)
+                    criteria.addOrder(Order.desc(orderby));
+                else
+                    criteria.addOrder(Order.asc(orderby));
+            }
+
+            criteria.add(Restrictions.eq(key, value));
+
+            if (page > 0 && rows > 0) {
+                criteria.setFirstResult((int) ((page - 1) * rows));
+                criteria.setMaxResults((int) rows);
+            }
+            return criteria.list();
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
@@ -475,6 +657,17 @@ public class BaseDaoDB implements BaseDao {
     }
 
     /**
+     * 使用hql语句查询数据集
+     * 注： 分页时， 查询总记录数的hql语句只是将select ** 转换成select count(*)
+     *
+     * @param hql ： hql语句
+     * @return ： 数据集
+     */
+    protected List<?> find2(HQL hql) {
+        return find2(hql, -1, -1);
+    }
+
+    /**
      * 使用hql语句查询数据集，当page和rows同时>0时,搜索结果会自动分页.
      * 注： 分页时， 查询总记录数的hql语句只是将select ** 转换成select count(*)
      *
@@ -484,8 +677,22 @@ public class BaseDaoDB implements BaseDao {
      * @return ： 数据集
      */
     protected BaseRecords<?> find(HQL hql, long page, long rows) {
-        return _find(hql, hql.toCountHQL(), page, rows);
+        return find(hql, hql.toCountHQL(), page, rows);
     }
+
+    /**
+     * 使用hql语句查询数据集，当page和rows同时>0时,搜索结果会自动分页.
+     * 注： 分页时， 查询总记录数的hql语句只是将select ** 转换成select count(*)
+     *
+     * @param hql  ： hql语句
+     * @param page ： 页码
+     * @param rows ： 每页行数
+     * @return ： 数据集
+     */
+    protected List<?> find2(HQL hql, long page, long rows) {
+        return find(hql, null, page, rows).getData();
+    }
+
 
     /**
      * 使用hql语句查询数据集，当page和rows同时>0时,搜索结果会自动分页 分页时， 如果需要返回页数，请传入counthql，否则传入null
@@ -496,8 +703,8 @@ public class BaseDaoDB implements BaseDao {
      * @param rows     ： 每页行数
      * @return ： 数据集
      */
-    private BaseRecords<?> _find(HQL hql, HQL counthql, long page,
-                                 long rows) {
+    private BaseRecords<?> find(HQL hql, HQL counthql, long page,
+                                long rows) {
         Session session = null;
         try {
             session = getSession();
@@ -553,6 +760,18 @@ public class BaseDaoDB implements BaseDao {
     }
 
     /**
+     * 使用sql语句查询数据集
+     * <p/>
+     * 注： 分页时，查询总记录数的sql语句只是将select ** 转换成select count(*)
+     *
+     * @param sql ： sql语句
+     * @return ： 数据集
+     */
+    protected List<?> find2(SQL sql) {
+        return find2(sql, -1, -1);
+    }
+
+    /**
      * 使用sql语句查询数据 集，当page和rows同时>0时，搜索结果会自动分页
      * <p/>
      * 注： 分页时，查询总记录数的sql语句只是将select ** 转换成select count(*)
@@ -563,8 +782,23 @@ public class BaseDaoDB implements BaseDao {
      * @return ： 数据集
      */
     protected BaseRecords<?> find(SQL sql, long page, long rows) {
-        return _find(sql, sql.toCountSQL(), page, rows);
+        return find(sql, sql.toCountSQL(), page, rows);
     }
+
+    /**
+     * 使用sql语句查询数据 集，当page和rows同时>0时，搜索结果会自动分页
+     * <p/>
+     * 注： 分页时，查询总记录数的sql语句只是将select ** 转换成select count(*)
+     *
+     * @param sql  ： sql语句
+     * @param page ： 页码
+     * @param rows ： 每页行数
+     * @return ： 数据集
+     */
+    protected List<?> find2(SQL sql, long page, long rows) {
+        return find(sql, null, page, rows).getData();
+    }
+
 
     /**
      * 使用sql语句查询数据 集, 当page和rows同时>0时，搜索结果会自动分页,
@@ -576,8 +810,8 @@ public class BaseDaoDB implements BaseDao {
      * @param rows     ： 每页行数
      * @return ： 数据集
      */
-    private BaseRecords<?> _find(SQL sql, SQL countsql, long page,
-                                 long rows) {
+    private BaseRecords<?> find(SQL sql, SQL countsql, long page,
+                                long rows) {
         Session session = null;
         try {
             session = getSession();
@@ -798,6 +1032,16 @@ public class BaseDaoDB implements BaseDao {
     }
 
     /**
+     * 通过关联查询配置查询记录
+     *
+     * @param criteria 关联查询对象
+     * @return ： 数据集
+     */
+    protected List<?> find2(Criteria criteria) {
+        return this.find2(criteria, -1, -1);
+    }
+
+    /**
      * 通过关联查询配置分页查询记录
      *
      * @param criteria 关联查询对象
@@ -818,6 +1062,28 @@ public class BaseDaoDB implements BaseDao {
                 // 不分页
                 return new BaseRecords(criteria.list());
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    /**
+     * 通过关联查询配置分页查询记录
+     *
+     * @param criteria 关联查询对象
+     * @param page     当前页
+     * @param rows     每页条数
+     * @return ： 数据集
+     */
+    protected List<?> find2(Criteria criteria, long page, long rows) {
+        try {
+            if (page > 0 && rows > 0) { // 分页
+                long total = 0;
+                criteria.setFirstResult((int) ((page - 1) * rows));
+                criteria.setMaxResults((int) rows);
+            }
+            return criteria.list();
         } catch (Exception e) {
             e.printStackTrace();
             throw e;

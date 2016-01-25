@@ -2,8 +2,12 @@ package com.common.base.dao;
 
 import com.common.base.BaseRecords;
 
+import java.util.List;
+
 /**
  * BaseDao定义一些常用的接口
+ * <p/>
+ * find2版本只查数据，不查总页数，查询时由于不需要查找总数，查询速度更快
  *
  * @author DongJun
  */
@@ -36,7 +40,17 @@ public interface BaseDao {
     /**
      * 分页查找所有对象
      */
+    public List<?> find2(Class<?> cls);
+
+    /**
+     * 分页查找所有对象
+     */
     public BaseRecords<?> find(Class<?> cls, long page, long rows);
+
+    /**
+     * 分页查找所有对象
+     */
+    public List<?> find2(Class<?> cls, long page, long rows);
 
     /**
      * 分页查找满足某一条件的所有对象
@@ -46,7 +60,17 @@ public interface BaseDao {
     /**
      * 分页查找满足某一条件的所有对象
      */
+    public List<?> find2(Class<?> cls, String key, Object value);
+
+    /**
+     * 分页查找满足某一条件的所有对象
+     */
     public BaseRecords<?> find(Class<?> cls, String key, Object value, long page, long rows);
+
+    /**
+     * 分页查找满足某一条件的所有对象
+     */
+    public List<?> find2(Class<?> cls, String key, Object value, long page, long rows);
 
     /**
      * 分页排序查找所有对象
@@ -56,7 +80,19 @@ public interface BaseDao {
     /**
      * 分页排序查找所有对象
      */
+    public List<?> findOrderBy2(Class<?> cls, String orderby, boolean ifdesc);
+
+
+    /**
+     * 分页排序查找所有对象
+     */
     public BaseRecords<?> findOrderBy(Class<?> cls, String orderby, boolean ifdesc, long page, long rows);
+
+    /**
+     * 分页排序查找所有对象
+     */
+    public List<?> findOrderBy2(Class<?> cls, String orderby, boolean ifdesc, long page, long rows);
+
 
     /**
      * 分页排序查找满足某一条件的所有对象
@@ -66,7 +102,17 @@ public interface BaseDao {
     /**
      * 分页排序查找满足某一条件的所有对象
      */
+    public List<?> findOrderBy2(Class<?> cls, String key, Object value, String orderby, boolean ifdesc);
+
+    /**
+     * 分页排序查找满足某一条件的所有对象
+     */
     public BaseRecords<?> findOrderBy(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, long page, long rows);
+
+    /**
+     * 分页排序查找满足某一条件的所有对象
+     */
+    public List<?> findOrderBy2(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, long page, long rows);
 
     /**
      * 查找唯一对象，如果对象不存在，返回NULL
