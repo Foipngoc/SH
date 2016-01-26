@@ -151,7 +151,7 @@ public class BaseDaoDB implements BaseDao {
      * @return : 对象集
      */
     @Override
-    public BaseRecords<?> find(Class<?> cls, long page, long rows) {
+    public BaseRecords<?> find(Class<?> cls, int page, int rows) {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
@@ -160,8 +160,8 @@ public class BaseDaoDB implements BaseDao {
             // page和rows 都 >0 时返回分页数据
             if (page > 0 && rows > 0) {
                 long total = count(cls);
-                criteria.setFirstResult((int) ((page - 1) * rows));
-                criteria.setMaxResults((int) rows);
+                criteria.setFirstResult((page - 1) * rows);
+                criteria.setMaxResults(rows);
                 return new BaseRecords(criteria.list(), total, page, rows);
             } else {
                 return new BaseRecords(criteria.list());
@@ -183,7 +183,7 @@ public class BaseDaoDB implements BaseDao {
      * @return : 对象集
      */
     @Override
-    public List<?> find2(Class<?> cls, long page, long rows) {
+    public List<?> find2(Class<?> cls, int page, int rows) {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
@@ -191,8 +191,8 @@ public class BaseDaoDB implements BaseDao {
 
             // page和rows 都 >0 时返回分页数据
             if (page > 0 && rows > 0) {
-                criteria.setFirstResult((int) ((page - 1) * rows));
-                criteria.setMaxResults((int) rows);
+                criteria.setFirstResult((page - 1) * rows);
+                criteria.setMaxResults(rows);
             }
             return criteria.list();
         } catch (Exception e) {
@@ -240,7 +240,7 @@ public class BaseDaoDB implements BaseDao {
      * @return ： 对象集
      */
     @Override
-    public BaseRecords<?> find(Class<?> cls, String key, Object value, long page, long rows) {
+    public BaseRecords<?> find(Class<?> cls, String key, Object value, int page, int rows) {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
@@ -250,8 +250,8 @@ public class BaseDaoDB implements BaseDao {
 
             if (page > 0 && rows > 0) {
                 long total = count(cls, key, value);
-                criteria.setFirstResult((int) ((page - 1) * rows));
-                criteria.setMaxResults((int) rows);
+                criteria.setFirstResult((page - 1) * rows);
+                criteria.setMaxResults(rows);
                 return new BaseRecords(criteria.list(), total, page, rows);
             } else {
                 return new BaseRecords(criteria.list());
@@ -275,7 +275,7 @@ public class BaseDaoDB implements BaseDao {
      * @return ： 对象集
      */
     @Override
-    public List<?> find2(Class<?> cls, String key, Object value, long page, long rows) {
+    public List<?> find2(Class<?> cls, String key, Object value, int page, int rows) {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
@@ -284,8 +284,8 @@ public class BaseDaoDB implements BaseDao {
             criteria.add(Restrictions.eq(key, value));
 
             if (page > 0 && rows > 0) {
-                criteria.setFirstResult((int) ((page - 1) * rows));
-                criteria.setMaxResults((int) rows);
+                criteria.setFirstResult((page - 1) * rows);
+                criteria.setMaxResults(rows);
             }
             return criteria.list();
         } catch (Exception e) {
@@ -333,7 +333,7 @@ public class BaseDaoDB implements BaseDao {
      * @return ： 对象集
      */
     @Override
-    public BaseRecords<?> findOrderBy(Class<?> cls, String orderby, boolean ifdesc, long page, long rows) {
+    public BaseRecords<?> findOrderBy(Class<?> cls, String orderby, boolean ifdesc, int page, int rows) {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
@@ -347,8 +347,8 @@ public class BaseDaoDB implements BaseDao {
             // page和rows 都 >0 时返回分页数据
             if (page > 0 && rows > 0) {
                 long total = count(cls);
-                criteria.setFirstResult((int) ((page - 1) * rows));
-                criteria.setMaxResults((int) rows);
+                criteria.setFirstResult((page - 1) * rows);
+                criteria.setMaxResults(rows);
                 return new BaseRecords(criteria.list(), total, page, rows);
             } else {
                 return new BaseRecords(criteria.list());
@@ -372,7 +372,7 @@ public class BaseDaoDB implements BaseDao {
      * @return ： 对象集
      */
     @Override
-    public List<?> findOrderBy2(Class<?> cls, String orderby, boolean ifdesc, long page, long rows) {
+    public List<?> findOrderBy2(Class<?> cls, String orderby, boolean ifdesc, int page, int rows) {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
@@ -385,8 +385,8 @@ public class BaseDaoDB implements BaseDao {
             }
             // page和rows 都 >0 时返回分页数据
             if (page > 0 && rows > 0) {
-                criteria.setFirstResult((int) ((page - 1) * rows));
-                criteria.setMaxResults((int) rows);
+                criteria.setFirstResult((page - 1) * rows);
+                criteria.setMaxResults(rows);
             }
             return criteria.list();
         } catch (Exception e) {
@@ -440,7 +440,7 @@ public class BaseDaoDB implements BaseDao {
      * @return ： 对象集
      */
     @Override
-    public BaseRecords<?> findOrderBy(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, long page, long rows) {
+    public BaseRecords<?> findOrderBy(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, int page, int rows) {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
@@ -457,8 +457,8 @@ public class BaseDaoDB implements BaseDao {
 
             if (page > 0 && rows > 0) {
                 long total = count(cls, key, value);
-                criteria.setFirstResult((int) ((page - 1) * rows));
-                criteria.setMaxResults((int) rows);
+                criteria.setFirstResult((page - 1) * rows);
+                criteria.setMaxResults(rows);
                 return new BaseRecords(criteria.list(), total, page, rows);
             } else {
                 return new BaseRecords(criteria.list());
@@ -484,7 +484,7 @@ public class BaseDaoDB implements BaseDao {
      * @return ： 对象集
      */
     @Override
-    public List<?> findOrderBy2(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, long page, long rows) {
+    public List<?> findOrderBy2(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, int page, int rows) {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
@@ -500,8 +500,8 @@ public class BaseDaoDB implements BaseDao {
             criteria.add(Restrictions.eq(key, value));
 
             if (page > 0 && rows > 0) {
-                criteria.setFirstResult((int) ((page - 1) * rows));
-                criteria.setMaxResults((int) rows);
+                criteria.setFirstResult((page - 1) * rows);
+                criteria.setMaxResults(rows);
             }
             return criteria.list();
         } catch (Exception e) {
@@ -734,7 +734,7 @@ public class BaseDaoDB implements BaseDao {
      * @param rows ： 每页行数
      * @return ： 数据集
      */
-    protected BaseRecords<?> find(HQL hql, long page, long rows) {
+    protected BaseRecords<?> find(HQL hql, int page, int rows) {
         return find(hql, hql.toCountHQL(), page, rows);
     }
 
@@ -747,7 +747,7 @@ public class BaseDaoDB implements BaseDao {
      * @param rows ： 每页行数
      * @return ： 数据集
      */
-    protected List<?> find2(HQL hql, long page, long rows) {
+    protected List<?> find2(HQL hql, int page, int rows) {
         return find(hql, null, page, rows).getData();
     }
 
@@ -761,8 +761,8 @@ public class BaseDaoDB implements BaseDao {
      * @param rows     ： 每页行数
      * @return ： 数据集
      */
-    private BaseRecords<?> find(HQL hql, HQL counthql, long page,
-                                long rows) {
+    private BaseRecords<?> find(HQL hql, HQL counthql, int page,
+                                int rows) {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
@@ -772,8 +772,8 @@ public class BaseDaoDB implements BaseDao {
                 long total = 0;
                 if (counthql != null)
                     total = count(counthql); // 获得总记录数
-                q.setFirstResult((int) ((page - 1) * rows));
-                q.setMaxResults((int) rows);
+                q.setFirstResult((page - 1) * rows);
+                q.setMaxResults(rows);
                 return new BaseRecords(q.list(), total, page, rows);
             } else {
                 // 不分页
@@ -843,7 +843,7 @@ public class BaseDaoDB implements BaseDao {
      * @param rows ： 每页行数
      * @return ： 数据集
      */
-    protected BaseRecords<?> find(SQL sql, long page, long rows) {
+    protected BaseRecords<?> find(SQL sql, int page, int rows) {
         return find(sql, sql.toCountSQL(), page, rows);
     }
 
@@ -857,7 +857,7 @@ public class BaseDaoDB implements BaseDao {
      * @param rows ： 每页行数
      * @return ： 数据集
      */
-    protected List<?> find2(SQL sql, long page, long rows) {
+    protected List<?> find2(SQL sql, int page, int rows) {
         return find(sql, null, page, rows).getData();
     }
 
@@ -872,8 +872,8 @@ public class BaseDaoDB implements BaseDao {
      * @param rows     ： 每页行数
      * @return ： 数据集
      */
-    private BaseRecords<?> find(SQL sql, SQL countsql, long page,
-                                long rows) {
+    private BaseRecords<?> find(SQL sql, SQL countsql, int page,
+                                int rows) {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
@@ -883,8 +883,8 @@ public class BaseDaoDB implements BaseDao {
                 long total = 0;
                 if (countsql != null)
                     total = count(countsql); // 获得记录总数
-                q.setFirstResult((int) ((page - 1) * rows));
-                q.setMaxResults((int) rows);
+                q.setFirstResult((page - 1) * rows);
+                q.setMaxResults(rows);
                 return new BaseRecords(q.list(), total, page, rows);
             } else {
                 // 查询全部
@@ -1002,15 +1002,15 @@ public class BaseDaoDB implements BaseDao {
      * @param rows           每页条数
      * @return ： 数据集
      */
-    protected BaseRecords<?> find(CriteriaGetter criteriaGetter, long page, long rows) {
+    protected BaseRecords<?> find(CriteriaGetter criteriaGetter, int page, int rows) {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
             Criteria criteria = criteriaGetter.getCriteria(session);
             if (page > 0 && rows > 0) { // 分页
                 long total = 0;
-                criteria.setFirstResult((int) ((page - 1) * rows));
-                criteria.setMaxResults((int) rows);
+                criteria.setFirstResult((page - 1) * rows);
+                criteria.setMaxResults(rows);
                 List data = criteria.list();
                 total = count(criteriaGetter); // 获得总记录数
                 return new BaseRecords(data, total, page, rows);
@@ -1034,15 +1034,15 @@ public class BaseDaoDB implements BaseDao {
      * @param rows           每页条数
      * @return ： 数据集
      */
-    protected List<?> find2(CriteriaGetter criteriaGetter, long page, long rows) {
+    protected List<?> find2(CriteriaGetter criteriaGetter, int page, int rows) {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
             Criteria criteria = criteriaGetter.getCriteria(session);
             if (page > 0 && rows > 0) { // 分页
                 long total = 0;
-                criteria.setFirstResult((int) ((page - 1) * rows));
-                criteria.setMaxResults((int) rows);
+                criteria.setFirstResult((page - 1) * rows);
+                criteria.setMaxResults(rows);
             }
             return criteria.list();
         } catch (Exception e) {

@@ -45,12 +45,12 @@ public interface BaseDao {
     /**
      * 分页查找所有对象
      */
-    public BaseRecords<?> find(Class<?> cls, long page, long rows);
+    public BaseRecords<?> find(Class<?> cls, int page, int rows);
 
     /**
      * 分页查找所有对象
      */
-    public List<?> find2(Class<?> cls, long page, long rows);
+    public List<?> find2(Class<?> cls, int page, int rows);
 
     /**
      * 分页查找满足某一条件的所有对象
@@ -65,12 +65,12 @@ public interface BaseDao {
     /**
      * 分页查找满足某一条件的所有对象
      */
-    public BaseRecords<?> find(Class<?> cls, String key, Object value, long page, long rows);
+    public BaseRecords<?> find(Class<?> cls, String key, Object value, int page, int rows);
 
     /**
      * 分页查找满足某一条件的所有对象
      */
-    public List<?> find2(Class<?> cls, String key, Object value, long page, long rows);
+    public List<?> find2(Class<?> cls, String key, Object value, int page, int rows);
 
     /**
      * 分页排序查找所有对象
@@ -86,12 +86,12 @@ public interface BaseDao {
     /**
      * 分页排序查找所有对象
      */
-    public BaseRecords<?> findOrderBy(Class<?> cls, String orderby, boolean ifdesc, long page, long rows);
+    public BaseRecords<?> findOrderBy(Class<?> cls, String orderby, boolean ifdesc, int page, int rows);
 
     /**
      * 分页排序查找所有对象
      */
-    public List<?> findOrderBy2(Class<?> cls, String orderby, boolean ifdesc, long page, long rows);
+    public List<?> findOrderBy2(Class<?> cls, String orderby, boolean ifdesc, int page, int rows);
 
 
     /**
@@ -107,12 +107,12 @@ public interface BaseDao {
     /**
      * 分页排序查找满足某一条件的所有对象
      */
-    public BaseRecords<?> findOrderBy(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, long page, long rows);
+    public BaseRecords<?> findOrderBy(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, int page, int rows);
 
     /**
      * 分页排序查找满足某一条件的所有对象
      */
-    public List<?> findOrderBy2(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, long page, long rows);
+    public List<?> findOrderBy2(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, int page, int rows);
 
     /**
      * 查找唯一对象，如果对象不存在，返回NULL
