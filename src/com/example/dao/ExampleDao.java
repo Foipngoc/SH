@@ -33,12 +33,12 @@ public class ExampleDao extends BaseDaoDB {
     public BaseRecords<Student> queryAllStu(int page, int rows) {
         @SuppressWarnings("unchecked")
         BaseRecords<Student> student = (BaseRecords<Student>) super
-                .find(new CriteriaGetter() {
+                .find(new CriteriaGetter(page, rows) {
                     @Override
                     public Criteria getCriteria(Session session) {
                         return session.createCriteria(Student.class).createCriteria("room");
                     }
-                }.setPage(page).setRows(rows));
+                });
 
         return student;
     }

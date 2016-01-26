@@ -68,7 +68,7 @@ public class HQL extends StringExpression implements QueryCondition {
     }
 
     @Override
-    public QueryCondition setRetrievePages(boolean retrievepages) {
+    public HQL setRetrievePages(boolean retrievepages) {
         this.retrievepages = retrievepages;
         return this;
     }
@@ -79,7 +79,7 @@ public class HQL extends StringExpression implements QueryCondition {
     }
 
     @Override
-    public QueryCondition setPage(int page) {
+    public HQL setPage(int page) {
         this.page = page;
         return this;
     }
@@ -90,8 +90,15 @@ public class HQL extends StringExpression implements QueryCondition {
     }
 
     @Override
-    public QueryCondition setRows(int rows) {
+    public HQL setRows(int rows) {
         this.rows = rows;
+        return this;
+    }
+
+    @Override
+    public HQL setPaging(int page, int rows) {
+        setPage(page);
+        setRows(rows);
         return this;
     }
 }

@@ -24,7 +24,7 @@ public abstract class CriteriaGetter implements QueryCondition {
         setRetrievePages(true);
     }
 
-    public CriteriaGetter(int page, int rows,boolean retrievepages) {
+    public CriteriaGetter(int page, int rows, boolean retrievepages) {
         setPage(page);
         setRows(rows);
         setRetrievePages(retrievepages);
@@ -43,7 +43,7 @@ public abstract class CriteriaGetter implements QueryCondition {
     }
 
     @Override
-    public QueryCondition setRetrievePages(boolean retrievepages) {
+    public CriteriaGetter setRetrievePages(boolean retrievepages) {
         this.retrievepages = retrievepages;
         return this;
     }
@@ -54,7 +54,7 @@ public abstract class CriteriaGetter implements QueryCondition {
     }
 
     @Override
-    public QueryCondition setPage(int page) {
+    public CriteriaGetter setPage(int page) {
         this.page = page;
         return this;
     }
@@ -65,8 +65,15 @@ public abstract class CriteriaGetter implements QueryCondition {
     }
 
     @Override
-    public QueryCondition setRows(int rows) {
+    public CriteriaGetter setRows(int rows) {
         this.rows = rows;
+        return this;
+    }
+
+    @Override
+    public CriteriaGetter setPaging(int page, int rows) {
+        setPage(page);
+        setRows(rows);
         return this;
     }
 }

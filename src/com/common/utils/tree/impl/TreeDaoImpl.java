@@ -27,7 +27,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
                 + "(select r.sid from ? r)";
 
         return super.find(new HQL(hql, getEntryClass().getSimpleName(),
-                getEntryRelationClass().getSimpleName()), page, rows);
+                getEntryRelationClass().getSimpleName()).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findRootNodes(int type) {
@@ -39,7 +39,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
                 + "(select r.sid from ? r)" + " and a.type=?";
 
         return super.find(new HQL(hql, getEntryClass().getSimpleName(),
-                getEntryRelationClass().getSimpleName(), type), page, rows);
+                getEntryRelationClass().getSimpleName(), type).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findRootNodes(String name) {
@@ -51,7 +51,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
                 + "(select r.sid from ? r) and a.name like '%?%'";
 
         return super.find(new HQL(hql, getEntryClass().getSimpleName(),
-                getEntryRelationClass().getSimpleName(), name), page, rows);
+                getEntryRelationClass().getSimpleName(), name).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findRootNodes(String name, int type) {
@@ -65,8 +65,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
                 + " and a.type=? and a.name like '%?%'";
 
         return super.find(new HQL(hql, getEntryClass().getSimpleName(),
-                        getEntryRelationClass().getSimpleName(), type, name), page,
-                rows);
+                getEntryRelationClass().getSimpleName(), type, name).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findLeafNodes() {
@@ -78,7 +77,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
                 + "(select r.pid from ? r)";
 
         return super.find(new HQL(hql, getEntryClass().getSimpleName(),
-                getEntryRelationClass().getSimpleName()), page, rows);
+                getEntryRelationClass().getSimpleName()).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findLeafNodes(int type) {
@@ -90,7 +89,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
                 + "(select r.pid from ? r)" + " and a.type=?";
 
         return super.find(new HQL(hql, getEntryClass().getSimpleName(),
-                getEntryRelationClass().getSimpleName(), type), page, rows);
+                getEntryRelationClass().getSimpleName(), type).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findLeafNodes(String name) {
@@ -102,7 +101,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
                 + "(select r.pid from ? r) and a.name like '%?%'";
 
         return super.find(new HQL(hql, getEntryClass().getSimpleName(),
-                getEntryRelationClass().getSimpleName(), name), page, rows);
+                getEntryRelationClass().getSimpleName(), name).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findLeafNodes(String name, int type) {
@@ -116,8 +115,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
                 + " and a.type=? and a.name like '%?%'";
 
         return super.find(new HQL(hql, getEntryClass().getSimpleName(),
-                        getEntryRelationClass().getSimpleName(), type, name), page,
-                rows);
+                getEntryRelationClass().getSimpleName(), type, name).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findNodes() {
@@ -127,8 +125,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
     public BaseRecords<?> _findNodes(int page, int rows) {
         String hql = "select a from ? a";
 
-        return super.find(new HQL(hql, getEntryClass().getSimpleName()), page,
-                rows);
+        return super.find(new HQL(hql, getEntryClass().getSimpleName()).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findNodes(int type) {
@@ -138,8 +135,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
     public BaseRecords<?> _findNodes(int type, int page, int rows) {
         String hql = "select a from ? a where a.type=?";
 
-        return super.find(new HQL(hql, getEntryClass().getSimpleName(), type),
-                page, rows);
+        return super.find(new HQL(hql, getEntryClass().getSimpleName(), type).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findNodes(String name) {
@@ -149,8 +145,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
     public BaseRecords<?> _findNodes(String name, int page, int rows) {
         String hql = "select a from ? a where a.name like '%?%'";
 
-        return super.find(new HQL(hql, getEntryClass().getSimpleName(), name),
-                page, rows);
+        return super.find(new HQL(hql, getEntryClass().getSimpleName(), name).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findNodes(String name, int type) {
@@ -162,7 +157,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
         String hql = "select a from ? a where a.type=? and a.name like '%?%'";
 
         return super.find(new HQL(hql, getEntryClass().getSimpleName(), type,
-                name), page, rows);
+                name).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findChildrenNodes(E node) {
@@ -269,7 +264,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
         String hql = "select a from ? b,? a " + "where b.pid=a.id and b.sid=?";
 
         return super.find(new HQL(hql, getEntryRelationClass().getSimpleName(),
-                getEntryClass().getSimpleName(), node.getId()), page, rows);
+                getEntryClass().getSimpleName(), node.getId()).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findParentNodes(E node, int type) {
@@ -282,8 +277,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
                 + "where b.pid=a.id and b.sid=? and a.type=?";
 
         return super.find(new HQL(hql, getEntryRelationClass().getSimpleName(),
-                        getEntryClass().getSimpleName(), node.getId(), type), page,
-                rows);
+                getEntryClass().getSimpleName(), node.getId(), type).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findParentNodes(E node, String name) {
@@ -300,8 +294,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
                 + "where b.pid=a.id and b.sid=? and a.name like '%?%'";
 
         return super.find(new HQL(hql, getEntryRelationClass().getSimpleName(),
-                        getEntryClass().getSimpleName(), node.getId(), name), page,
-                rows);
+                getEntryClass().getSimpleName(), node.getId(), name).setPage(page).setRows(rows));
     }
 
     public BaseRecords<?> _findParentNodes(E node, String name, int type,
@@ -310,8 +303,7 @@ public abstract class TreeDaoImpl<E extends TreeNode, R extends TreeNodeRelation
                 + "where b.pid=a.id and b.sid=? and a.name like '%?%' and a.type=?";
 
         return super.find(new HQL(hql, getEntryRelationClass().getSimpleName(),
-                        getEntryClass().getSimpleName(), node.getId(), name, type), page,
-                rows);
+                getEntryClass().getSimpleName(), node.getId(), name, type).setPage(page).setRows(rows));
     }
 
     @Override

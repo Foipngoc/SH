@@ -65,7 +65,7 @@ public class SQL extends StringExpression implements QueryCondition {
     }
 
     @Override
-    public QueryCondition setRetrievePages(boolean retrievepages) {
+    public SQL setRetrievePages(boolean retrievepages) {
         this.retrievepages = retrievepages;
         return this;
     }
@@ -76,7 +76,7 @@ public class SQL extends StringExpression implements QueryCondition {
     }
 
     @Override
-    public QueryCondition setPage(int page) {
+    public SQL setPage(int page) {
         this.page = page;
         return this;
     }
@@ -87,8 +87,15 @@ public class SQL extends StringExpression implements QueryCondition {
     }
 
     @Override
-    public QueryCondition setRows(int rows) {
+    public SQL setRows(int rows) {
         this.rows = rows;
+        return this;
+    }
+
+    @Override
+    public SQL setPaging(int page, int rows) {
+        setPage(page);
+        setRows(rows);
         return this;
     }
 }

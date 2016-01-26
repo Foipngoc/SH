@@ -47,4 +47,13 @@ public interface QueryCondition {
      * @return 自身
      */
     public QueryCondition setRows(int rows);
+
+    /**
+     * 设置分页参数
+     *
+     * @param page 页码，从1开始
+     * @param rows 每页数量
+     * @return 自身
+     */
+    public QueryCondition setPaging(int page, int rows);
 }

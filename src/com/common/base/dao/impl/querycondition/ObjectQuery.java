@@ -20,7 +20,7 @@ public class ObjectQuery implements QueryCondition {
     }
 
     @Override
-    public QueryCondition setRetrievePages(boolean retrievepages) {
+    public ObjectQuery setRetrievePages(boolean retrievepages) {
         this.retrievepages = retrievepages;
         return this;
     }
@@ -31,7 +31,7 @@ public class ObjectQuery implements QueryCondition {
     }
 
     @Override
-    public QueryCondition setPage(int page) {
+    public ObjectQuery setPage(int page) {
         this.page = page;
         return this;
     }
@@ -42,8 +42,15 @@ public class ObjectQuery implements QueryCondition {
     }
 
     @Override
-    public QueryCondition setRows(int rows) {
+    public ObjectQuery setRows(int rows) {
         this.rows = rows;
+        return this;
+    }
+
+    @Override
+    public ObjectQuery setPaging(int page, int rows) {
+        setPage(page);
+        setRows(rows);
         return this;
     }
 

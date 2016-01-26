@@ -6,17 +6,15 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6af7945f-e57e-4f64-bbbb-1c3bedd4d701" name="Default" comment="合并对象查找方法">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/ObjectQuery.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/common/utils/KVEntry.java" />
+    <list default="true" id="6af7945f-e57e-4f64-bbbb-1c3bedd4d701" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/common/base/dao/BaseDao.java" afterPath="$PROJECT_DIR$/src/com/common/base/dao/BaseDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/BaseDaoDB.java" afterPath="$PROJECT_DIR$/src/com/common/base/dao/impl/BaseDaoDB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/QueryCondition.java" afterPath="$PROJECT_DIR$/src/com/common/base/dao/impl/QueryCondition.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/CriteriaGetter.java" afterPath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/CriteriaGetter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/HQL.java" afterPath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/HQL.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/ObjectQuery.java" afterPath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/ObjectQuery.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/SQL.java" afterPath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/SQL.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/common/utils/tree/impl/TreeDaoImpl.java" afterPath="$PROJECT_DIR$/src/com/common/utils/tree/impl/TreeDaoImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/dao/ExampleDao.java" afterPath="$PROJECT_DIR$/src/com/example/dao/ExampleDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/CriteriaGetter.java" afterPath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/CriteriaGetter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/HQL.java" afterPath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/HQL.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/SQL.java" afterPath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/SQL.java" />
     </list>
     <ignored path="SH.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,31 +36,7 @@
     <favorites_list name="SH" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ExampleDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/dao/ExampleDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
-              <folding>
-                <element signature="e#1152#1404#0" expanded="true" />
-                <element signature="e#1403#1404#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TreeDaoImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/common/utils/tree/impl/TreeDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2">
-              <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -89,9 +63,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/common/utils/tree/model/TreeNodeRelation.java" />
-        <option value="$PROJECT_DIR$/src/com/common/utils/tree/impl/TreeDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/com/common/utils/tree/TreeService.java" />
         <option value="$PROJECT_DIR$/src/com/common/utils/tree/impl/TreeServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/com/common/utils/tree/TreeDao.java" />
         <option value="$PROJECT_DIR$/web/example/tree.jsp" />
@@ -130,16 +101,19 @@
         <option value="$PROJECT_DIR$/src/com/common/base/dao/SessionHandler.java" />
         <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/ThreadSessionHandler.java" />
         <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/LocalSessionHandler.java" />
-        <option value="$PROJECT_DIR$/src/com/example/dao/ExampleDao.java" />
-        <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/QueryCondition.java" />
         <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/HQL.java" />
         <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/SQL.java" />
         <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/CriteriaGetter.java" />
         <option value="$PROJECT_DIR$/src/com/common/utils/KVEntry.java" />
-        <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/ObjectQuery.java" />
         <option value="$PROJECT_DIR$/src/com/common/base/dao/BaseDao.java" />
-        <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/CriteriaGetter.java" />
         <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/BaseDaoDB.java" />
+        <option value="$PROJECT_DIR$/src/com/example/dao/ExampleDao.java" />
+        <option value="$PROJECT_DIR$/src/com/common/utils/tree/impl/TreeDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/QueryCondition.java" />
+        <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/CriteriaGetter.java" />
+        <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/ObjectQuery.java" />
+        <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/HQL.java" />
+        <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/SQL.java" />
       </list>
     </option>
   </component>
@@ -1125,7 +1099,7 @@
       <workItem from="1452832553677" duration="6702000" />
       <workItem from="1453689641794" duration="9895000" />
       <workItem from="1453702008893" duration="5817000" />
-      <workItem from="1453709349454" duration="12179000" />
+      <workItem from="1453709349454" duration="12576000" />
     </task>
     <task id="LOCAL-00001" summary="添加tree工具">
       <created>1449559699644</created>
@@ -1247,19 +1221,25 @@
       <option name="project" value="LOCAL" />
       <updated>1453774349986</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="合并对象查找方法">
+      <created>1453776568171</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1453776568171</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74998000" />
+    <option name="totallyTimeSpent" value="75395000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32781458" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32781458" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -1269,7 +1249,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30063966" sideWeight="0.492674" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30063966" sideWeight="0.492674" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25053304" sideWeight="0.507326" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1319,7 +1299,8 @@
     <MESSAGE value="合并相关查询条件到HQL,SQL中" />
     <MESSAGE value="合并相关查询条件到CriteriaGetter中" />
     <MESSAGE value="添加QueryCondition" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加QueryCondition" />
+    <MESSAGE value="合并对象查找方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="合并对象查找方法" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1631,30 +1612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/QueryCondition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.11724138">
-          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/SQL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1482759">
-          <caret line="92" column="5" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/HQL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8689655">
-          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_67/src.zip!/java/lang/Object.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33295324">
@@ -1682,16 +1639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/CriteriaGetter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59521097">
-          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/BaseDaoDB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2713797">
@@ -1706,14 +1653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/ObjectQuery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.47206384">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/BaseDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7742303">
@@ -1724,19 +1663,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/dao/ExampleDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
-          <folding>
-            <element signature="e#1152#1404#0" expanded="true" />
-            <element signature="e#1403#1404#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.6827586">
+          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/common/utils/tree/impl/TreeDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2">
-          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33275864">
+          <caret line="305" column="102" selection-start-line="305" selection-start-column="102" selection-end-line="305" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/QueryCondition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6896552">
+          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/CriteriaGetter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.96896553">
+          <caret line="77" column="5" selection-start-line="72" selection-start-column="3" selection-end-line="77" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/ObjectQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20689656">
+          <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/HQL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8137931">
+          <caret line="97" column="13" selection-start-line="97" selection-start-column="13" selection-end-line="97" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/SQL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7517241">
+          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
           <folding />
         </state>
       </provider>
