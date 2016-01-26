@@ -527,8 +527,6 @@ public class BaseDaoDB implements BaseDao {
             session = sessionHandler.openSession(getSessionFactory());
             Criteria criteria = session.createCriteria(cls);
             criteria.add(Restrictions.eq(key, value));
-            criteria.setFirstResult(0);
-            criteria.setMaxResults(1);
             return criteria.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
@@ -692,8 +690,6 @@ public class BaseDaoDB implements BaseDao {
         try {
             session = sessionHandler.openSession(getSessionFactory());
             Query q = session.createQuery(hql.toString());
-            q.setFirstResult(0);
-            q.setMaxResults(1);
             return q.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
@@ -798,8 +794,6 @@ public class BaseDaoDB implements BaseDao {
         try {
             session = sessionHandler.openSession(getSessionFactory());
             Query q = session.createSQLQuery(sql.toString());
-            q.setFirstResult(0);
-            q.setMaxResults(1);
             return q.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
