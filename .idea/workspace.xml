@@ -9,6 +9,8 @@
     <list default="true" id="6af7945f-e57e-4f64-bbbb-1c3bedd4d701" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/BaseDaoDB.java" afterPath="$PROJECT_DIR$/src/com/common/base/dao/impl/BaseDaoDB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/HQL.java" afterPath="$PROJECT_DIR$/src/com/common/base/dao/impl/HQL.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/SQL.java" afterPath="$PROJECT_DIR$/src/com/common/base/dao/impl/SQL.java" />
     </list>
     <ignored path="SH.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,8 +36,8 @@
       <file leaf-file-name="BaseDaoDB.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/BaseDaoDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6613455">
-              <caret line="1071" column="6" selection-start-line="1071" selection-start-column="6" selection-end-line="1071" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.5792474">
+              <caret line="823" column="9" selection-start-line="823" selection-start-column="9" selection-end-line="823" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#721#722#0" expanded="true" />
@@ -54,26 +56,10 @@
                 <element signature="e#5794#5795#0" expanded="true" />
                 <element signature="e#6028#6029#0" expanded="true" />
                 <element signature="e#6086#6087#0" expanded="true" />
-                <element signature="e#20694#20695#0" expanded="true" />
-                <element signature="e#20734#20735#0" expanded="true" />
-                <element signature="e#20923#20924#0" expanded="true" />
-                <element signature="e#20964#20965#0" expanded="true" />
-                <element signature="e#21257#21258#0" expanded="true" />
-                <element signature="e#21319#21320#0" expanded="true" />
-                <element signature="e#21606#21607#0" expanded="true" />
-                <element signature="e#21666#21667#0" expanded="true" />
-                <element signature="e#23578#23579#0" expanded="true" />
-                <element signature="e#23618#23619#0" expanded="true" />
-                <element signature="e#23818#23819#0" expanded="true" />
-                <element signature="e#23859#23860#0" expanded="true" />
-                <element signature="e#24163#24164#0" expanded="true" />
-                <element signature="e#24225#24226#0" expanded="true" />
-                <element signature="e#24523#24524#0" expanded="true" />
-                <element signature="e#24583#24584#0" expanded="true" />
-                <element signature="e#28050#28051#0" expanded="true" />
-                <element signature="e#28106#28107#0" expanded="true" />
-                <element signature="e#28268#28269#0" expanded="true" />
-                <element signature="e#28325#28326#0" expanded="true" />
+                <element signature="e#25538#25539#0" expanded="true" />
+                <element signature="e#25594#25595#0" expanded="true" />
+                <element signature="e#25756#25757#0" expanded="true" />
+                <element signature="e#25813#25814#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/BaseDao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="32" selection-end-column="39" />
+              <caret line="114" column="122" selection-start-line="114" selection-start-column="46" selection-end-line="114" selection-end-column="122" />
               <folding />
             </state>
           </provider>
@@ -156,9 +142,7 @@
         <option value="$PROJECT_DIR$/src/com/filemanager/FileManagerController.java" />
         <option value="$PROJECT_DIR$/web/filemanager/filemanager.jsp" />
         <option value="$PROJECT_DIR$/web/common/js/ntree.js" />
-        <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/HQL.java" />
         <option value="$PROJECT_DIR$/src/com/common/utils/StringExpression.java" />
-        <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/SQL.java" />
         <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/BaseDaoDB2.java" />
         <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/SessionHandler.java" />
         <option value="$PROJECT_DIR$/src/com/common/base/dao/SessionHandler.java" />
@@ -166,6 +150,8 @@
         <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/ThreadSessionHandler.java" />
         <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/LocalSessionHandler.java" />
         <option value="$PROJECT_DIR$/src/com/common/base/dao/BaseDao.java" />
+        <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/HQL.java" />
+        <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/SQL.java" />
         <option value="$PROJECT_DIR$/src/com/common/base/dao/impl/BaseDaoDB.java" />
       </list>
     </option>
@@ -1024,7 +1010,7 @@
       <workItem from="1452832553677" duration="6702000" />
       <workItem from="1453689641794" duration="9895000" />
       <workItem from="1453702008893" duration="5817000" />
-      <workItem from="1453709349454" duration="6721000" />
+      <workItem from="1453709349454" duration="8231000" />
     </task>
     <task id="LOCAL-00001" summary="添加tree工具">
       <created>1449559699644</created>
@@ -1122,11 +1108,17 @@
       <option name="project" value="LOCAL" />
       <updated>1453771010282</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="findUnique去除不必要的代码">
+      <created>1453771115145</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1453771115145</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69540000" />
+    <option name="totallyTimeSpent" value="71050000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -1190,7 +1182,8 @@
     <MESSAGE value="添加find2版本代码，直接查询数据，不查询数据总页数" />
     <MESSAGE value="重写BaseDaoDB" />
     <MESSAGE value="分页参数修改为int" />
-    <option name="LAST_COMMIT_MESSAGE" value="分页参数修改为int" />
+    <MESSAGE value="findUnique去除不必要的代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="findUnique去除不必要的代码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1464,14 +1457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/HQL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4777563">
-          <caret line="39" column="50" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_67/src.zip!/java/net/DualStackPlainSocketImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43713734">
@@ -1567,34 +1552,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/BaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="114" column="122" selection-start-line="114" selection-start-column="46" selection-end-line="114" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/HQL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13797036">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/common/base/BaseRecords.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.07753706">
-          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.37400228">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/SQL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16419612">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="32" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.69783354">
+          <caret line="89" column="22" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/common/base/dao/impl/BaseDaoDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6613455">
-          <caret line="1071" column="6" selection-start-line="1071" selection-start-column="6" selection-end-line="1071" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.5792474">
+          <caret line="823" column="9" selection-start-line="823" selection-start-column="9" selection-end-line="823" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#721#722#0" expanded="true" />
@@ -1613,26 +1606,10 @@
             <element signature="e#5794#5795#0" expanded="true" />
             <element signature="e#6028#6029#0" expanded="true" />
             <element signature="e#6086#6087#0" expanded="true" />
-            <element signature="e#20694#20695#0" expanded="true" />
-            <element signature="e#20734#20735#0" expanded="true" />
-            <element signature="e#20923#20924#0" expanded="true" />
-            <element signature="e#20964#20965#0" expanded="true" />
-            <element signature="e#21257#21258#0" expanded="true" />
-            <element signature="e#21319#21320#0" expanded="true" />
-            <element signature="e#21606#21607#0" expanded="true" />
-            <element signature="e#21666#21667#0" expanded="true" />
-            <element signature="e#23578#23579#0" expanded="true" />
-            <element signature="e#23618#23619#0" expanded="true" />
-            <element signature="e#23818#23819#0" expanded="true" />
-            <element signature="e#23859#23860#0" expanded="true" />
-            <element signature="e#24163#24164#0" expanded="true" />
-            <element signature="e#24225#24226#0" expanded="true" />
-            <element signature="e#24523#24524#0" expanded="true" />
-            <element signature="e#24583#24584#0" expanded="true" />
-            <element signature="e#28050#28051#0" expanded="true" />
-            <element signature="e#28106#28107#0" expanded="true" />
-            <element signature="e#28268#28269#0" expanded="true" />
-            <element signature="e#28325#28326#0" expanded="true" />
+            <element signature="e#25538#25539#0" expanded="true" />
+            <element signature="e#25594#25595#0" expanded="true" />
+            <element signature="e#25756#25757#0" expanded="true" />
+            <element signature="e#25813#25814#0" expanded="true" />
           </folding>
         </state>
       </provider>

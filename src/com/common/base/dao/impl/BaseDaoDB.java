@@ -598,7 +598,7 @@ public class BaseDaoDB implements BaseDao {
         try {
             session = sessionHandler.openSession(getSessionFactory());
             sessionHandler.beginTransaction(session);
-            Query q = session.createSQLQuery(sql.toString());
+            Query q = session.createSQLQuery(sql.getSQLString());
             int ret = q.executeUpdate();
             sessionHandler.commitTransaction(session);
             return ret;
@@ -621,7 +621,7 @@ public class BaseDaoDB implements BaseDao {
         try {
             session = sessionHandler.openSession(getSessionFactory());
             sessionHandler.beginTransaction(session);
-            Query q = session.createQuery(hql.toString());
+            Query q = session.createQuery(hql.getHQLString());
             int ret = q.executeUpdate();
             sessionHandler.commitTransaction(session);
             return ret;
@@ -644,7 +644,7 @@ public class BaseDaoDB implements BaseDao {
         try {
             session = sessionHandler.openSession(getSessionFactory());
             sessionHandler.beginTransaction(session);
-            Query q = session.createSQLQuery(sql.toString());
+            Query q = session.createSQLQuery(sql.getSQLString());
             int ret = q.executeUpdate();
             sessionHandler.commitTransaction(session);
             return ret;
@@ -667,7 +667,7 @@ public class BaseDaoDB implements BaseDao {
         try {
             session = sessionHandler.openSession(getSessionFactory());
             sessionHandler.beginTransaction(session);
-            Query q = session.createQuery(hql.toString());
+            Query q = session.createQuery(hql.getHQLString());
             int ret = q.executeUpdate();
             sessionHandler.commitTransaction(session);
             return ret;
@@ -689,7 +689,7 @@ public class BaseDaoDB implements BaseDao {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
-            Query q = session.createQuery(hql.toString());
+            Query q = session.createQuery(hql.getHQLString());
             return q.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
@@ -700,77 +700,24 @@ public class BaseDaoDB implements BaseDao {
     }
 
     /**
-     * 使用hql语句查询数据集
-     * 注： 分页时， 查询总记录数的hql语句只是将select ** 转换成select count(*)
-     *
-     * @param hql ： hql语句
-     * @return ： 数据集
-     */
-    protected BaseRecords<?> find(HQL hql) {
-        return find(hql, -1, -1);
-    }
-
-    /**
-     * 使用hql语句查询数据集
-     * 注： 分页时， 查询总记录数的hql语句只是将select ** 转换成select count(*)
-     *
-     * @param hql ： hql语句
-     * @return ： 数据集
-     */
-    protected List<?> find2(HQL hql) {
-        return find2(hql, -1, -1);
-    }
-
-    /**
-     * 使用hql语句查询数据集，当page和rows同时>0时,搜索结果会自动分页.
-     * 注： 分页时， 查询总记录数的hql语句只是将select ** 转换成select count(*)
-     *
-     * @param hql  ： hql语句
-     * @param page ： 页码
-     * @param rows ： 每页行数
-     * @return ： 数据集
-     */
-    protected BaseRecords<?> find(HQL hql, int page, int rows) {
-        return find(hql, hql.toCountHQL(), page, rows);
-    }
-
-    /**
-     * 使用hql语句查询数据集，当page和rows同时>0时,搜索结果会自动分页.
-     * 注： 分页时， 查询总记录数的hql语句只是将select ** 转换成select count(*)
-     *
-     * @param hql  ： hql语句
-     * @param page ： 页码
-     * @param rows ： 每页行数
-     * @return ： 数据集
-     */
-    protected List<?> find2(HQL hql, int page, int rows) {
-        return find(hql, null, page, rows).getData();
-    }
-
-
-    /**
      * 使用hql语句查询数据集，当page和rows同时>0时,搜索结果会自动分页 分页时， 如果需要返回页数，请传入counthql，否则传入null
      *
-     * @param hql      ： hql语句
-     * @param counthql : 计数hql语句
-     * @param page     ： 页码
-     * @param rows     ： 每页行数
+     * @param hql ： hql语句
      * @return ： 数据集
      */
-    private BaseRecords<?> find(HQL hql, HQL counthql, int page,
-                                int rows) {
+    private BaseRecords<?> find(HQL hql) {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
-            Query q = session.createQuery(hql.toString());
+            Query q = session.createQuery(hql.getHQLString());
 
-            if (page > 0 && rows > 0) { // 分页
+            if (hql.getPage() > 0 && hql.getRows() > 0) { // 分页
                 long total = 0;
-                if (counthql != null)
-                    total = count(counthql); // 获得总记录数
-                q.setFirstResult((page - 1) * rows);
-                q.setMaxResults(rows);
-                return new BaseRecords(q.list(), total, page, rows);
+                if (hql.ifRetrievePages())
+                    total = count(hql.getCountHQL()); // 获得总记录数
+                q.setFirstResult((hql.getPage() - 1) * hql.getRows());
+                q.setMaxResults(hql.getRows());
+                return new BaseRecords(q.list(), total, hql.getPage(), hql.getRows());
             } else {
                 // 不分页
                 return new BaseRecords(q.list());
@@ -793,7 +740,7 @@ public class BaseDaoDB implements BaseDao {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
-            Query q = session.createSQLQuery(sql.toString());
+            Query q = session.createSQLQuery(sql.getSQLString());
             return q.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
@@ -804,82 +751,25 @@ public class BaseDaoDB implements BaseDao {
     }
 
     /**
-     * 使用sql语句查询数据集
-     * <p/>
-     * 注： 分页时，查询总记录数的sql语句只是将select ** 转换成select count(*)
-     *
-     * @param sql ： sql语句
-     * @return ： 数据集
-     */
-    protected BaseRecords<?> find(SQL sql) {
-        return find(sql, -1, -1);
-    }
-
-    /**
-     * 使用sql语句查询数据集
-     * <p/>
-     * 注： 分页时，查询总记录数的sql语句只是将select ** 转换成select count(*)
-     *
-     * @param sql ： sql语句
-     * @return ： 数据集
-     */
-    protected List<?> find2(SQL sql) {
-        return find2(sql, -1, -1);
-    }
-
-    /**
-     * 使用sql语句查询数据 集，当page和rows同时>0时，搜索结果会自动分页
-     * <p/>
-     * 注： 分页时，查询总记录数的sql语句只是将select ** 转换成select count(*)
-     *
-     * @param sql  ： sql语句
-     * @param page ： 页码
-     * @param rows ： 每页行数
-     * @return ： 数据集
-     */
-    protected BaseRecords<?> find(SQL sql, int page, int rows) {
-        return find(sql, sql.toCountSQL(), page, rows);
-    }
-
-    /**
-     * 使用sql语句查询数据 集，当page和rows同时>0时，搜索结果会自动分页
-     * <p/>
-     * 注： 分页时，查询总记录数的sql语句只是将select ** 转换成select count(*)
-     *
-     * @param sql  ： sql语句
-     * @param page ： 页码
-     * @param rows ： 每页行数
-     * @return ： 数据集
-     */
-    protected List<?> find2(SQL sql, int page, int rows) {
-        return find(sql, null, page, rows).getData();
-    }
-
-
-    /**
      * 使用sql语句查询数据 集, 当page和rows同时>0时，搜索结果会自动分页,
      * 分页时，如果需要返回页数，请传入countsql，否则传入null
      *
-     * @param sql      ： sql语句
-     * @param countsql : 获得记录总数sql
-     * @param page     ： 页码
-     * @param rows     ： 每页行数
+     * @param sql ： sql语句
      * @return ： 数据集
      */
-    private BaseRecords<?> find(SQL sql, SQL countsql, int page,
-                                int rows) {
+    private BaseRecords<?> find(SQL sql) {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
-            Query q = session.createSQLQuery(sql.toString());
+            Query q = session.createSQLQuery(sql.getSQLString());
 
-            if (page > 0 && rows > 0) { // 分页
+            if (sql.getPage() > 0 && sql.getRows() > 0) { // 分页
                 long total = 0;
-                if (countsql != null)
-                    total = count(countsql); // 获得记录总数
-                q.setFirstResult((page - 1) * rows);
-                q.setMaxResults(rows);
-                return new BaseRecords(q.list(), total, page, rows);
+                if (sql.ifRetrievePages())
+                    total = count(sql.getCountSQL()); // 获得记录总数
+                q.setFirstResult((sql.getPage() - 1) * sql.getRows());
+                q.setMaxResults(sql.getRows());
+                return new BaseRecords(q.list(), total, sql.getPage(), sql.getRows());
             } else {
                 // 查询全部
                 return new BaseRecords(q.list());
@@ -902,7 +792,7 @@ public class BaseDaoDB implements BaseDao {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
-            Query q = session.createQuery(hql.toString());
+            Query q = session.createQuery(hql.getHQLString());
             Object cntObj = q.uniqueResult();
             return getCountFromObj(cntObj);
         } catch (Exception e) {
@@ -923,7 +813,7 @@ public class BaseDaoDB implements BaseDao {
         Session session = null;
         try {
             session = sessionHandler.openSession(getSessionFactory());
-            Query q = session.createSQLQuery(sql.toString());
+            Query q = session.createSQLQuery(sql.getSQLString());
             Object cntObj = q.uniqueResult();
             return getCountFromObj(cntObj);
         } catch (Exception e) {
