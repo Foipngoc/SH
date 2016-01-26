@@ -1,6 +1,5 @@
 package com.common.base.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.common.base.dao.impl.querycondition.CriteriaGetter;
@@ -51,14 +50,14 @@ public class BaseDaoDB implements BaseDao {
     public void save(Object o) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
-            sessionHandler.beginTransaction(session);
+            session = getSessionHandler().openSession(getSessionFactory());
+            getSessionHandler().beginTransaction(session);
             session.save(o);
-            sessionHandler.commitTransaction(session);
+            getSessionHandler().commitTransaction(session);
         } catch (Exception e) {
-            sessionHandler.doException(e, session);
+            getSessionHandler().doException(e, session);
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -71,14 +70,14 @@ public class BaseDaoDB implements BaseDao {
     public void delete(Object o) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
-            sessionHandler.beginTransaction(session);
+            session = getSessionHandler().openSession(getSessionFactory());
+            getSessionHandler().beginTransaction(session);
             session.delete(o);
-            sessionHandler.commitTransaction(session);
+            getSessionHandler().commitTransaction(session);
         } catch (Exception e) {
-            sessionHandler.doException(e, session);
+            getSessionHandler().doException(e, session);
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -91,14 +90,14 @@ public class BaseDaoDB implements BaseDao {
     public void update(Object o) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
-            sessionHandler.beginTransaction(session);
+            session = getSessionHandler().openSession(getSessionFactory());
+            getSessionHandler().beginTransaction(session);
             session.update(o);
-            sessionHandler.commitTransaction(session);
+            getSessionHandler().commitTransaction(session);
         } catch (Exception e) {
-            sessionHandler.doException(e, session);
+            getSessionHandler().doException(e, session);
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -111,14 +110,14 @@ public class BaseDaoDB implements BaseDao {
     public void saveOrUpdate(Object o) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
-            sessionHandler.beginTransaction(session);
+            session = getSessionHandler().openSession(getSessionFactory());
+            getSessionHandler().beginTransaction(session);
             session.saveOrUpdate(o);
-            sessionHandler.commitTransaction(session);
+            getSessionHandler().commitTransaction(session);
         } catch (Exception e) {
-            sessionHandler.doException(e, session);
+            getSessionHandler().doException(e, session);
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -198,17 +197,17 @@ public class BaseDaoDB implements BaseDao {
     protected int delete(SQL sql) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
-            sessionHandler.beginTransaction(session);
+            session = getSessionHandler().openSession(getSessionFactory());
+            getSessionHandler().beginTransaction(session);
             Query q = session.createSQLQuery(sql.getSQLString());
             int ret = q.executeUpdate();
-            sessionHandler.commitTransaction(session);
+            getSessionHandler().commitTransaction(session);
             return ret;
         } catch (Exception e) {
-            sessionHandler.doException(e, session);
+            getSessionHandler().doException(e, session);
             return 0;
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -221,17 +220,17 @@ public class BaseDaoDB implements BaseDao {
     protected int delete(HQL hql) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
-            sessionHandler.beginTransaction(session);
+            session = getSessionHandler().openSession(getSessionFactory());
+            getSessionHandler().beginTransaction(session);
             Query q = session.createQuery(hql.getHQLString());
             int ret = q.executeUpdate();
-            sessionHandler.commitTransaction(session);
+            getSessionHandler().commitTransaction(session);
             return ret;
         } catch (Exception e) {
-            sessionHandler.doException(e, session);
+            getSessionHandler().doException(e, session);
             return 0;
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -244,17 +243,17 @@ public class BaseDaoDB implements BaseDao {
     protected int update(SQL sql) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
-            sessionHandler.beginTransaction(session);
+            session = getSessionHandler().openSession(getSessionFactory());
+            getSessionHandler().beginTransaction(session);
             Query q = session.createSQLQuery(sql.getSQLString());
             int ret = q.executeUpdate();
-            sessionHandler.commitTransaction(session);
+            getSessionHandler().commitTransaction(session);
             return ret;
         } catch (Exception e) {
-            sessionHandler.doException(e, session);
+            getSessionHandler().doException(e, session);
             return 0;
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -267,17 +266,17 @@ public class BaseDaoDB implements BaseDao {
     protected int update(HQL hql) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
-            sessionHandler.beginTransaction(session);
+            session = getSessionHandler().openSession(getSessionFactory());
+            getSessionHandler().beginTransaction(session);
             Query q = session.createQuery(hql.getHQLString());
             int ret = q.executeUpdate();
-            sessionHandler.commitTransaction(session);
+            getSessionHandler().commitTransaction(session);
             return ret;
         } catch (Exception e) {
-            sessionHandler.doException(e, session);
+            getSessionHandler().doException(e, session);
             return 0;
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -290,14 +289,14 @@ public class BaseDaoDB implements BaseDao {
     protected Object findUnique(HQL hql) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
+            session = getSessionHandler().openSession(getSessionFactory());
             Query q = session.createQuery(hql.getHQLString());
             return q.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -310,7 +309,7 @@ public class BaseDaoDB implements BaseDao {
     protected BaseRecords<?> find(HQL hql) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
+            session = getSessionHandler().openSession(getSessionFactory());
             Query q = session.createQuery(hql.getHQLString());
 
             if (hql.getPage() > 0 && hql.getRows() > 0) { // 分页
@@ -328,7 +327,7 @@ public class BaseDaoDB implements BaseDao {
             e.printStackTrace();
             return new BaseRecords<>();
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -341,14 +340,14 @@ public class BaseDaoDB implements BaseDao {
     protected Object findUnique(SQL sql) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
+            session = getSessionHandler().openSession(getSessionFactory());
             Query q = session.createSQLQuery(sql.getSQLString());
             return q.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -362,7 +361,7 @@ public class BaseDaoDB implements BaseDao {
     protected BaseRecords<?> find(SQL sql) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
+            session = getSessionHandler().openSession(getSessionFactory());
             Query q = session.createSQLQuery(sql.getSQLString());
 
             if (sql.getPage() > 0 && sql.getRows() > 0) { // 分页
@@ -380,7 +379,7 @@ public class BaseDaoDB implements BaseDao {
             e.printStackTrace();
             return new BaseRecords<>();
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -393,7 +392,7 @@ public class BaseDaoDB implements BaseDao {
     protected long count(HQL hql) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
+            session = getSessionHandler().openSession(getSessionFactory());
             Query q = session.createQuery(hql.getHQLString());
             Object cntObj = q.uniqueResult();
             return ((Number) cntObj).longValue();
@@ -401,7 +400,7 @@ public class BaseDaoDB implements BaseDao {
             e.printStackTrace();
             return 0L;
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -414,7 +413,7 @@ public class BaseDaoDB implements BaseDao {
     protected long count(SQL sql) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
+            session = getSessionHandler().openSession(getSessionFactory());
             Query q = session.createSQLQuery(sql.getSQLString());
             Object cntObj = q.uniqueResult();
             return ((Number) cntObj).longValue();
@@ -422,7 +421,7 @@ public class BaseDaoDB implements BaseDao {
             e.printStackTrace();
             return 0L;
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -439,7 +438,7 @@ public class BaseDaoDB implements BaseDao {
     protected long count(CriteriaGetter criteriaGetter) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
+            session = getSessionHandler().openSession(getSessionFactory());
             Criteria criteria = criteriaGetter.getCriteria(session);
             Object cntObj = criteria.setProjection(Projections.rowCount())
                     .uniqueResult();
@@ -448,10 +447,9 @@ public class BaseDaoDB implements BaseDao {
             e.printStackTrace();
             return 0L;
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
-
 
     /**
      * 通过关联查询配置分页查询记录
@@ -462,7 +460,7 @@ public class BaseDaoDB implements BaseDao {
     protected BaseRecords<?> find(CriteriaGetter criteriaGetter) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
+            session = getSessionHandler().openSession(getSessionFactory());
             Criteria criteria = criteriaGetter.getCriteria(session);
             if (criteriaGetter.getPage() > 0 && criteriaGetter.getRows() > 0) { // 分页
                 long total = 0;
@@ -480,7 +478,7 @@ public class BaseDaoDB implements BaseDao {
             e.printStackTrace();
             return new BaseRecords<>();
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 
@@ -493,14 +491,14 @@ public class BaseDaoDB implements BaseDao {
     protected Object findUnique(CriteriaGetter criteriaGetter) {
         Session session = null;
         try {
-            session = sessionHandler.openSession(getSessionFactory());
+            session = getSessionHandler().openSession(getSessionFactory());
             Criteria criteria = criteriaGetter.getCriteria(session);
             return criteria.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         } finally {
-            sessionHandler.closeSession(session);
+            getSessionHandler().closeSession(session);
         }
     }
 }
