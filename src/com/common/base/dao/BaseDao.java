@@ -1,6 +1,8 @@
 package com.common.base.dao;
 
 import com.common.base.BaseRecords;
+import com.common.base.dao.impl.QueryCondition;
+import com.common.base.dao.impl.querycondition.ObjectQuery;
 
 import java.util.List;
 
@@ -33,99 +35,17 @@ public interface BaseDao {
     public void saveOrUpdate(Object o);
 
     /**
-     * 分页查找所有对象
+     * 查找所有对象
      */
-    public BaseRecords<?> find(Class<?> cls);
-
-    /**
-     * 分页查找所有对象
-     */
-    public List<?> find2(Class<?> cls);
-
-    /**
-     * 分页查找所有对象
-     */
-    public BaseRecords<?> find(Class<?> cls, int page, int rows);
-
-    /**
-     * 分页查找所有对象
-     */
-    public List<?> find2(Class<?> cls, int page, int rows);
-
-    /**
-     * 分页查找满足某一条件的所有对象
-     */
-    public BaseRecords<?> find(Class<?> cls, String key, Object value);
-
-    /**
-     * 分页查找满足某一条件的所有对象
-     */
-    public List<?> find2(Class<?> cls, String key, Object value);
-
-    /**
-     * 分页查找满足某一条件的所有对象
-     */
-    public BaseRecords<?> find(Class<?> cls, String key, Object value, int page, int rows);
-
-    /**
-     * 分页查找满足某一条件的所有对象
-     */
-    public List<?> find2(Class<?> cls, String key, Object value, int page, int rows);
-
-    /**
-     * 分页排序查找所有对象
-     */
-    public BaseRecords<?> findOrderBy(Class<?> cls, String orderby, boolean ifdesc);
-
-    /**
-     * 分页排序查找所有对象
-     */
-    public List<?> findOrderBy2(Class<?> cls, String orderby, boolean ifdesc);
-
-
-    /**
-     * 分页排序查找所有对象
-     */
-    public BaseRecords<?> findOrderBy(Class<?> cls, String orderby, boolean ifdesc, int page, int rows);
-
-    /**
-     * 分页排序查找所有对象
-     */
-    public List<?> findOrderBy2(Class<?> cls, String orderby, boolean ifdesc, int page, int rows);
-
-
-    /**
-     * 分页排序查找满足某一条件的所有对象
-     */
-    public BaseRecords<?> findOrderBy(Class<?> cls, String key, Object value, String orderby, boolean ifdesc);
-
-    /**
-     * 分页排序查找满足某一条件的所有对象
-     */
-    public List<?> findOrderBy2(Class<?> cls, String key, Object value, String orderby, boolean ifdesc);
-
-    /**
-     * 分页排序查找满足某一条件的所有对象
-     */
-    public BaseRecords<?> findOrderBy(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, int page, int rows);
-
-    /**
-     * 分页排序查找满足某一条件的所有对象
-     */
-    public List<?> findOrderBy2(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, int page, int rows);
+    public BaseRecords<?> find(ObjectQuery query);
 
     /**
      * 查找唯一对象，如果对象不存在，返回NULL
      */
-    public Object findUnique(Class<?> cls, String key, Object value);
+    public Object findUnique(ObjectQuery query);
 
     /**
      * 获得记录数
      */
-    public long count(Class<?> cls);
-
-    /**
-     * 获得记录数
-     */
-    public long count(Class<?> cls, String key, Object value);
+    public long count(ObjectQuery query);
 }

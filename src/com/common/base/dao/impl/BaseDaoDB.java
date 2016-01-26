@@ -3,6 +3,10 @@ package com.common.base.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.common.base.dao.impl.querycondition.CriteriaGetter;
+import com.common.base.dao.impl.querycondition.HQL;
+import com.common.base.dao.impl.querycondition.ObjectQuery;
+import com.common.base.dao.impl.querycondition.SQL;
 import com.common.base.dao.impl.sessionhandler.ThreadSessionHandler;
 import org.hibernate.*;
 import org.hibernate.criterion.Order;
@@ -119,468 +123,68 @@ public class BaseDaoDB implements BaseDao {
     }
 
     /**
-     * 查找所有类型为E的对象集
-     *
-     * @param cls : 待查找的对象类型
-     * @return : 对象集
-     */
-    @Override
-    public BaseRecords<?> find(Class<?> cls) {
-        return this.find(cls, -1, -1);
-    }
-
-    /**
-     * 查找所有类型为E的对象集
-     *
-     * @param cls : 待查找的对象类型
-     * @return : 对象集
-     */
-    @Override
-    public List<?> find2(Class<?> cls) {
-        return this.find2(cls, -1, -1);
-    }
-
-    /**
-     * 分页查找所有类型为E的对象集
-     *
-     * @param cls  : 待查找的对象类型
-     * @param page : 页码
-     * @param rows : 每页条数
-     * @return : 对象集
-     */
-    @Override
-    public BaseRecords<?> find(Class<?> cls, int page, int rows) {
-        Session session = null;
-        try {
-            session = sessionHandler.openSession(getSessionFactory());
-            Criteria criteria = session.createCriteria(cls);
-
-            // page和rows 都 >0 时返回分页数据
-            if (page > 0 && rows > 0) {
-                long total = count(cls);
-                criteria.setFirstResult((page - 1) * rows);
-                criteria.setMaxResults(rows);
-                return new BaseRecords(criteria.list(), total, page, rows);
-            } else {
-                return new BaseRecords(criteria.list());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new BaseRecords<>();
-        } finally {
-            sessionHandler.closeSession(session);
-        }
-    }
-
-    /**
-     * 分页查找所有类型为E的对象集
-     *
-     * @param cls  : 待查找的对象类型
-     * @param page : 页码
-     * @param rows : 每页条数
-     * @return : 对象集
-     */
-    @Override
-    public List<?> find2(Class<?> cls, int page, int rows) {
-        Session session = null;
-        try {
-            session = sessionHandler.openSession(getSessionFactory());
-            Criteria criteria = session.createCriteria(cls);
-
-            // page和rows 都 >0 时返回分页数据
-            if (page > 0 && rows > 0) {
-                criteria.setFirstResult((page - 1) * rows);
-                criteria.setMaxResults(rows);
-            }
-            return criteria.list();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        } finally {
-            sessionHandler.closeSession(session);
-        }
-    }
-
-    /**
-     * 查找满足某一条件的所有类型为E的对象
-     *
-     * @param cls   : 待查找对象类型
-     * @param key   : 条件名
-     * @param value ： 条件值
-     * @return ： 对象集
-     */
-    @Override
-    public BaseRecords<?> find(Class<?> cls, String key, Object value) {
-        return this.find(cls, key, value, -1, -1);
-    }
-
-    /**
-     * 查找满足某一条件的所有类型为E的对象
-     *
-     * @param cls   : 待查找对象类型
-     * @param key   : 条件名
-     * @param value ： 条件值
-     * @return ： 对象集
-     */
-    @Override
-    public List<?> find2(Class<?> cls, String key, Object value) {
-        return this.find2(cls, key, value, -1, -1);
-    }
-
-    /**
-     * 分页查找满足某一条件的所有类型为E的对象
-     *
-     * @param cls   : 待查找对象类型
-     * @param key   : 条件名
-     * @param value ： 条件值
-     * @param page  : 页码
-     * @param rows  : 每页行数
-     * @return ： 对象集
-     */
-    @Override
-    public BaseRecords<?> find(Class<?> cls, String key, Object value, int page, int rows) {
-        Session session = null;
-        try {
-            session = sessionHandler.openSession(getSessionFactory());
-            Criteria criteria = session.createCriteria(cls);
-
-            criteria.add(Restrictions.eq(key, value));
-
-            if (page > 0 && rows > 0) {
-                long total = count(cls, key, value);
-                criteria.setFirstResult((page - 1) * rows);
-                criteria.setMaxResults(rows);
-                return new BaseRecords(criteria.list(), total, page, rows);
-            } else {
-                return new BaseRecords(criteria.list());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new BaseRecords<>();
-        } finally {
-            sessionHandler.closeSession(session);
-        }
-    }
-
-    /**
-     * 分页查找满足某一条件的所有类型为E的对象
-     *
-     * @param cls   : 待查找对象类型
-     * @param key   : 条件名
-     * @param value ： 条件值
-     * @param page  : 页码
-     * @param rows  : 每页行数
-     * @return ： 对象集
-     */
-    @Override
-    public List<?> find2(Class<?> cls, String key, Object value, int page, int rows) {
-        Session session = null;
-        try {
-            session = sessionHandler.openSession(getSessionFactory());
-            Criteria criteria = session.createCriteria(cls);
-
-            criteria.add(Restrictions.eq(key, value));
-
-            if (page > 0 && rows > 0) {
-                criteria.setFirstResult((page - 1) * rows);
-                criteria.setMaxResults(rows);
-            }
-            return criteria.list();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        } finally {
-            sessionHandler.closeSession(session);
-        }
-    }
-
-    /**
-     * 排序查找所有对象
-     *
-     * @param cls     : 待查找对象类型
-     * @param orderby : 待排序字段
-     * @param ifdesc  : true--> DESC排序,false--> ASC排序
-     * @return ： 对象集
-     */
-    @Override
-    public BaseRecords<?> findOrderBy(Class<?> cls, String orderby, boolean ifdesc) {
-        return this.findOrderBy(cls, orderby, ifdesc, -1, -1);
-    }
-
-    /**
-     * 排序查找所有对象
-     *
-     * @param cls     : 待查找对象类型
-     * @param orderby : 待排序字段
-     * @param ifdesc  : true--> DESC排序,false--> ASC排序
-     * @return ： 对象集
-     */
-    @Override
-    public List<?> findOrderBy2(Class<?> cls, String orderby, boolean ifdesc) {
-        return this.findOrderBy2(cls, orderby, ifdesc, -1, -1);
-    }
-
-    /**
-     * 分页排序查找所有对象
-     *
-     * @param cls     : 待查找对象类型
-     * @param orderby : 待排序字段
-     * @param ifdesc  : true--> DESC排序,false--> ASC排序
-     * @param page    : 页码
-     * @param rows    : 每页数量
-     * @return ： 对象集
-     */
-    @Override
-    public BaseRecords<?> findOrderBy(Class<?> cls, String orderby, boolean ifdesc, int page, int rows) {
-        Session session = null;
-        try {
-            session = sessionHandler.openSession(getSessionFactory());
-            Criteria criteria = session.createCriteria(cls);
-            if (orderby != null && !orderby.equals("")) {
-                if (ifdesc)
-                    criteria.addOrder(Order.desc(orderby));
-                else
-                    criteria.addOrder(Order.asc(orderby));
-            }
-            // page和rows 都 >0 时返回分页数据
-            if (page > 0 && rows > 0) {
-                long total = count(cls);
-                criteria.setFirstResult((page - 1) * rows);
-                criteria.setMaxResults(rows);
-                return new BaseRecords(criteria.list(), total, page, rows);
-            } else {
-                return new BaseRecords(criteria.list());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new BaseRecords<>();
-        } finally {
-            sessionHandler.closeSession(session);
-        }
-    }
-
-    /**
-     * 分页排序查找所有对象
-     *
-     * @param cls     : 待查找对象类型
-     * @param orderby : 待排序字段
-     * @param ifdesc  : true--> DESC排序,false--> ASC排序
-     * @param page    : 页码
-     * @param rows    : 每页数量
-     * @return ： 对象集
-     */
-    @Override
-    public List<?> findOrderBy2(Class<?> cls, String orderby, boolean ifdesc, int page, int rows) {
-        Session session = null;
-        try {
-            session = sessionHandler.openSession(getSessionFactory());
-            Criteria criteria = session.createCriteria(cls);
-            if (orderby != null && !orderby.equals("")) {
-                if (ifdesc)
-                    criteria.addOrder(Order.desc(orderby));
-                else
-                    criteria.addOrder(Order.asc(orderby));
-            }
-            // page和rows 都 >0 时返回分页数据
-            if (page > 0 && rows > 0) {
-                criteria.setFirstResult((page - 1) * rows);
-                criteria.setMaxResults(rows);
-            }
-            return criteria.list();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        } finally {
-            sessionHandler.closeSession(session);
-        }
-    }
-
-    /**
-     * 排序查找满足某一条件的所有对象带分页
-     *
-     * @param cls     : 待查找对象类型
-     * @param key     : 条件字段
-     * @param value   : 条件值
-     * @param orderby : 待排序字段
-     * @param ifdesc  : true--> DESC排序,false--> ASC排序
-     * @return ： 对象集
-     */
-    @Override
-    public BaseRecords<?> findOrderBy(Class<?> cls, String key, Object value, String orderby, boolean ifdesc) {
-        return this.findOrderBy(cls, key, value, orderby, ifdesc, -1, -1);
-    }
-
-    /**
-     * 排序查找满足某一条件的所有对象带分页
-     *
-     * @param cls     : 待查找对象类型
-     * @param key     : 条件字段
-     * @param value   : 条件值
-     * @param orderby : 待排序字段
-     * @param ifdesc  : true--> DESC排序,false--> ASC排序
-     * @return ： 对象集
-     */
-    @Override
-    public List<?> findOrderBy2(Class<?> cls, String key, Object value, String orderby, boolean ifdesc) {
-        return this.findOrderBy2(cls, key, value, orderby, ifdesc, -1, -1);
-    }
-
-    /**
      * 分页排序查找满足某一条件的所有对象带分页
      *
-     * @param cls     : 待查找对象类型
-     * @param key     : 条件字段
-     * @param value   : 条件值
-     * @param orderby : 待排序字段
-     * @param ifdesc  : true--> DESC排序,false--> ASC排序
-     * @param page    : 页码
-     * @param rows    : 每页数量
+     * @param query : 查找
      * @return ： 对象集
      */
     @Override
-    public BaseRecords<?> findOrderBy(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, int page, int rows) {
-        Session session = null;
-        try {
-            session = sessionHandler.openSession(getSessionFactory());
-            Criteria criteria = session.createCriteria(cls);
+    public BaseRecords find(final ObjectQuery query) {
+        return find(new CriteriaGetter(query.getPage(), query.getRows(), query.ifRetrievePages()) {
+            @Override
+            public Criteria getCriteria(Session session) {
+                Criteria criteria = session.createCriteria(query.getCls());
+                if (query.getOrder() != null) {
+                    if (query.getOrder().getValue())
+                        criteria.addOrder(Order.desc(query.getOrder().getKey()));
+                    else
+                        criteria.addOrder(Order.asc(query.getOrder().getKey()));
+                }
+                if (query.getKeyVal() != null)
+                    criteria.add(Restrictions.eq(query.getKeyVal().getKey(), query.getKeyVal().getValue()));
 
-            if (orderby != null && !orderby.equals("")) {
-                if (ifdesc)
-                    criteria.addOrder(Order.desc(orderby));
-                else
-                    criteria.addOrder(Order.asc(orderby));
+                return criteria;
             }
-
-            criteria.add(Restrictions.eq(key, value));
-
-            if (page > 0 && rows > 0) {
-                long total = count(cls, key, value);
-                criteria.setFirstResult((page - 1) * rows);
-                criteria.setMaxResults(rows);
-                return new BaseRecords(criteria.list(), total, page, rows);
-            } else {
-                return new BaseRecords(criteria.list());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new BaseRecords<>();
-        } finally {
-            sessionHandler.closeSession(session);
-        }
-    }
-
-    /**
-     * 分页排序查找满足某一条件的所有对象带分页
-     *
-     * @param cls     : 待查找对象类型
-     * @param key     : 条件字段
-     * @param value   : 条件值
-     * @param orderby : 待排序字段
-     * @param ifdesc  : true--> DESC排序,false--> ASC排序
-     * @param page    : 页码
-     * @param rows    : 每页数量
-     * @return ： 对象集
-     */
-    @Override
-    public List<?> findOrderBy2(Class<?> cls, String key, Object value, String orderby, boolean ifdesc, int page, int rows) {
-        Session session = null;
-        try {
-            session = sessionHandler.openSession(getSessionFactory());
-            Criteria criteria = session.createCriteria(cls);
-
-            if (orderby != null && !orderby.equals("")) {
-                if (ifdesc)
-                    criteria.addOrder(Order.desc(orderby));
-                else
-                    criteria.addOrder(Order.asc(orderby));
-            }
-
-            criteria.add(Restrictions.eq(key, value));
-
-            if (page > 0 && rows > 0) {
-                criteria.setFirstResult((page - 1) * rows);
-                criteria.setMaxResults(rows);
-            }
-            return criteria.list();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        } finally {
-            sessionHandler.closeSession(session);
-        }
+        });
     }
 
     /**
      * 查找满足某条件的类型为E的唯一对象
      *
-     * @param cls   : 待查找对象类型
-     * @param key   : 条件名
-     * @param value : 条件值
+     * @param query : 查找
      * @return : 对象
      */
     @Override
-    public Object findUnique(Class<?> cls, String key, Object value) {
-        Session session = null;
-        try {
-            session = sessionHandler.openSession(getSessionFactory());
-            Criteria criteria = session.createCriteria(cls);
-            criteria.add(Restrictions.eq(key, value));
-            return criteria.uniqueResult();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            sessionHandler.closeSession(session);
-        }
-    }
+    public Object findUnique(final ObjectQuery query) {
+        return find(new CriteriaGetter() {
+            @Override
+            public Criteria getCriteria(Session session) {
+                Criteria criteria = session.createCriteria(query.getCls());
+                if (query.getKeyVal() != null)
+                    criteria.add(Restrictions.eq(query.getKeyVal().getKey(), query.getKeyVal().getValue()));
 
-    /**
-     * 获得类型为E的对象数
-     *
-     * @param cls ： 待查找的对象类型
-     * @return ： 对象的数量
-     */
-    @Override
-    public long count(Class<?> cls) {
-        Session session = null;
-        try {
-            session = sessionHandler.openSession(getSessionFactory());
-            Criteria criteria = session.createCriteria(cls);
-            criteria.setProjection(Projections.rowCount());
-            Object cntObj = criteria.uniqueResult();
-            return ((Number) cntObj).longValue();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0L;
-        } finally {
-            sessionHandler.closeSession(session);
-        }
+                return criteria;
+            }
+        });
     }
 
     /**
      * 获得满足某条件的类型为E的对象数
      *
-     * @param cls   : 待查找对象类型
-     * @param key   : 条件名
-     * @param value : 条件值
+     * @param query : 查找
      * @return ： 对象数量
      */
     @Override
-    public long count(Class<?> cls, String key, Object value) {
-        Session session = null;
-        try {
-            session = sessionHandler.openSession(getSessionFactory());
-            Criteria criteria = session.createCriteria(cls);
-            criteria.add(Restrictions.eq(key, value));
-            criteria.setProjection(Projections.rowCount());
-            Object cntObj = criteria.uniqueResult();
-            return ((Number) cntObj).longValue();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0L;
-        } finally {
-            sessionHandler.closeSession(session);
-        }
+    public long count(final ObjectQuery query) {
+        return count(new CriteriaGetter() {
+            @Override
+            public Criteria getCriteria(Session session) {
+                Criteria criteria = session.createCriteria(query.getCls());
+                if (query.getKeyVal() != null)
+                    criteria.add(Restrictions.eq(query.getKeyVal().getKey(), query.getKeyVal().getValue()));
+                return criteria;
+            }
+        });
     }
 
     /*******************************************以下方法非BaseDao定义***********************************************/

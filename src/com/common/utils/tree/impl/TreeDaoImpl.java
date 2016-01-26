@@ -2,7 +2,7 @@ package com.common.utils.tree.impl;
 
 import com.common.base.BaseRecords;
 import com.common.base.dao.impl.BaseDaoDB;
-import com.common.base.dao.impl.HQL;
+import com.common.base.dao.impl.querycondition.HQL;
 import com.common.utils.tree.TreeDao;
 import com.common.utils.tree.model.TreeNode;
 import com.common.utils.tree.model.TreeNodeRelation;

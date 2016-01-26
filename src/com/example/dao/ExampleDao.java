@@ -1,6 +1,6 @@
 package com.example.dao;
 
-import com.common.base.dao.impl.CriteriaGetter;
+import com.common.base.dao.impl.querycondition.CriteriaGetter;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;

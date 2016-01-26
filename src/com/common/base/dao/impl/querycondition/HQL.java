@@ -1,29 +1,26 @@
-package com.common.base.dao.impl;
+package com.common.base.dao.impl.querycondition;
 
+import com.common.base.dao.impl.QueryCondition;
 import com.common.utils.StringExpression;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * SQL适配器
+ * HQL语句适配器
  *
  * @author DongJun
  */
-public class SQL extends StringExpression implements QueryCondition {
+public class HQL extends StringExpression implements QueryCondition {
     private int page;//页码，从1开始
     private int rows;//每页行数
     private boolean retrievepages;//是否获取总页数
 
-
     /**
-     * 适配带可变参数的sql语句,参数用?通配符替换
+     * 适配带可变参数的hql语句,参数用?通配符替换
      *
-     * @param sql
-     * @param params
+     * @param hql    hql语句
+     * @param params 参数
      */
-    public SQL(String sql, Object... params) {
-        super(sql);
+    public HQL(String hql, Object... params) {
+        super(hql);
         setPage(-1);
         setRows(-1);
         setRetrievePages(true);
@@ -33,7 +30,7 @@ public class SQL extends StringExpression implements QueryCondition {
     }
 
     /**
-     * 转换成sql语句
+     * 转换成hql语句
      */
     @Override
     public String toString() {
@@ -45,17 +42,21 @@ public class SQL extends StringExpression implements QueryCondition {
      *
      * @return HQL语句
      */
-    public String getSQLString() {
+    public String getHQLString() {
         return super.toString();
     }
 
     /**
-     * 将查询语句转换成获取数据数量的SQL
+     * 将查询语句转换成获取数据数量的HQL
+     * <p/>
+     * 重写该方法以获得查询数量的HQL语句
      */
-    public SQL getCountSQL() {
-        String countsql = this.toString();
-        if (countsql.toLowerCase().startsWith("select")) {
-            return (SQL) new SQL(countsql).r("select", "from", " count(*) ");
+    public HQL getCountHQL() {
+        String counthql = this.toString();
+        if (counthql.toLowerCase().startsWith("select")) {
+            return (HQL) new HQL(counthql).r("select", "from", " count(*) ");
+        } else if (counthql.toLowerCase().startsWith("from")) {
+            return new HQL("select count(*) " + counthql);
         } else {
             return null;
         }
@@ -63,7 +64,7 @@ public class SQL extends StringExpression implements QueryCondition {
 
     @Override
     public boolean ifRetrievePages() {
-        return retrievepages;
+        return this.retrievepages;
     }
 
     @Override

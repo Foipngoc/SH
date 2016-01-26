@@ -1,5 +1,6 @@
-package com.common.base.dao.impl;
+package com.common.base.dao.impl.querycondition;
 
+import com.common.base.dao.impl.QueryCondition;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
@@ -15,6 +16,18 @@ public abstract class CriteriaGetter implements QueryCondition {
         setPage(-1);
         setRows(-1);
         setRetrievePages(true);
+    }
+
+    public CriteriaGetter(int page, int rows) {
+        setPage(page);
+        setRows(rows);
+        setRetrievePages(true);
+    }
+
+    public CriteriaGetter(int page, int rows,boolean retrievepages) {
+        setPage(page);
+        setRows(rows);
+        setRetrievePages(retrievepages);
     }
 
     /**
