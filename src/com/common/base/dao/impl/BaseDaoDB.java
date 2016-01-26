@@ -1,11 +1,9 @@
 package com.common.base.dao.impl;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.common.base.dao.SessionHandler;
+import com.common.base.dao.impl.sessionhandler.ThreadSessionHandler;
 import org.hibernate.*;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;

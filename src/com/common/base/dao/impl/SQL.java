@@ -10,53 +10,11 @@ import java.util.List;
  *
  * @author DongJun
  */
-public class SQL extends StringExpression {
+public class SQL extends StringExpression implements QueryCondition {
     private int page;//页码，从1开始
     private int rows;//每页行数
     private boolean retrievepages;//是否获取总页数
 
-    public boolean ifRetrievePages() {
-        return retrievepages;
-    }
-
-    /**
-     * 设置是否同时获取数据总页数
-     *
-     * 可通过重写getCountSQL方法获得新的sql语句
-     *
-     * @param retrievepages
-     */
-    public void setRetrievePages(boolean retrievepages) {
-        this.retrievepages = retrievepages;
-    }
-
-    public int getPage() {
-        return page;
-    }
-
-    /**
-     * 设置页码，从1开始
-     *
-     * @param page 页码
-     * @return 自身
-     */
-    public SQL setPage(int page) {
-        this.page = page;
-        return this;
-    }
-
-    public int getRows() {
-        return rows;
-    }
-
-    /**
-     * @param rows 每页行数
-     * @return 自身
-     */
-    public SQL setRows(int rows) {
-        this.rows = rows;
-        return this;
-    }
 
     /**
      * 适配带可变参数的sql语句,参数用?通配符替换
@@ -101,5 +59,38 @@ public class SQL extends StringExpression {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public boolean ifRetrievePages() {
+        return retrievepages;
+    }
+
+    @Override
+    public QueryCondition setRetrievePages(boolean retrievepages) {
+        this.retrievepages = retrievepages;
+        return this;
+    }
+
+    @Override
+    public int getPage() {
+        return this.page;
+    }
+
+    @Override
+    public QueryCondition setPage(int page) {
+        this.page = page;
+        return this;
+    }
+
+    @Override
+    public int getRows() {
+        return this.rows;
+    }
+
+    @Override
+    public QueryCondition setRows(int rows) {
+        this.rows = rows;
+        return this;
     }
 }

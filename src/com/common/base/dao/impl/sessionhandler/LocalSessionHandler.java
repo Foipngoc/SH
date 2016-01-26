@@ -1,6 +1,6 @@
-package com.common.base.dao.impl;
+package com.common.base.dao.impl.sessionhandler;
 
-import com.common.base.dao.SessionHandler;
+import com.common.base.dao.impl.SessionHandler;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 

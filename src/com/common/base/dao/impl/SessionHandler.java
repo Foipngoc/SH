@@ -1,4 +1,4 @@
-package com.common.base.dao;
+package com.common.base.dao.impl;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
