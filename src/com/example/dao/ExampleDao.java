@@ -1,5 +1,6 @@
 package com.example.dao;
 
+import com.common.base.dao.impl.CriteriaGetter;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -37,7 +38,7 @@ public class ExampleDao extends BaseDaoDB {
                     public Criteria getCriteria(Session session) {
                         return session.createCriteria(Student.class).createCriteria("room");
                     }
-                }, page, rows);
+                }.setPage(page).setRows(rows));
 
         return student;
     }
