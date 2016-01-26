@@ -1,10 +1,7 @@
 package com.common.base.dao;
 
 import com.common.base.BaseRecords;
-import com.common.base.dao.impl.QueryCondition;
 import com.common.base.dao.impl.querycondition.ObjectQuery;
-
-import java.util.List;
 
 /**
  * BaseDao定义一些常用的接口

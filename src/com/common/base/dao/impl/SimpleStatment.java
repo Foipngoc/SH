@@ -3,7 +3,7 @@ package com.common.base.dao.impl;
 /**
  * Created by DJ on 2016/1/26.
  */
-public interface QueryCondition {
+public interface SimpleStatment {
 
     /**
      * 获得是否查询同时获得总页数
@@ -18,7 +18,7 @@ public interface QueryCondition {
      *
      * @param retrievepages true/false
      */
-    public QueryCondition setRetrievePages(boolean retrievepages);
+    public SimpleStatment setRetrievePages(boolean retrievepages);
 
     /**
      * 获得当前页数
@@ -33,7 +33,7 @@ public interface QueryCondition {
      * @param page 页码
      * @return 自身
      */
-    public QueryCondition setPage(int page);
+    public SimpleStatment setPage(int page);
 
     /**
      * 获得当前查询每页数量
@@ -46,7 +46,7 @@ public interface QueryCondition {
      * @param rows 每页行数
      * @return 自身
      */
-    public QueryCondition setRows(int rows);
+    public SimpleStatment setRows(int rows);
 
     /**
      * 设置分页参数
@@ -55,5 +55,12 @@ public interface QueryCondition {
      * @param rows 每页数量
      * @return 自身
      */
-    public QueryCondition setPaging(int page, int rows);
+    public SimpleStatment setPaging(int page, int rows);
+
+    /**
+     * 获得查询的handler
+     *
+     * @return
+     */
+    public SessionHandler getSessionHandler();
 }

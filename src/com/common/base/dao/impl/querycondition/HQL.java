@@ -1,6 +1,7 @@
 package com.common.base.dao.impl.querycondition;
 
-import com.common.base.dao.impl.QueryCondition;
+import com.common.base.dao.impl.SimpleStatment;
+import com.common.base.dao.impl.SessionHandler;
 import com.common.utils.StringExpression;
 
 /**
@@ -8,10 +9,11 @@ import com.common.utils.StringExpression;
  *
  * @author DongJun
  */
-public class HQL extends StringExpression implements QueryCondition {
+public class HQL extends StringExpression implements SimpleStatment {
     private int page;//页码，从1开始
     private int rows;//每页行数
     private boolean retrievepages;//是否获取总页数
+    private SessionHandler sessionHandler = null;
 
     /**
      * 适配带可变参数的hql语句,参数用?通配符替换
@@ -99,6 +101,16 @@ public class HQL extends StringExpression implements QueryCondition {
     public HQL setPaging(int page, int rows) {
         setPage(page);
         setRows(rows);
+        return this;
+    }
+
+    @Override
+    public SessionHandler getSessionHandler() {
+        return this.sessionHandler;
+    }
+
+    public HQL setSessionHandler(SessionHandler sessionHandler) {
+        this.sessionHandler = sessionHandler;
         return this;
     }
 }

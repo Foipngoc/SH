@@ -1,16 +1,18 @@
 package com.common.base.dao.impl.querycondition;
 
-import com.common.base.dao.impl.QueryCondition;
+import com.common.base.dao.impl.SimpleStatment;
+import com.common.base.dao.impl.SessionHandler;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
 /**
  * Created by DJ on 2016/1/26.
  */
-public abstract class CriteriaGetter implements QueryCondition {
+public abstract class CriteriaGetter implements SimpleStatment {
     private int page;//页码，从1开始
     private int rows;//每页行数
     private boolean retrievepages;//是否获取总页数
+    private SessionHandler sessionHandler = null;
 
     public CriteriaGetter() {
         setPage(-1);
@@ -74,6 +76,16 @@ public abstract class CriteriaGetter implements QueryCondition {
     public CriteriaGetter setPaging(int page, int rows) {
         setPage(page);
         setRows(rows);
+        return this;
+    }
+
+    @Override
+    public SessionHandler getSessionHandler() {
+        return this.sessionHandler;
+    }
+
+    public CriteriaGetter setSessionHandler(SessionHandler sessionHandler) {
+        this.sessionHandler = sessionHandler;
         return this;
     }
 }

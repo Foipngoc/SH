@@ -1,18 +1,20 @@
 package com.common.base.dao.impl.querycondition;
 
-import com.common.base.dao.impl.QueryCondition;
+import com.common.base.dao.impl.SimpleStatment;
+import com.common.base.dao.impl.SessionHandler;
 import com.common.utils.KVEntry;
 
 /**
  * Created by DJ on 2016/1/26.
  */
-public class ObjectQuery implements QueryCondition {
+public class ObjectQuery implements SimpleStatment {
     private int page;//页码，从1开始
     private int rows;//每页行数
     private boolean retrievepages;//是否获取总页数
     private Class<?> cls = null;//待查询的对象
     private KVEntry<String, Object> kv = null;
     private KVEntry<String, Boolean> order = null;
+    private SessionHandler sessionHandler = null;
 
     @Override
     public boolean ifRetrievePages() {
@@ -153,6 +155,16 @@ public class ObjectQuery implements QueryCondition {
 
     public ObjectQuery setOrder(String orderby, boolean ifdesc) {
         this.order = new KVEntry<>(orderby, ifdesc);
+        return this;
+    }
+
+    @Override
+    public SessionHandler getSessionHandler() {
+        return this.sessionHandler;
+    }
+
+    public ObjectQuery setSessionHandler(SessionHandler sessionHandler) {
+        this.sessionHandler = sessionHandler;
         return this;
     }
 }

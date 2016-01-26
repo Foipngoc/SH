@@ -13,6 +13,7 @@ import com.common.base.dao.impl.BaseDaoDB;
 @Repository("exampleDao")
 public class ExampleDao extends BaseDaoDB {
 
+
     public ExampleDao() {
         System.out.println("ExampleDao inited!!");
     }
@@ -20,13 +21,14 @@ public class ExampleDao extends BaseDaoDB {
     public BaseRecords<Student> queryAllStu() {
         @SuppressWarnings("unchecked")
         BaseRecords<Student> student = (BaseRecords<Student>) super
-                .find(new CriteriaGetter() {
+                .find(new CriteriaGetter(1, 1) {
                     @Override
                     public Criteria getCriteria(Session session) {
                         return session.createCriteria(Student.class);
                     }
-                });
+                }.setRetrievePages(false));
 
+        super.save(new Student());
         return student;
     }
 
