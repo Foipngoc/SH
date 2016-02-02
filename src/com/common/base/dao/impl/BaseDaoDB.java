@@ -124,7 +124,7 @@ public class BaseDaoDB implements BaseDao {
      */
     @Override
     public BaseRecords find(final ObjectQuery query) {
-        return find(new CriteriaGetter(query.getPage(), query.getRows(), query.ifRetrievePages()) {
+        return find(new CriteriaQuery(query.getPage(), query.getRows(), query.ifRetrievePages()) {
             @Override
             public Criteria getCriteria(Session session) {
                 Criteria criteria = session.createCriteria(query.getCls());
@@ -150,7 +150,7 @@ public class BaseDaoDB implements BaseDao {
      */
     @Override
     public Object findUnique(final ObjectQuery query) {
-        return find(new CriteriaGetter() {
+        return find(new CriteriaQuery() {
             @Override
             public Criteria getCriteria(Session session) {
                 Criteria criteria = session.createCriteria(query.getCls());
@@ -170,7 +170,7 @@ public class BaseDaoDB implements BaseDao {
      */
     @Override
     public long count(final ObjectQuery query) {
-        return count(new CriteriaGetter() {
+        return count(new CriteriaQuery() {
             @Override
             public Criteria getCriteria(Session session) {
                 Criteria criteria = session.createCriteria(query.getCls());
@@ -430,7 +430,7 @@ public class BaseDaoDB implements BaseDao {
      * @param criteriaGetter 关联查询对象
      * @return 数据数量
      */
-    protected long count(CriteriaGetter criteriaGetter) {
+    protected long count(CriteriaQuery criteriaGetter) {
         Session session = null;
         try {
             session = getSessionHandler(criteriaGetter).openSession(getSessionFactory());
@@ -452,7 +452,7 @@ public class BaseDaoDB implements BaseDao {
      * @param criteriaGetter 关联查询对象
      * @return ： 数据集
      */
-    protected BaseRecords<?> find(CriteriaGetter criteriaGetter) {
+    protected BaseRecords<?> find(CriteriaQuery criteriaGetter) {
         Session session = null;
         try {
             session = getSessionHandler(criteriaGetter).openSession(getSessionFactory());
@@ -483,7 +483,7 @@ public class BaseDaoDB implements BaseDao {
      * @param criteriaGetter
      * @return 对象
      */
-    protected Object findUnique(CriteriaGetter criteriaGetter) {
+    protected Object findUnique(CriteriaQuery criteriaGetter) {
         Session session = null;
         try {
             session = getSessionHandler(criteriaGetter).openSession(getSessionFactory());

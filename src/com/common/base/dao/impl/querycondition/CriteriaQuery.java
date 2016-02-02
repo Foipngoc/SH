@@ -8,25 +8,25 @@ import org.hibernate.Session;
 /**
  * Created by DJ on 2016/1/26.
  */
-public abstract class CriteriaGetter implements SimpleStatment {
+public abstract class CriteriaQuery implements SimpleStatment {
     private int page;//页码，从1开始
     private int rows;//每页行数
     private boolean retrievepages;//是否获取总页数
     private SessionHandler sessionHandler = null;
 
-    public CriteriaGetter() {
+    public CriteriaQuery() {
         setPage(-1);
         setRows(-1);
         setRetrievePages(true);
     }
 
-    public CriteriaGetter(int page, int rows) {
+    public CriteriaQuery(int page, int rows) {
         setPage(page);
         setRows(rows);
         setRetrievePages(true);
     }
 
-    public CriteriaGetter(int page, int rows, boolean retrievepages) {
+    public CriteriaQuery(int page, int rows, boolean retrievepages) {
         setPage(page);
         setRows(rows);
         setRetrievePages(retrievepages);
@@ -45,7 +45,7 @@ public abstract class CriteriaGetter implements SimpleStatment {
     }
 
     @Override
-    public CriteriaGetter setRetrievePages(boolean retrievepages) {
+    public CriteriaQuery setRetrievePages(boolean retrievepages) {
         this.retrievepages = retrievepages;
         return this;
     }
@@ -56,7 +56,7 @@ public abstract class CriteriaGetter implements SimpleStatment {
     }
 
     @Override
-    public CriteriaGetter setPage(int page) {
+    public CriteriaQuery setPage(int page) {
         this.page = page;
         return this;
     }
@@ -67,13 +67,13 @@ public abstract class CriteriaGetter implements SimpleStatment {
     }
 
     @Override
-    public CriteriaGetter setRows(int rows) {
+    public CriteriaQuery setRows(int rows) {
         this.rows = rows;
         return this;
     }
 
     @Override
-    public CriteriaGetter setPaging(int page, int rows) {
+    public CriteriaQuery setPaging(int page, int rows) {
         setPage(page);
         setRows(rows);
         return this;
@@ -84,7 +84,7 @@ public abstract class CriteriaGetter implements SimpleStatment {
         return this.sessionHandler;
     }
 
-    public CriteriaGetter setSessionHandler(SessionHandler sessionHandler) {
+    public CriteriaQuery setSessionHandler(SessionHandler sessionHandler) {
         this.sessionHandler = sessionHandler;
         return this;
     }

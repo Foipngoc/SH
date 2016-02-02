@@ -68,7 +68,7 @@ public class ObjectQuery implements SimpleStatment {
     /**
      * 查询满足某一条件的所有对象
      */
-    public ObjectQuery(Class<?> cls, String key, String val) {
+    public ObjectQuery(Class<?> cls, String key, Object val) {
         this.cls = cls;
         setKeyVal(key, val);
         setPage(-1);
@@ -88,7 +88,7 @@ public class ObjectQuery implements SimpleStatment {
     /**
      * 排序查询满足某一条件的所有对象
      */
-    public ObjectQuery(Class<?> cls, String key, String val, String orderby, boolean ifdesc) {
+    public ObjectQuery(Class<?> cls, String key, Object val, String orderby, boolean ifdesc) {
         this.cls = cls;
         setKeyVal(key, val);
         setOrder(orderby, ifdesc);
@@ -108,7 +108,7 @@ public class ObjectQuery implements SimpleStatment {
     /**
      * 查询满足某一条件的所有对象
      */
-    public ObjectQuery(Class<?> cls, String key, String val, int page, int rows) {
+    public ObjectQuery(Class<?> cls, String key, Object val, int page, int rows) {
         this.cls = cls;
         setKeyVal(key, val);
         setPage(page);
@@ -128,7 +128,7 @@ public class ObjectQuery implements SimpleStatment {
     /**
      * 排序查询满足某一条件的所有对象
      */
-    public ObjectQuery(Class<?> cls, String key, String val, String orderby, boolean ifdesc, int page, int rows) {
+    public ObjectQuery(Class<?> cls, String key, Object val, String orderby, boolean ifdesc, int page, int rows) {
         this.cls = cls;
         setKeyVal(key, val);
         setOrder(orderby, ifdesc);
@@ -140,7 +140,7 @@ public class ObjectQuery implements SimpleStatment {
         return cls;
     }
 
-    public KVEntry<String,Object> getKeyVal() {
+    public KVEntry<String, Object> getKeyVal() {
         return kv;
     }
 

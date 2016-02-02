@@ -1,6 +1,6 @@
 package com.example.dao;
 
-import com.common.base.dao.impl.querycondition.CriteriaGetter;
+import com.common.base.dao.impl.querycondition.CriteriaQuery;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -21,7 +21,7 @@ public class ExampleDao extends BaseDaoDB {
     public BaseRecords<Student> queryAllStu() {
         @SuppressWarnings("unchecked")
         BaseRecords<Student> student = (BaseRecords<Student>) super
-                .find(new CriteriaGetter(1, 1) {
+                .find(new CriteriaQuery(1, 1) {
                     @Override
                     public Criteria getCriteria(Session session) {
                         return session.createCriteria(Student.class);
@@ -35,7 +35,7 @@ public class ExampleDao extends BaseDaoDB {
     public BaseRecords<Student> queryAllStu(int page, int rows) {
         @SuppressWarnings("unchecked")
         BaseRecords<Student> student = (BaseRecords<Student>) super
-                .find(new CriteriaGetter(page, rows) {
+                .find(new CriteriaQuery(page, rows) {
                     @Override
                     public Criteria getCriteria(Session session) {
                         return session.createCriteria(Student.class).createCriteria("room");
@@ -47,7 +47,7 @@ public class ExampleDao extends BaseDaoDB {
 
     public Student queryStu(final int id) {
         return (Student) super
-                .findUnique(new CriteriaGetter() {
+                .findUnique(new CriteriaQuery() {
                     @Override
                     public Criteria getCriteria(Session session) {
                         return session.createCriteria(Student.class).add(Restrictions.eq("id", id)).createCriteria("room");
@@ -58,7 +58,7 @@ public class ExampleDao extends BaseDaoDB {
     @SuppressWarnings("unchecked")
     public BaseRecords<Room> queryRoom(int id) {
         return (BaseRecords<Room>) super.find(
-                new CriteriaGetter() {
+                new CriteriaQuery() {
                     @Override
                     public Criteria getCriteria(Session session) {
                         return session.createCriteria(Room.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
