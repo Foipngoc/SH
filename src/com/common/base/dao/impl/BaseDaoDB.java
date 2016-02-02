@@ -150,7 +150,7 @@ public class BaseDaoDB implements BaseDao {
      */
     @Override
     public Object findUnique(final ObjectQuery query) {
-        return find(new CriteriaQuery() {
+        return findUnique(new CriteriaQuery() {
             @Override
             public Criteria getCriteria(Session session) {
                 Criteria criteria = session.createCriteria(query.getCls());
