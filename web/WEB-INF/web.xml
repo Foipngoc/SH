@@ -101,6 +101,6 @@
     </error-page>
 
     <welcome-file-list>
-        <welcome-file>/filemanager/filemanager.jsp</welcome-file>
+        <welcome-file>/WEB-INF/page/jsp_template.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

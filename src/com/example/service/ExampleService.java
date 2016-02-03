@@ -1,19 +1,15 @@
 package com.example.service;
 
 import javax.annotation.Resource;
-import javax.transaction.Transactional;
-
-import com.common.base.service.BaseService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.stereotype.Service;
 
 import com.common.base.BaseRecords;
+import com.common.base.service.BaseService;
+import com.example.dao.model.Room;
+import com.example.dao.model.Student;
+import org.junit.Test;
+import org.springframework.stereotype.Service;
+
 import com.example.dao.ExampleDao;
-import com.example.dao.Room;
-import com.example.dao.Student;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @Service("exampleService")
 public class ExampleService extends BaseService{

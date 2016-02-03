@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.common.framework.OpenSessionInView;
+import com.example.dao.model.Room;
+import com.example.dao.model.Student;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,10 +23,8 @@ import com.common.base.BaseResult;
 import com.common.framework.FileDownload;
 import com.common.framework.FileUpload;
 import com.common.utils.LogUtils;
-import com.example.dao.Room;
-import com.example.dao.Student;
-import com.example.model.JSONModel;
-import com.example.model.POJOModel;
+import com.example.controller.model.JSONModel;
+import com.example.controller.model.POJOModel;
 import com.example.service.ExampleService;
 
 @Controller

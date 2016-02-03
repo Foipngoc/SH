@@ -1,1 +1,1 @@
-放置在WEB-INF中的jsp页面无法从url直接访问
+鏀剧疆鍦╓EB-INF涓殑jsp椤甸潰鏃犳硶浠巙rl鐩存帴璁块棶

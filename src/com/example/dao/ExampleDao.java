@@ -1,13 +1,15 @@
 package com.example.dao;
 
+import com.common.base.BaseRecords;
 import com.common.base.dao.impl.querycondition.CriteriaQuery;
+import com.example.dao.model.Room;
+import com.example.dao.model.Student;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.sql.JoinType;
 import org.springframework.stereotype.Repository;
 
-import com.common.base.BaseRecords;
 import com.common.base.dao.impl.BaseDaoDB;
 
 @Repository("exampleDao")
