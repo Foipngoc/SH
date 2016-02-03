@@ -4,6 +4,8 @@ import com.common.base.BaseRecords;
 import com.common.base.dao.impl.querycondition.CriteriaQuery;
 import com.example.dao.model.Room;
 import com.example.dao.model.Student;
+import com.example.dao.model.Room;
+import com.example.dao.model.Student;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -30,7 +32,6 @@ public class ExampleDao extends BaseDaoDB {
                     }
                 }.setRetrievePages(false));
 
-        super.save(new Student());
         return student;
     }
 
