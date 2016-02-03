@@ -145,10 +145,9 @@ public class Example {
      */
     @RequestMapping("/upload")
     @ResponseBody
-    public BaseResult upload(HttpServletRequest request,
-                             HttpServletResponse response) throws IllegalStateException,
+    public BaseResult upload(HttpServletRequest request) throws IllegalStateException,
             IOException {
-        FileUpload.upload(request, response, "d:/");
+        FileUpload.upload(request, "d:/");
         return BaseResult.newResultOK();
     }
 
