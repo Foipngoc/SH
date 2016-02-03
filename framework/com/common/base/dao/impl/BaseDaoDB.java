@@ -5,6 +5,7 @@ import java.util.List;
 import com.common.base.dao.impl.querycondition.*;
 import com.common.base.dao.impl.sessionhandler.ThreadSessionHandler;
 import org.hibernate.*;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -137,6 +138,9 @@ public class BaseDaoDB implements BaseDao {
                 if (query.getKeyVal() != null)
                     criteria.add(Restrictions.eq(query.getKeyVal().getKey(), query.getKeyVal().getValue()));
 
+                if (query.getLikeKeyVal() != null)
+                    criteria.add(Restrictions.like(query.getLikeKeyVal().getKey(),""+query.getLikeKeyVal().getValue(), MatchMode.ANYWHERE));
+
                 return criteria;
             }
         }.setSessionHandler(query.getSessionHandler()));
@@ -154,8 +158,12 @@ public class BaseDaoDB implements BaseDao {
             @Override
             public Criteria getCriteria(Session session) {
                 Criteria criteria = session.createCriteria(query.getCls());
+
                 if (query.getKeyVal() != null)
                     criteria.add(Restrictions.eq(query.getKeyVal().getKey(), query.getKeyVal().getValue()));
+
+                if (query.getLikeKeyVal() != null)
+                    criteria.add(Restrictions.like(query.getLikeKeyVal().getKey(),""+query.getLikeKeyVal().getValue(), MatchMode.ANYWHERE));
 
                 return criteria;
             }
@@ -174,8 +182,13 @@ public class BaseDaoDB implements BaseDao {
             @Override
             public Criteria getCriteria(Session session) {
                 Criteria criteria = session.createCriteria(query.getCls());
+
                 if (query.getKeyVal() != null)
                     criteria.add(Restrictions.eq(query.getKeyVal().getKey(), query.getKeyVal().getValue()));
+
+                if (query.getLikeKeyVal() != null)
+                    criteria.add(Restrictions.like(query.getLikeKeyVal().getKey(),""+query.getLikeKeyVal().getValue(), MatchMode.ANYWHERE));
+
                 return criteria;
             }
         }.setSessionHandler(query.getSessionHandler()));

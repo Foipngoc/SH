@@ -12,7 +12,8 @@ public class ObjectQuery implements SimpleStatment {
     private int rows = -1;//每页行数
     private boolean retrievepages = true;//是否获取总页数
     private Class<?> cls = null;//待查询的对象
-    private KVEntry<String, Object> kv = null;
+    private KVEntry<String, Object> kv = null; //某一字段=
+    private KVEntry<String,Object> likekv = null;//某一字段like
     private KVEntry<String, Boolean> order = null;
     private SessionHandler sessionHandler = null;
 
@@ -141,6 +142,11 @@ public class ObjectQuery implements SimpleStatment {
         return this;
     }
 
+    public ObjectQuery setLikeKeyVal(String key,Object value){
+        this.likekv = new KVEntry<>(key,value);
+        return this;
+    }
+
     public KVEntry<String, Boolean> getOrder() {
         return order;
     }
@@ -148,6 +154,10 @@ public class ObjectQuery implements SimpleStatment {
     public ObjectQuery setOrder(String orderby, boolean ifdesc) {
         this.order = new KVEntry<>(orderby, ifdesc);
         return this;
+    }
+
+    public KVEntry<String, Object> getLikeKeyVal() {
+        return likekv;
     }
 
     @Override

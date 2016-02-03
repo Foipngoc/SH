@@ -1,6 +1,9 @@
 package com.common.utils;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.util.Date;
@@ -87,7 +90,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
     /**
      * 写入文件，返回文件名 ,写入失败，返回null
      */
-    public static String writeToFile(File file, String path) {
+    private static String write(File file, String path) {
         // 写入文件
         InputStream in = null;
         OutputStream out = null;
@@ -127,7 +130,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
                 path = FileUtils
                         .renameFileName(path, "" + new Date().getTime());
             }
-            return writeToFile(file, path);
+            return write(file, path);
         }
         return new File(path).getName();
     }
@@ -135,11 +138,11 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
     /**
      * 判断同名文件是否存在，如果存在，进行重命名并保存 返回文件名 ,写入失败，返回null
      */
-    public static String writeToFile2(File file, String path) {
+    public static String writeToFile(File file, String path) {
         if (FileUtils.ifFileExist(path)) { // 文件名相同，需要进行重命名
             path = FileUtils.renameFileName(path, "" + new Date().getTime());
         }
-        return writeToFile(file, path);
+        return write(file, path);
     }
 
     /**
@@ -234,5 +237,50 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
      */
     public static String getMd5ByFile(String filename) {
         return getMd5ByFile(new File(filename));
+    }
+
+
+    /**
+     * 获得项目运行时项目路径
+     */
+    public static String getRealPath(HttpServletRequest request){
+        return request.getServletContext().getRealPath("/");
+    }
+
+    /**
+     * 获得项目运行时项目路径
+     */
+    public static String getRealPath(HttpServletRequest request,String path){
+        return request.getServletContext().getRealPath("/"+path);
+    }
+
+    /**
+     * 格式化文件大小
+     */
+    public static String formatFileSize(double size) {
+        double kiloByte = size/1024;
+        if(kiloByte < 1) {
+            return size + "Byte(s)";
+        }
+
+        double megaByte = kiloByte/1024;
+        if(megaByte < 1) {
+            BigDecimal result1 = new BigDecimal(Double.toString(kiloByte));
+            return result1.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "KB";
+        }
+
+        double gigaByte = megaByte/1024;
+        if(gigaByte < 1) {
+            BigDecimal result2  = new BigDecimal(Double.toString(megaByte));
+            return result2.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "MB";
+        }
+
+        double teraBytes = gigaByte/1024;
+        if(teraBytes < 1) {
+            BigDecimal result3 = new BigDecimal(Double.toString(gigaByte));
+            return result3.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "GB";
+        }
+        BigDecimal result4 = new BigDecimal(teraBytes);
+        return result4.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "TB";
     }
 }
