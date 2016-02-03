@@ -10,9 +10,9 @@ import com.common.utils.StringExpression;
  * @author DongJun
  */
 public class HQL extends StringExpression implements SimpleStatment {
-    private int page;//页码，从1开始
-    private int rows;//每页行数
-    private boolean retrievepages;//是否获取总页数
+    private int page = -1;//页码，从1开始
+    private int rows = -1;//每页行数
+    private boolean retrievepages = true;//是否获取总页数
     private SessionHandler sessionHandler = null;
 
     /**
@@ -23,9 +23,6 @@ public class HQL extends StringExpression implements SimpleStatment {
      */
     public HQL(String hql, Object... params) {
         super(hql);
-        setPage(-1);
-        setRows(-1);
-        setRetrievePages(true);
         for (Object obj : params) {
             this.r(getDftToken(), obj.toString());
         }

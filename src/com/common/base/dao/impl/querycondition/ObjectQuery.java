@@ -8,9 +8,9 @@ import com.common.utils.KVEntry;
  * Created by DJ on 2016/1/26.
  */
 public class ObjectQuery implements SimpleStatment {
-    private int page;//页码，从1开始
-    private int rows;//每页行数
-    private boolean retrievepages;//是否获取总页数
+    private int page = -1;//页码，从1开始
+    private int rows = -1;//每页行数
+    private boolean retrievepages = true;//是否获取总页数
     private Class<?> cls = null;//待查询的对象
     private KVEntry<String, Object> kv = null;
     private KVEntry<String, Boolean> order = null;
@@ -61,8 +61,6 @@ public class ObjectQuery implements SimpleStatment {
      */
     public ObjectQuery(Class<?> cls) {
         this.cls = cls;
-        setPage(-1);
-        setRows(-1);
     }
 
     /**
@@ -71,8 +69,6 @@ public class ObjectQuery implements SimpleStatment {
     public ObjectQuery(Class<?> cls, String key, Object val) {
         this.cls = cls;
         setKeyVal(key, val);
-        setPage(-1);
-        setRows(-1);
     }
 
     /**
@@ -81,8 +77,6 @@ public class ObjectQuery implements SimpleStatment {
     public ObjectQuery(Class<?> cls, String orderby, boolean ifdesc) {
         this.cls = cls;
         setOrder(orderby, ifdesc);
-        setPage(-1);
-        setRows(-1);
     }
 
     /**
@@ -92,8 +86,6 @@ public class ObjectQuery implements SimpleStatment {
         this.cls = cls;
         setKeyVal(key, val);
         setOrder(orderby, ifdesc);
-        setPage(-1);
-        setRows(-1);
     }
 
     /**

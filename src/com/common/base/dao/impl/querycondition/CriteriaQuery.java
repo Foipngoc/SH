@@ -9,21 +9,17 @@ import org.hibernate.Session;
  * Created by DJ on 2016/1/26.
  */
 public abstract class CriteriaQuery implements SimpleStatment {
-    private int page;//页码，从1开始
-    private int rows;//每页行数
-    private boolean retrievepages;//是否获取总页数
+    private int page = -1;//页码，从1开始
+    private int rows = -1;//每页行数
+    private boolean retrievepages = true;//是否获取总页数
     private SessionHandler sessionHandler = null;
 
     public CriteriaQuery() {
-        setPage(-1);
-        setRows(-1);
-        setRetrievePages(true);
     }
 
     public CriteriaQuery(int page, int rows) {
         setPage(page);
         setRows(rows);
-        setRetrievePages(true);
     }
 
     public CriteriaQuery(int page, int rows, boolean retrievepages) {

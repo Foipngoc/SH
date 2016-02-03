@@ -7,7 +7,7 @@ import com.common.base.dao.impl.SimpleStatment;
  * Created by DJ on 2016/1/26.
  */
 public class OBJECT implements SimpleStatment {
-    private Object obj;
+    private Object obj = null;
     private SessionHandler sessionHandler = null;
 
     @Override
