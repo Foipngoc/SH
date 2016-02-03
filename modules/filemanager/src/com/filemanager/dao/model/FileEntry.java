@@ -8,6 +8,7 @@ import java.util.Date;
 public class FileEntry {
     private int fileId;//文件名
     private String fileName;//文件名
+    private String filePath;//文件路径
     private int fileType;//文件类型
     private String fileTypeDesc;//文件类型中文描述
     private long fileSizeByte;//BYTE
@@ -30,6 +31,14 @@ public class FileEntry {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 
     public long getFileSizeByte() {

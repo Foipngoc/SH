@@ -39,12 +39,16 @@ public class FileManagerService {
      * 拷贝文件到文件管理目录，并将文件纳入文件管理
      * 供服务器调用
      */
-    public FileEntry uploadFile(File file, String orifilename) {
-        String filename = FileUtils.writeToFile(file, this.getServerUploadFolder() + "/" + orifilename);
+    public FileEntry uploadFile(File file, String filedir, String orifilename) {
+        String filename = FileUtils.writeToFile(file, this.getServerUploadFolder(filedir) + "/" + orifilename);
         FileTypeParser.FileType fileType = this.fileTypeParser.parseFileType(filename);
 
         FileEntry entry = new FileEntry();
         entry.setFileName(filename);
+        if (filedir == null)
+            entry.setFilePath("/" + filename);
+        else
+            entry.setFilePath(filedir + "/" + filename);
         entry.setFileType(fileType.getFileType());
         entry.setFileTypeDesc(fileType.getFileTypeDesc());
         entry.setFileSizeByte(file.length());
@@ -59,22 +63,28 @@ public class FileManagerService {
      * 上传文件到文件管理目录，并将文件纳入文件管理
      * 供web请求调用
      */
-    public BaseResult uploadFiles(final HttpServletRequest request) throws IOException {
+    public BaseResult uploadFiles(final HttpServletRequest request, final String filedir) throws IOException {
         final List<FileEntry> entries = new ArrayList<>();
         FileUpload.upload(request, new FileSaveCallback() {
             @Override
             public String saveFile(MultipartFile file, String orifilename)
                     throws IOException {
                 // 判断同名文件是否存在
-                if (FileUtils.ifFileExist(FileManagerService.this.getServerUploadFolder() + "/" + orifilename)) {
+                if (FileUtils.ifFileExist(FileManagerService.this.getServerUploadFolder(filedir) + "/" + orifilename)) {
                     orifilename = FileUtils.renameFileName(orifilename, ""
                             + new Date().getTime());
                 }
-                File localFile = new File(FileManagerService.this.getServerUploadFolder() + "/" + orifilename);
+                File localFile = new File(FileManagerService.this.getServerUploadFolder(filedir) + "/" + orifilename);
                 file.transferTo(localFile);
 
                 FileEntry entry = new FileEntry();
+
                 entry.setFileName(localFile.getName());
+                if (filedir == null)
+                    entry.setFilePath("/" + localFile.getName());
+                else
+                    entry.setFilePath(filedir + "/" + localFile.getName());
+
                 entry.setFileSizeByte(localFile.length());
                 entry.setFileSizeStr(FileUtils.formatFileSize(localFile.length()));
                 entry.setUploadTime(new Date());
@@ -93,7 +103,7 @@ public class FileManagerService {
     public void downloadFile(HttpServletRequest request, HttpServletResponse response, int fileId) throws IOException {
         FileEntry entry = getFileEntry(fileId);
         if (entry != null && entry.isValid()) {
-            String filepath = getServerUploadFolder() + "/" + entry.getFileName();
+            String filepath = getServerUploadFolder(null) + "/" + entry.getFilePath();
             FileDownload.download(new File(filepath), request, response);
             entry.setDownCnt(entry.getDownCnt() + 1);
             this.fileManagerDao.update(entry);
@@ -107,7 +117,7 @@ public class FileManagerService {
     public File getFile(int fileId) {
         FileEntry entry = getFileEntry(fileId);
         if (entry != null && entry.isValid()) {
-            String filepath = getServerUploadFolder() + "/" + entry.getFileName();
+            String filepath = getServerUploadFolder(null) + "/" + entry.getFilePath();
             return new File(filepath);
         }
         return null;
@@ -124,7 +134,7 @@ public class FileManagerService {
             entry.setFileTypeDesc(filetype.getFileTypeDesc());
 
             //检查文件是否有效
-            File file = new File(getServerUploadFolder() + "/" + entry.getFileName());
+            File file = new File(getServerUploadFolder(null) + "/" + entry.getFilePath());
             if (file != null && file.exists() && file.isFile())
                 entry.setValid(true);
             else
@@ -144,7 +154,7 @@ public class FileManagerService {
             entry.setFileTypeDesc(filetype.getFileTypeDesc());
 
             //检查文件是否有效
-            File file = new File(getServerUploadFolder() + "/" + entry.getFileName());
+            File file = new File(getServerUploadFolder(null) + "/" + entry.getFilePath());
             if (file != null && file.exists() && file.isFile())
                 entry.setValid(true);
             else
@@ -156,8 +166,10 @@ public class FileManagerService {
     /**
      * 获得文件上传目录
      */
-    private String getServerUploadFolder() {
-        String uploaddir = ContextPath.getRealPath(UPLOAD_FOLDER);
+    private String getServerUploadFolder(String filedir) {
+        if (filedir == null)
+            filedir = "";
+        String uploaddir = ContextPath.getRealPath(UPLOAD_FOLDER + "/" + filedir);
         FileUtils.mkdir(uploaddir);
         return uploaddir;
     }

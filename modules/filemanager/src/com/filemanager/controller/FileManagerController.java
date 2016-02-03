@@ -16,15 +16,15 @@ import java.io.IOException;
  */
 @Controller
 public class FileManagerController {
-    @Resource(name="fileManagerService")
+    @Resource(name = "fileManagerService")
     private FileManagerService fileManagerService;
 
     /**
      * 上传文件
      */
-    @RequestMapping(value="/uploadfiles",method = RequestMethod.POST)
+    @RequestMapping(value = "/uploadfiles", method = RequestMethod.POST)
     @ResponseBody
     public BaseResult uploadFiles(final HttpServletRequest request) throws IOException {
-        return this.fileManagerService.uploadFiles(request);
+        return this.fileManagerService.uploadFiles(request, null);
     }
 }

@@ -13,6 +13,9 @@
         <property name="fileName" type="java.lang.String">
             <column name="fileName" length="128" not-null="true" />
         </property>
+        <property name="filePath" type="java.lang.String">
+            <column name="filePath" length="255" not-null="true" />
+        </property>
         <property name="fileSizeByte" type="java.lang.Long">
             <column name="fileSizeByte" not-null="true" />
         </property>

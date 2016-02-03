@@ -7,32 +7,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6af7945f-e57e-4f64-bbbb-1c3bedd4d701" name="Default" comment="添加公共模块filemanager">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/filemanager/doc/ReadMe.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/controller/FileManagerController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/controller/FileManagerWeb.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/FileManagerDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/model/FileEntry.hbm.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/model/FileEntry.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/service/FileManagerService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/service/FileTypeParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/filemanager/web/WEB-INF/page/filemanager/main.jsp" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/impl/AppDownloadInfoDaoImpl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/impl/AppInfoDaoImpl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/impl/AppVersionInfoDaoImpl.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/service/impl/AppVersionCheckServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/main.jsp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SH.iml" afterPath="$PROJECT_DIR$/SH.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/action/AppVersionCheckAction.java" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/action/AppVersionCheckAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppDownloadInfoDao.java" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppDownloadInfoDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppInfoDao.java" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppInfoDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppVersionInfoDao.java" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppVersionInfoDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/service/AppVersionCheckService.java" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/service/AppVersionCheckService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/com/example/controller/Example.java" afterPath="$PROJECT_DIR$/project/com/example/controller/Example.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/controller/FileManagerController.java" afterPath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/controller/FileManagerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/model/FileEntry.hbm.xml" afterPath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/model/FileEntry.hbm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/model/FileEntry.java" afterPath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/model/FileEntry.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/service/FileManagerService.java" afterPath="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/service/FileManagerService.java" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppDownloadInfo.hbm.xml" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/model/AppDownloadInfo.hbm.xml" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppDownloadInfo.java" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/model/AppDownloadInfo.java" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppInfo.hbm.xml" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/model/AppInfo.hbm.xml" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppInfo.java" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/model/AppInfo.java" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppVersionInfo.hbm.xml" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/model/AppVersionInfo.hbm.xml" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppVersionInfo.java" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/model/AppVersionInfo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/addappinfo.jsp" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/addappinfo.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/addappversioninfo.jsp" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/addappversioninfo.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/appinfo.jsp" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/appinfo.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/appversioninfo.jsp" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/appversioninfo.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/addappinfo.css" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/css/addappinfo.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/addappversioninfo.css" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/css/addappversioninfo.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/appinfo.css" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/css/appinfo.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/appversioninfo.css" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/css/appversioninfo.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/modifyapp.css" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/css/modifyapp.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/modifyappversion.css" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/css/modifyappversion.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/top.css" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/css/top.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/viewappversion.css" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/css/viewappversion.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/addappinfo.js" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/js/addappinfo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/addappversioninfo.js" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/js/addappversioninfo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/appinfo.js" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/js/appinfo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/appversioninfo.js" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/js/appversioninfo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/modifyapp.js" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/js/modifyapp.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/modifyappversion.js" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/js/modifyappversion.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/viewappversion.js" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/js/viewappversion.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/modifyapp.jsp" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/modifyapp.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/modifyappversion.jsp" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/modifyappversion.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/top.jsp" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/top.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/viewappversion.jsp" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/viewappversion.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/weixindl.jsp" afterPath="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/weixindl.jsp" />
     </list>
     <ignored path="SH.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -114,7 +134,6 @@
         <option value="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/model/AppInfo.java" />
         <option value="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/model/AppVersionInfo.java" />
         <option value="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/service/impl/AppVersionCheckServiceImpl.java" />
-        <option value="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/service/AppVersionCheckService.java" />
         <option value="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/action/AppVersionCheckAction.java" />
         <option value="$PROJECT_DIR$/modules/filemanager/src/controller/FileManagerController.java" />
         <option value="$PROJECT_DIR$/modules/filemanager/src/dao/FileManagerDao.java" />
@@ -128,18 +147,19 @@
         <option value="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/service/FileTypeParser.java" />
         <option value="$PROJECT_DIR$/framework/com/common/framework/FileUpload.java" />
         <option value="$PROJECT_DIR$/project/com/example/controller/Example.java" />
-        <option value="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/controller/FileManagerController.java" />
-        <option value="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/model/FileEntry.hbm.xml" />
         <option value="$PROJECT_DIR$/framework/com/common/framework/FileDownload.java" />
-        <option value="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/model/FileEntry.java" />
         <option value="$PROJECT_DIR$/framework/com/common/framework/CurrentResponse.java" />
         <option value="$PROJECT_DIR$/framework/com/common/utils/FileUtils.java" />
         <option value="$PROJECT_DIR$/framework/com/common/framework/CurrentRequest.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/modules/filemanager/web/WEB-INF/page/filemanager/main.jsp" />
         <option value="$PROJECT_DIR$/framework/com/common/framework/ContextPath.java" />
-        <option value="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/service/FileManagerService.java" />
         <option value="$PROJECT_DIR$/modules/filemanager/doc/ReadMe.txt" />
+        <option value="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/service/AppVersionCheckService.java" />
+        <option value="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/controller/FileManagerController.java" />
+        <option value="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/model/FileEntry.java" />
+        <option value="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/model/FileEntry.hbm.xml" />
+        <option value="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/service/FileManagerService.java" />
       </list>
     </option>
   </component>
@@ -369,7 +389,105 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="doc" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filemanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filemanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filemanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filemanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filemanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filemanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filemanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -387,6 +505,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -400,7 +532,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/filemanager/web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/appupdate/web" />
     <property name="FullScreen" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
@@ -415,11 +547,11 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GITCODE\SH\modules\appupdate\web\WEB-INF\page" />
       <recent name="D:\GITCODE\SH\src\com\example\dao\model" />
       <recent name="D:\GITCODE\SH\web\filemanager\src" />
       <recent name="D:\GITCODE\SH\web" />
       <recent name="D:\GITCODE\SH\web\example" />
-      <recent name="D:\GITCODE\SH\web\jsp" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com" />
@@ -997,7 +1129,7 @@
       <workItem from="1454044924166" duration="572000" />
       <workItem from="1454047262159" duration="1124000" />
       <workItem from="1454400732593" duration="41000" />
-      <workItem from="1454463078548" duration="21365000" />
+      <workItem from="1454463078548" duration="22829000" />
     </task>
     <task id="LOCAL-00001" summary="添加tree工具">
       <created>1449559699644</created>
@@ -1173,11 +1305,17 @@
       <option name="project" value="LOCAL" />
       <updated>1454486407470</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="添加公共模块filemanager">
+      <created>1454486548767</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1454486548767</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98755000" />
+    <option name="totallyTimeSpent" value="100219000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -1227,7 +1365,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="添加tree.jsp测试文件，后续再完善tree.js" />
     <MESSAGE value="添加ntree.js，删除tree.js" />
     <MESSAGE value="删除baseaction文件" />
     <MESSAGE value="添加json解析工具包" />
@@ -1252,7 +1389,8 @@
     <MESSAGE value="添加appupdate模块，代码待修复" />
     <MESSAGE value="完善common代码" />
     <MESSAGE value="添加工程路径getRealPath功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加工程路径getRealPath功能" />
+    <MESSAGE value="添加公共模块filemanager" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加公共模块filemanager" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1273,72 +1411,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/page/jsp_template.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8096357">
-          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/HQL.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33295324">
           <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppInfoDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.061573546">
-          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppDownloadInfoDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12314709">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/model/AppDownloadInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4663626">
-          <caret line="54" column="15" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/model/AppDownloadInfo.hbm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10575793">
-          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/model/AppInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08209806">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="e#824#825#0" expanded="false" />
-            <element signature="e#848#849#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1360,43 +1437,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppVersionInfoDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38162544">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1118#1148#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/framework/com/common/base/BaseResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33295324">
           <caret line="142" column="22" selection-start-line="142" selection-start-column="22" selection-end-line="142" selection-end-column="22" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/action/AppVersionCheckAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2155477">
-          <caret line="102" column="44" selection-start-line="102" selection-start-column="44" selection-end-line="102" selection-end-column="44" />
-          <folding>
-            <element signature="e#4594#4595#0" expanded="false" />
-            <element signature="e#4670#4671#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/service/AppVersionCheckService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20980616">
-          <caret line="695" column="22" selection-start-line="695" selection-start-column="22" selection-end-line="695" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1588,26 +1633,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/model/FileEntry.hbm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54994124">
-          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/model/FileEntry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85632837">
-          <caret line="82" column="30" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
-          <folding>
-            <element signature="e#1768#1769#0" expanded="false" />
-            <element signature="e#1811#1812#0" expanded="false" />
-            <element signature="e#1845#1846#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/common/js/ajaxfileupload.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1696,16 +1721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/filemanager/src/com/filemanager/controller/FileManagerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34891677">
-          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="19" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/filemanager/src/com/filemanager/service/FileTypeParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6921323">
@@ -1716,21 +1731,133 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modules/filemanager/doc/ReadMe.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04104903">
+          <caret line="2" column="75" selection-start-line="2" selection-start-column="75" selection-end-line="2" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/weixindl.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.16333725">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/model/AppDownloadInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0862069">
+          <caret line="54" column="15" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
+          <folding>
+            <element signature="e#902#903#0" expanded="false" />
+            <element signature="e#926#927#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/model/AppDownloadInfo.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16245487">
+          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/model/AppInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08275862">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppVersionInfoDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08209806">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppInfoDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12314709">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppDownloadInfoDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.102622576">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/model/FileEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5336374">
+          <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+          <folding>
+            <element signature="e#833#834#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#921#922#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1957#1958#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/filemanager/src/com/filemanager/dao/model/FileEntry.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33842537">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/action/AppVersionCheckAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.39566705">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/service/AppVersionCheckService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53249717">
+          <caret line="78" column="9" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
+          <folding>
+            <element signature="e#1416#1417#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules/filemanager/src/com/filemanager/service/FileManagerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4663626">
-          <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.11744584">
+          <caret line="139" column="16" selection-start-line="139" selection-start-column="16" selection-end-line="139" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/filemanager/doc/ReadMe.txt">
+    <entry file="file://$PROJECT_DIR$/modules/filemanager/src/com/filemanager/controller/FileManagerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04104903">
-          <caret line="2" column="75" selection-start-line="2" selection-start-column="75" selection-end-line="2" selection-end-column="75" />
-          <folding />
+        <state vertical-scroll-proportion="0.2873432">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
