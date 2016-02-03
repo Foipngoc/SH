@@ -1,7 +1,5 @@
 package com.common.utils;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -239,44 +237,29 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
         return getMd5ByFile(new File(filename));
     }
 
-
-    /**
-     * 获得项目运行时项目路径
-     */
-    public static String getRealPath(HttpServletRequest request){
-        return request.getServletContext().getRealPath("/");
-    }
-
-    /**
-     * 获得项目运行时项目路径
-     */
-    public static String getRealPath(HttpServletRequest request,String path){
-        return request.getServletContext().getRealPath("/"+path);
-    }
-
     /**
      * 格式化文件大小
      */
     public static String formatFileSize(double size) {
-        double kiloByte = size/1024;
-        if(kiloByte < 1) {
+        double kiloByte = size / 1024;
+        if (kiloByte < 1) {
             return size + "Byte(s)";
         }
 
-        double megaByte = kiloByte/1024;
-        if(megaByte < 1) {
+        double megaByte = kiloByte / 1024;
+        if (megaByte < 1) {
             BigDecimal result1 = new BigDecimal(Double.toString(kiloByte));
             return result1.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "KB";
         }
 
-        double gigaByte = megaByte/1024;
-        if(gigaByte < 1) {
-            BigDecimal result2  = new BigDecimal(Double.toString(megaByte));
+        double gigaByte = megaByte / 1024;
+        if (gigaByte < 1) {
+            BigDecimal result2 = new BigDecimal(Double.toString(megaByte));
             return result2.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "MB";
         }
 
-        double teraBytes = gigaByte/1024;
-        if(teraBytes < 1) {
+        double teraBytes = gigaByte / 1024;
+        if (teraBytes < 1) {
             BigDecimal result3 = new BigDecimal(Double.toString(gigaByte));
             return result3.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "GB";
         }

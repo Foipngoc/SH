@@ -25,10 +25,9 @@ public class FileUpload {
 	 * 
 	 * 返回所有上传文件最终保存后的文件名，如果文件名重复，则返回重命名后的文件名
 	 */
-	public static List<String> upload(HttpServletRequest request,
-			HttpServletResponse response, final String savedir)
+	public static List<String> upload(HttpServletRequest request, final String savedir)
 			throws IOException {
-		return upload(request, response, new FileSaveCallback() {
+		return upload(request, new FileSaveCallback() {
 
 			@Override
 			public String saveFile(MultipartFile file, String orifilename)
@@ -52,8 +51,7 @@ public class FileUpload {
 	 * 
 	 * 返回所有上传文件最终保存后的文件名，如果文件名重复，则返回重命名后的文件名
 	 */
-	public static List<String> upload(HttpServletRequest request,
-			HttpServletResponse response, FileSaveCallback callback)
+	public static List<String> upload(HttpServletRequest request,FileSaveCallback callback)
 			throws IOException {
 		List<String> filenames = new ArrayList<>();
 		// 创建一个通用的多部分解析器

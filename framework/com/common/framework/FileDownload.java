@@ -65,6 +65,11 @@ public class FileDownload {
 	public static void download(String filepath, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 		File file = new File(filepath);
+		download(file,request,response);
+	}
+
+	public static void download(File file, HttpServletRequest request,
+								HttpServletResponse response) throws IOException {
 		// 清空response
 		response.reset();
 		// 设置response的Header
