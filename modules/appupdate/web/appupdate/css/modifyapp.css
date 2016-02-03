@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+.firstplace{
+	border-bottom: solid 1px #ccc;
+	width:100%;
+	padding-left: 24px;
+	font-size: 12px;
+	color: #7c87a5;
+	height:40px;
+	line-height: 40px;
+}
+.secondplace{
+	margin-left: 40%;
+}
+h2{
+	margin-left: 40%;
+	font-size: 14px;
+	color:#595c5f;
+}
+.input{
+height: 30px;
+width: 90px;
+background-color: #3e94fe;
+border: solid 1px #3984e5;
+border-radius: 2px;
+color: white;
+cursor: pointer;
+}
+.input1{
+height: 30px;
+width: 90px;
+background-color: #f5f8fb;
+border: solid 1px #bbcbdf;
+border-radius: 2px;
+color: #595c5f;
+cursor: pointer;
+}
+.win_1{
+	border-bottom: solid 1px #ccc;
+	width:600px;
+	font-size: 12px;
+	color: white;
+	height:34px;
+	line-height: 34px;
+	background-color: #3984e5;
+}
+.lastplace{
+	border-top: solid 1px #ccc;
+	height:50px;
+	line-height: 50px;
+	position: absolute;
+width: 100%;
+top: 350px;
+}
+.listTable td{
+	border-left: 0;
+	border-right: 0;
+	border-bottom: solid 1px #ccc;
+}
+.listTable th{
+	border-left: 0;
+	border-right: 0;
+	border-bottom: solid 1px #ccc;
+	background-color: #f3f6fc;
+	font-size: 12px;
+	color: #a8a0aa;
+}

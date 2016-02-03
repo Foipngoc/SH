@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 每个class对应一个持久化对象 -->
+<hibernate-mapping>
+	<class name="com.module.appversioncheck.model.AppInfo" table="appinfo">
+		<id name="id" column="id" type="integer">
+			<generator class="native" />
+		</id>
+		<property name="appname" column="appname" type="string"
+			length="128" />
+		<property name="appdesc" column="appdesc" type="string"
+			length="512" />
+		<property name="createdate" column="createdate" type="timestamp" />
+		<property name="newestappvid" column="newestappvid" type="integer" />
+		<property name="applogo" column="applogo" type="string"
+			length="128" />
+		<property name="applogomd5" column="applogomd5" type="string"
+			length="255" />
+		<property name="barcode" column="barcode" type="string"
+			length="128" />
+		<property name="barcodemd5" column="barcodemd5" type="string"
+			length="255" />
+		<property name="weixindlpg" column="weixindlpg" type="string"
+			length="255" />
+
+	</class>
+</hibernate-mapping>

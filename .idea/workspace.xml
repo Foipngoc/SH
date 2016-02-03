@@ -6,70 +6,62 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6af7945f-e57e-4f64-bbbb-1c3bedd4d701" name="Default" comment="删除无用文件">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/SH_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/SH_war_exploded.xml" />
+    <list default="true" id="6af7945f-e57e-4f64-bbbb-1c3bedd4d701" name="Default" comment="修改框架结构">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/doc/APP更新流程设计.vsd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/AppVersionInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/DefaultVersionUpdateCallBack.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/FileMd5Utils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/SDFileUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/VersionCheckAsync.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/VersionDownloadAsync.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/VersionManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/VersionUpdateCallBack.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/安卓权限需求.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/doc/appversioncheck.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/doc/mysql数据库/versioncheck.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/doc/接口文档.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/action/AppVersionCheck.struts.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/action/AppVersionCheckAction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppDownloadInfoDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppInfoDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppVersionInfoDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/impl/AppDownloadInfoDaoImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/impl/AppInfoDaoImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/impl/AppVersionInfoDaoImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppDownloadInfo.hbm.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppDownloadInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppInfo.hbm.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppVersionInfo.hbm.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppVersionInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/service/AppVersionCheckService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/service/impl/AppVersionCheckServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/addappinfo.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/addappversioninfo.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/appinfo.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/appversioninfo.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/addappinfo.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/addappversioninfo.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/appinfo.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/appversioninfo.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/modifyapp.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/modifyappversion.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/top.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/viewappversion.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/addappinfo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/addappversioninfo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/appinfo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/appversioninfo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/modifyapp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/modifyappversion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/viewappversion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/main.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/modifyapp.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/modifyappversion.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/top.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/viewappversion.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/appupdate/web/appupdate/weixindl.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SH.iml" afterPath="$PROJECT_DIR$/SH.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/BaseRecords.java" afterPath="$PROJECT_DIR$/framework/com/common/base/BaseRecords.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/BaseResult.java" afterPath="$PROJECT_DIR$/framework/com/common/base/BaseResult.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/dao/BaseDao.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/BaseDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/BaseDaoDB.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/BaseDaoDB.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/SessionHandler.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/SessionHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/SimpleStatment.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/SimpleStatment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/CriteriaQuery.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/CriteriaQuery.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/HQL.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/HQL.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/OBJECT.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/OBJECT.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/ObjectQuery.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/ObjectQuery.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/querycondition/SQL.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/SQL.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/sessionhandler/LocalSessionHandler.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/sessionhandler/LocalSessionHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/dao/impl/sessionhandler/ThreadSessionHandler.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/sessionhandler/ThreadSessionHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/base/service/BaseService.java" afterPath="$PROJECT_DIR$/framework/com/common/base/service/BaseService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/framework/AnnotationOpenSessionInViewInterceptor.java" afterPath="$PROJECT_DIR$/framework/com/common/framework/AnnotationOpenSessionInViewInterceptor.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/framework/FastJsonHibernateLazyModeFilter.java" afterPath="$PROJECT_DIR$/framework/com/common/framework/FastJsonHibernateLazyModeFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/framework/FastJsonWithFilterHttpMessageConverter.java" afterPath="$PROJECT_DIR$/framework/com/common/framework/FastJsonWithFilterHttpMessageConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/framework/FileDownload.java" afterPath="$PROJECT_DIR$/framework/com/common/framework/FileDownload.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/framework/FileSaveCallback.java" afterPath="$PROJECT_DIR$/framework/com/common/framework/FileSaveCallback.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/framework/FileUpload.java" afterPath="$PROJECT_DIR$/framework/com/common/framework/FileUpload.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/framework/OpenSessionInView.java" afterPath="$PROJECT_DIR$/framework/com/common/framework/OpenSessionInView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/AesSecure.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/AesSecure.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/Base64Secure.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/Base64Secure.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/DateTimeUtil.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/DateTimeUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/FileUtils.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/FileUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/HexByteUtil.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/HexByteUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/HttpPost.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/HttpPost.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/KVEntry.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/KVEntry.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/LogUtils.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/LogUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/Md5Secure.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/Md5Secure.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/PropertyLoader.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/PropertyLoader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/RandomCode.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/RandomCode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/StringExpression.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/StringExpression.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/ValidateCode.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/ValidateCode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/barcode/BarCodeUtil.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/barcode/BarCodeUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/barcode/BufferedImageLuminanceSource.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/barcode/BufferedImageLuminanceSource.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/jsonparser/JSONArrayParser.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/jsonparser/JSONArrayParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/jsonparser/JSONBeanParser.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/jsonparser/JSONBeanParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/jsonparser/JSONMapParser.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/jsonparser/JSONMapParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/jsonparser/JSONParser.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/jsonparser/JSONParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/jsonparser/ParseErrorException.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/jsonparser/ParseErrorException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/jsonparser/dependence.txt" afterPath="$PROJECT_DIR$/framework/com/common/utils/jsonparser/dependence.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/tree/ReadMe" afterPath="$PROJECT_DIR$/framework/com/common/utils/tree/ReadMe" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/tree/TreeDao.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/tree/TreeDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/tree/TreeService.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/tree/TreeService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/tree/impl/TreeDaoImpl.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/tree/impl/TreeDaoImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/tree/impl/TreeServiceImpl.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/tree/impl/TreeServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/tree/model/Tree.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/tree/model/Tree.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/tree/model/TreeNode.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/tree/model/TreeNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/common/utils/tree/model/TreeNodeRelation.java" afterPath="$PROJECT_DIR$/framework/com/common/utils/tree/model/TreeNodeRelation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/example/controller/Example.java" afterPath="$PROJECT_DIR$/project/com/example/controller/Example.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/example/controller/model/JSONModel.java" afterPath="$PROJECT_DIR$/project/com/example/controller/model/JSONModel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/example/controller/model/POJOModel.java" afterPath="$PROJECT_DIR$/project/com/example/controller/model/POJOModel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/example/dao/ExampleDao.java" afterPath="$PROJECT_DIR$/project/com/example/dao/ExampleDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/example/dao/model/Room.hbm.xml" afterPath="$PROJECT_DIR$/project/com/example/dao/model/Room.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/example/dao/model/Room.java" afterPath="$PROJECT_DIR$/project/com/example/dao/model/Room.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/example/dao/model/Student.hbm.xml" afterPath="$PROJECT_DIR$/project/com/example/dao/model/Student.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/example/dao/model/Student.java" afterPath="$PROJECT_DIR$/project/com/example/dao/model/Student.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/example/service/ExampleService.java" afterPath="$PROJECT_DIR$/project/com/example/service/ExampleService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/example/timer/Timer.java" afterPath="$PROJECT_DIR$/project/com/example/timer/Timer.java" />
     </list>
     <ignored path="SH.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -318,15 +310,71 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
+              <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="target" />
+              <option name="myItemId" value="appupdate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appupdate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appupdate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appversioncheck" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appupdate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -404,11 +452,11 @@
       <recent name="com.common.utils.barcode" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GITCODE\SH\modules\appupdate\web" />
+      <recent name="D:\GITCODE\SH\modules\appupdate\src" />
+      <recent name="D:\GITCODE\SH\modules\appupdate\doc" />
       <recent name="D:\GITCODE\SH\web\filemanager" />
       <recent name="D:\GITCODE\SH\src\com\tree\model" />
-      <recent name="D:\GITCODE\SH\src\com\common\utils" />
-      <recent name="D:\GITCODE\SH\web\common\js" />
-      <recent name="D:\GITCODE\SH\web\example" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.SHTomcat">
@@ -972,7 +1020,7 @@
       <workItem from="1454044924166" duration="572000" />
       <workItem from="1454047262159" duration="1124000" />
       <workItem from="1454400732593" duration="41000" />
-      <workItem from="1454463078548" duration="2328000" />
+      <workItem from="1454463078548" duration="2831000" />
     </task>
     <task id="LOCAL-00001" summary="添加tree工具">
       <created>1449559699644</created>
@@ -1124,11 +1172,17 @@
       <option name="project" value="LOCAL" />
       <updated>1454463964033</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="修改框架结构">
+      <created>1454465452489</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1454465452489</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79718000" />
+    <option name="totallyTimeSpent" value="80221000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -1202,7 +1256,8 @@
     <MESSAGE value="添加oracle驱动" />
     <MESSAGE value="调整datetimeutil" />
     <MESSAGE value="删除无用文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除无用文件" />
+    <MESSAGE value="修改框架结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改框架结构" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1690,12 +1745,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>SH</last-edited>
+          <last-edited>Web|SH</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

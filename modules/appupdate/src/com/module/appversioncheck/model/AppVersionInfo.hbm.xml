@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 每个class对应一个持久化对象 -->
+<hibernate-mapping>
+	<class name="com.module.appversioncheck.model.AppVersionInfo"
+		table="appversioninfo">
+		<id name="id" column="id" type="integer">
+			<generator class="native" />
+		</id>
+		<property name="appid" column="appid" type="integer" />
+		<property name="versioncode" column="versioncode" type="integer" />
+		<property name="versionname" column="versionname" type="string"
+			length="128" />
+		<property name="updatelog" column="updatelog" type="string"
+			length="2048" />
+		<property name="updatedate" column="updatedate" type="timestamp" />
+		<property name="respath" column="respath" type="string"
+			length="255" />
+		<property name="resmd5" column="resmd5" type="string" length="255" />
+		<property name="updatetype" column="updatetype" type="integer" />
+		<property name="downloadpath" column="downloadpath" type="string"
+			length="255" />
+		<property name="autoinstall" column="autoinstall" type="integer" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<package name="appversioncheck" extends="cement-interceptor"
+		namespace="/">
+		<action name="queryApps"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="queryApps">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="queryApp"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="queryApp">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="publishApp"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="publishApp">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="delApp"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="delApp">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="updateApp"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="updateApp">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="publishAppVersion"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="publishAppVersion">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="updateNewestAppVersion"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="updateNewestAppVersion">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="updateAppVersion"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="updateAppVersion">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="deleteAppVersion"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="deleteAppVersion">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="queryAppVersions"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="queryAppVersions">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="queryAppVersion"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="queryAppVersion">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="checkNewestAppVersion"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="checkNewestAppVersion">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="downloadNewest"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="downloadNewestAppVersionRes">
+			<result name="file" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentLength">${dlFilelength}</param>
+				<param name="inputName">dlFile</param>
+				<param name="contentDisposition">attachment;${dlFileName}</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="weixin" type="redirect">${weixinpage}</result>
+		</action>
+
+		<action name="downloadAppVersionRes"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="downloadAppVersionRes">
+			<result name="file" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentLength">${dlFilelength}</param>
+				<param name="inputName">dlFile</param>
+				<param name="contentDisposition">attachment;${dlFileName}</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<action name="downloadAppLogo"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="downloadAppLogo">
+			<result name="file" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentLength">${dlFilelength}</param>
+				<param name="inputName">dlFile</param>
+				<param name="contentDisposition">attachment;${dlFileName}</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<action name="genBarCode"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="genBarCode">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="downloadBarCode"
+			class="com.module.appversioncheck.action.AppVersionCheckAction"
+			method="downloadBarCode">
+			<result name="file" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentLength">${dlFilelength}</param>
+				<param name="inputName">dlFile</param>
+				<param name="contentDisposition">attachment;${dlFileName}</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+</struts>
+
