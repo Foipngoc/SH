@@ -29,6 +29,7 @@
       <sourceFolder url="file://$MODULE_DIR$/framework" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/project" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/filemanager/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/appupdate/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

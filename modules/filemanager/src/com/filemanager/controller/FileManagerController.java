@@ -25,6 +25,6 @@ public class FileManagerController {
     @RequestMapping(value = "/uploadfiles", method = RequestMethod.POST)
     @ResponseBody
     public BaseResult uploadFiles(final HttpServletRequest request) throws IOException {
-        return this.fileManagerService.uploadFiles(request, null);
+        return this.fileManagerService.uploadFiles(request, null, false);
     }
 }

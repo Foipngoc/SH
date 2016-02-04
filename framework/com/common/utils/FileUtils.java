@@ -158,6 +158,20 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
     }
 
     /**
+     * 检查文件的md5是否为参数md5对应的值
+     */
+    public static boolean checkFileMd5(File file, String md5) {
+        if (file == null || md5 == null)
+            return false;
+        String filemd5 = getMd5ByFile(file);
+        if (filemd5 != null
+                && filemd5.toLowerCase(Locale.getDefault()).equals(
+                md5.toLowerCase(Locale.getDefault())))
+            return true;
+        return false;
+    }
+
+    /**
      * 获得流中数据的md5
      *
      * @param in
