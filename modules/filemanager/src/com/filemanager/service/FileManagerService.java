@@ -39,12 +39,18 @@ public class FileManagerService {
      * 拷贝文件到文件管理目录，并将文件纳入文件管理
      * 供服务器调用
      */
-    public FileEntry uploadFile(File file, String filedir, String orifilename) {
+    public FileEntry uploadFile(File file, String filedir, String orifilename, boolean checkmd5) {
+        if (orifilename == null || orifilename.equals(""))
+            orifilename = "" + new Date().getTime() + "undefined";
         String filename = FileUtils.writeToFile(file, this.getServerUploadFolder(filedir) + "/" + orifilename);
         FileTypeParser.FileType fileType = this.fileTypeParser.parseFileType(filename);
 
         FileEntry entry = new FileEntry();
         entry.setFileName(filename);
+        if (checkmd5)
+            entry.setFileMd5(FileUtils.getMd5ByFile(file));
+        else
+            entry.setFileMd5(null);
         if (filedir == null)
             entry.setFilePath("/" + filename);
         else
@@ -63,12 +69,14 @@ public class FileManagerService {
      * 上传文件到文件管理目录，并将文件纳入文件管理
      * 供web请求调用
      */
-    public BaseResult uploadFiles(final HttpServletRequest request, final String filedir) throws IOException {
+    public BaseResult uploadFiles(final HttpServletRequest request, final String filedir, final boolean checkmd5) throws IOException {
         final List<FileEntry> entries = new ArrayList<>();
         FileUpload.upload(request, new FileSaveCallback() {
             @Override
             public String saveFile(MultipartFile file, String orifilename)
                     throws IOException {
+                if (orifilename == null || orifilename.equals(""))
+                    orifilename = "" + new Date().getTime() + "undefined";
                 // 判断同名文件是否存在
                 if (FileUtils.ifFileExist(FileManagerService.this.getServerUploadFolder(filedir) + "/" + orifilename)) {
                     orifilename = FileUtils.renameFileName(orifilename, ""
@@ -80,6 +88,12 @@ public class FileManagerService {
                 FileEntry entry = new FileEntry();
 
                 entry.setFileName(localFile.getName());
+
+                if (checkmd5)
+                    entry.setFileMd5(FileUtils.getMd5ByFile(localFile));
+                else
+                    entry.setFileMd5(null);
+
                 if (filedir == null)
                     entry.setFilePath("/" + localFile.getName());
                 else
@@ -95,6 +109,50 @@ public class FileManagerService {
             }
         });
         return BaseResult.newResultOK(entries);
+    }
+
+    /**
+     * 上传一个文件到文件管理目录，并将文件纳入文件管理
+     * 供web请求调用
+     */
+    public FileEntry uploadFileOne(final HttpServletRequest request, final String filedir, final boolean checkmd5) throws IOException {
+        final List<FileEntry> retentries = new ArrayList<>();
+        FileUpload.uploadOne(request, new FileSaveCallback() {
+            @Override
+            public String saveFile(MultipartFile file, String orifilename)
+                    throws IOException {
+                if (orifilename == null || orifilename.equals(""))
+                    orifilename = "" + new Date().getTime() + "undefined";
+                // 判断同名文件是否存在
+                if (FileUtils.ifFileExist(FileManagerService.this.getServerUploadFolder(filedir) + "/" + orifilename)) {
+                    orifilename = FileUtils.renameFileName(orifilename, ""
+                            + new Date().getTime());
+                }
+                File localFile = new File(FileManagerService.this.getServerUploadFolder(filedir) + "/" + orifilename);
+                file.transferTo(localFile);
+
+                FileEntry entry = new FileEntry();
+
+                entry.setFileName(localFile.getName());
+                if (checkmd5)
+                    entry.setFileMd5(FileUtils.getMd5ByFile(localFile));
+                else
+                    entry.setFileMd5(null);
+                if (filedir == null)
+                    entry.setFilePath("/" + localFile.getName());
+                else
+                    entry.setFilePath(filedir + "/" + localFile.getName());
+
+                entry.setFileSizeByte(localFile.length());
+                entry.setFileSizeStr(FileUtils.formatFileSize(localFile.length()));
+                entry.setUploadTime(new Date());
+                entry.setDownCnt(0);
+                FileManagerService.this.fileManagerDao.save(entry);
+                retentries.add(entry);
+                return localFile.getName();
+            }
+        });
+        return retentries.size() > 0 ? retentries.get(0) : null;
     }
 
     /**
@@ -132,13 +190,15 @@ public class FileManagerService {
             FileTypeParser.FileType filetype = fileTypeParser.parseFileType(entry.getFileName());
             entry.setFileType(filetype.getFileType());
             entry.setFileTypeDesc(filetype.getFileTypeDesc());
-
-            //检查文件是否有效
+            entry.setValid(false);
+            //检查文件是否有效,如果有md5，则通过md5判断文件是否有效
             File file = new File(getServerUploadFolder(null) + "/" + entry.getFilePath());
-            if (file != null && file.exists() && file.isFile())
-                entry.setValid(true);
-            else
-                entry.setValid(false);
+            if (file != null && file.exists() && file.isFile()) {
+                if (entry.getFileMd5() == null || entry.getFileMd5().equals("")
+                        || FileUtils.checkFileMd5(file, entry.getFileMd5())) {
+                    entry.setValid(true);
+                }
+            }
         }
         return records;
     }
@@ -152,13 +212,15 @@ public class FileManagerService {
             FileTypeParser.FileType filetype = fileTypeParser.parseFileType(entry.getFileName());
             entry.setFileType(filetype.getFileType());
             entry.setFileTypeDesc(filetype.getFileTypeDesc());
-
-            //检查文件是否有效
+            entry.setValid(false);
+            //检查文件是否有效,如果有md5，则通过md5判断文件是否有效
             File file = new File(getServerUploadFolder(null) + "/" + entry.getFilePath());
-            if (file != null && file.exists() && file.isFile())
-                entry.setValid(true);
-            else
-                entry.setValid(false);
+            if (file != null && file.exists() && file.isFile()) {
+                if (entry.getFileMd5() == null || entry.getFileMd5().equals("")
+                        || FileUtils.checkFileMd5(file, entry.getFileMd5())) {
+                    entry.setValid(true);
+                }
+            }
         }
         return entry;
     }

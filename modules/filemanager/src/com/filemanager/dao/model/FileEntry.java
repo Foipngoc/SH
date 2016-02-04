@@ -8,6 +8,7 @@ import java.util.Date;
 public class FileEntry {
     private int fileId;//文件名
     private String fileName;//文件名
+    private String fileMd5;//文件md5，可选
     private String filePath;//文件路径
     private int fileType;//文件类型
     private String fileTypeDesc;//文件类型中文描述
@@ -35,6 +36,14 @@ public class FileEntry {
 
     public String getFilePath() {
         return filePath;
+    }
+
+    public String getFileMd5() {
+        return fileMd5;
+    }
+
+    public void setFileMd5(String fileMd5) {
+        this.fileMd5 = fileMd5;
     }
 
     public void setFilePath(String filePath) {
