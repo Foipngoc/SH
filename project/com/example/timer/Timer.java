@@ -17,6 +17,6 @@ public class Timer {
 	 */
 	@Scheduled(fixedRate = 5000)
 	public void timer() {
-		System.out.println("Time:" + new Date().toString());
+		//System.out.println("Time:" + new Date().toString());
 	}
 }
