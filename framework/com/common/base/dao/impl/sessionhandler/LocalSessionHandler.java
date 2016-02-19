@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 /**
  * Created by DJ on 2016/1/26.
  *
- * 针对opensession版本，所有的事务及异常处理均需要自行处理
+ * 针对opensession版本，所有的事务及异常处理均需要自行处理,常用于在spring bean启动时需要使用hibernate
  */
 public class LocalSessionHandler implements SessionHandler {
     @Override

@@ -15,6 +15,14 @@ public class HQL extends StringExpression implements SimpleStatment {
     private boolean retrievepages = true;//是否获取总页数
     private SessionHandler sessionHandler = null;
 
+    public HQL(SimpleStatment simpleStatment){
+        super("");
+        setRetrievePages(simpleStatment.ifRetrievePages());
+        setPage(simpleStatment.getPage());
+        setRows(simpleStatment.getRows());
+        setSessionHandler(simpleStatment.getSessionHandler());
+    }
+
     /**
      * 适配带可变参数的hql语句,参数用?通配符替换
      *
@@ -106,6 +114,7 @@ public class HQL extends StringExpression implements SimpleStatment {
         return this.sessionHandler;
     }
 
+    @Override
     public HQL setSessionHandler(SessionHandler sessionHandler) {
         this.sessionHandler = sessionHandler;
         return this;

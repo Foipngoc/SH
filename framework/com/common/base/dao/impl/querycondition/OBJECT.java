@@ -10,6 +10,13 @@ public class OBJECT implements SimpleStatment {
     private Object obj = null;
     private SessionHandler sessionHandler = null;
 
+    public OBJECT(SimpleStatment simpleStatment) {
+        setRetrievePages(simpleStatment.ifRetrievePages());
+        setPage(simpleStatment.getPage());
+        setRows(simpleStatment.getRows());
+        setSessionHandler(simpleStatment.getSessionHandler());
+    }
+
     @Override
     public boolean ifRetrievePages() {
         return false;
@@ -50,6 +57,7 @@ public class OBJECT implements SimpleStatment {
         return this.sessionHandler;
     }
 
+    @Override
     public OBJECT setSessionHandler(SessionHandler sessionHandler) {
         this.sessionHandler = sessionHandler;
         return this;

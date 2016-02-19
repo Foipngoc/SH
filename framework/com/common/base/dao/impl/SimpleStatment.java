@@ -63,4 +63,9 @@ public interface SimpleStatment {
      * @return
      */
     public SessionHandler getSessionHandler();
+
+    /**
+     * 设置查询handler
+     */
+    public SimpleStatment setSessionHandler(SessionHandler sessionHandler);
 }

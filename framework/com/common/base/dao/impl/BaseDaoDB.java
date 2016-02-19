@@ -125,7 +125,7 @@ public class BaseDaoDB implements BaseDao {
      */
     @Override
     public BaseRecords find(final ObjectQuery query) {
-        return find(new CriteriaQuery(query.getPage(), query.getRows(), query.ifRetrievePages()) {
+        return find(new CriteriaQuery(query) {
             @Override
             public Criteria getCriteria(Session session) {
                 Criteria criteria = session.createCriteria(query.getCls());
@@ -139,11 +139,11 @@ public class BaseDaoDB implements BaseDao {
                     criteria.add(Restrictions.eq(query.getKeyVal().getKey(), query.getKeyVal().getValue()));
 
                 if (query.getLikeKeyVal() != null)
-                    criteria.add(Restrictions.like(query.getLikeKeyVal().getKey(),""+query.getLikeKeyVal().getValue(), MatchMode.ANYWHERE));
+                    criteria.add(Restrictions.like(query.getLikeKeyVal().getKey(), "" + query.getLikeKeyVal().getValue(), MatchMode.ANYWHERE));
 
                 return criteria;
             }
-        }.setSessionHandler(query.getSessionHandler()));
+        });
     }
 
     /**
@@ -154,7 +154,7 @@ public class BaseDaoDB implements BaseDao {
      */
     @Override
     public Object findUnique(final ObjectQuery query) {
-        return findUnique(new CriteriaQuery() {
+        return findUnique(new CriteriaQuery(query) {
             @Override
             public Criteria getCriteria(Session session) {
                 Criteria criteria = session.createCriteria(query.getCls());
@@ -163,11 +163,11 @@ public class BaseDaoDB implements BaseDao {
                     criteria.add(Restrictions.eq(query.getKeyVal().getKey(), query.getKeyVal().getValue()));
 
                 if (query.getLikeKeyVal() != null)
-                    criteria.add(Restrictions.like(query.getLikeKeyVal().getKey(),""+query.getLikeKeyVal().getValue(), MatchMode.ANYWHERE));
+                    criteria.add(Restrictions.like(query.getLikeKeyVal().getKey(), "" + query.getLikeKeyVal().getValue(), MatchMode.ANYWHERE));
 
                 return criteria;
             }
-        }.setSessionHandler(query.getSessionHandler()));
+        });
     }
 
     /**
@@ -178,7 +178,7 @@ public class BaseDaoDB implements BaseDao {
      */
     @Override
     public long count(final ObjectQuery query) {
-        return count(new CriteriaQuery() {
+        return count(new CriteriaQuery(query) {
             @Override
             public Criteria getCriteria(Session session) {
                 Criteria criteria = session.createCriteria(query.getCls());
@@ -187,11 +187,11 @@ public class BaseDaoDB implements BaseDao {
                     criteria.add(Restrictions.eq(query.getKeyVal().getKey(), query.getKeyVal().getValue()));
 
                 if (query.getLikeKeyVal() != null)
-                    criteria.add(Restrictions.like(query.getLikeKeyVal().getKey(),""+query.getLikeKeyVal().getValue(), MatchMode.ANYWHERE));
+                    criteria.add(Restrictions.like(query.getLikeKeyVal().getKey(), "" + query.getLikeKeyVal().getValue(), MatchMode.ANYWHERE));
 
                 return criteria;
             }
-        }.setSessionHandler(query.getSessionHandler()));
+        });
     }
 
     /*******************************************以下方法非BaseDao定义***********************************************/

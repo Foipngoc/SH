@@ -17,44 +17,11 @@ public class ObjectQuery implements SimpleStatment {
     private KVEntry<String, Boolean> order = null;
     private SessionHandler sessionHandler = null;
 
-    @Override
-    public boolean ifRetrievePages() {
-        return retrievepages;
-    }
-
-    @Override
-    public ObjectQuery setRetrievePages(boolean retrievepages) {
-        this.retrievepages = retrievepages;
-        return this;
-    }
-
-    @Override
-    public int getPage() {
-        return this.page;
-    }
-
-    @Override
-    public ObjectQuery setPage(int page) {
-        this.page = page;
-        return this;
-    }
-
-    @Override
-    public int getRows() {
-        return rows;
-    }
-
-    @Override
-    public ObjectQuery setRows(int rows) {
-        this.rows = rows;
-        return this;
-    }
-
-    @Override
-    public ObjectQuery setPaging(int page, int rows) {
-        setPage(page);
-        setRows(rows);
-        return this;
+    public ObjectQuery(SimpleStatment simpleStatment){
+        setRetrievePages(simpleStatment.ifRetrievePages());
+        setPage(simpleStatment.getPage());
+        setRows(simpleStatment.getRows());
+        setSessionHandler(simpleStatment.getSessionHandler());
     }
 
     /**
@@ -129,6 +96,46 @@ public class ObjectQuery implements SimpleStatment {
         setRows(rows);
     }
 
+    @Override
+    public boolean ifRetrievePages() {
+        return retrievepages;
+    }
+
+    @Override
+    public ObjectQuery setRetrievePages(boolean retrievepages) {
+        this.retrievepages = retrievepages;
+        return this;
+    }
+
+    @Override
+    public int getPage() {
+        return this.page;
+    }
+
+    @Override
+    public ObjectQuery setPage(int page) {
+        this.page = page;
+        return this;
+    }
+
+    @Override
+    public int getRows() {
+        return rows;
+    }
+
+    @Override
+    public ObjectQuery setRows(int rows) {
+        this.rows = rows;
+        return this;
+    }
+
+    @Override
+    public ObjectQuery setPaging(int page, int rows) {
+        setPage(page);
+        setRows(rows);
+        return this;
+    }
+
     public Class<?> getCls() {
         return cls;
     }
@@ -165,6 +172,7 @@ public class ObjectQuery implements SimpleStatment {
         return this.sessionHandler;
     }
 
+    @Override
     public ObjectQuery setSessionHandler(SessionHandler sessionHandler) {
         this.sessionHandler = sessionHandler;
         return this;

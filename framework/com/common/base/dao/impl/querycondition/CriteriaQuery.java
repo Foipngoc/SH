@@ -17,6 +17,13 @@ public abstract class CriteriaQuery implements SimpleStatment {
     public CriteriaQuery() {
     }
 
+    public CriteriaQuery(SimpleStatment simpleStatment) {
+        setRetrievePages(simpleStatment.ifRetrievePages());
+        setPage(simpleStatment.getPage());
+        setRows(simpleStatment.getRows());
+        setSessionHandler(simpleStatment.getSessionHandler());
+    }
+
     public CriteriaQuery(int page, int rows) {
         setPage(page);
         setRows(rows);
@@ -80,6 +87,7 @@ public abstract class CriteriaQuery implements SimpleStatment {
         return this.sessionHandler;
     }
 
+    @Override
     public CriteriaQuery setSessionHandler(SessionHandler sessionHandler) {
         this.sessionHandler = sessionHandler;
         return this;

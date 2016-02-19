@@ -6,64 +6,16 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6af7945f-e57e-4f64-bbbb-1c3bedd4d701" name="Default" comment="添加公共模块filemanager">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/doc/APP更新流程设计.vsd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/AppVersionInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/DefaultVersionUpdateCallBack.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/FileMd5Utils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/SDFileUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/VersionCheckAsync.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/VersionDownloadAsync.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/VersionManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/com/model/appVersionCheck/VersionUpdateCallBack.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/doc/androidsrc-仅供参考/安卓权限需求.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/doc/appversioncheck.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/doc/mysql数据库/versioncheck.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/doc/接口文档.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/action/AppVersionCheck.struts.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/action/AppVersionCheckAction.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppDownloadInfoDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppInfoDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/AppVersionInfoDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/impl/AppDownloadInfoDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/impl/AppInfoDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/dao/impl/AppVersionInfoDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppDownloadInfo.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppDownloadInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppInfo.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppVersionInfo.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/model/AppVersionInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/service/AppVersionCheckService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/src/com/module/appversioncheck/service/impl/AppVersionCheckServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/addappinfo.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/addappversioninfo.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/appinfo.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/appversioninfo.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/addappinfo.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/addappversioninfo.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/appinfo.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/appversioninfo.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/modifyapp.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/modifyappversion.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/top.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/css/viewappversion.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/addappinfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/addappversioninfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/appinfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/appversioninfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/modifyapp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/modifyappversion.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/viewappversion.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/main.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/modifyapp.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/modifyappversion.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/top.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/viewappversion.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/appupdate/web/appupdate/weixindl.jsp" afterPath="" />
+    <list default="true" id="6af7945f-e57e-4f64-bbbb-1c3bedd4d701" name="Default" comment="移除appupdate模块">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SH.iml" afterPath="$PROJECT_DIR$/SH.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/com/example/timer/Timer.java" afterPath="$PROJECT_DIR$/project/com/example/timer/Timer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/com/common/base/dao/impl/BaseDaoDB.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/BaseDaoDB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/com/common/base/dao/impl/SimpleStatment.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/SimpleStatment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/CriteriaQuery.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/CriteriaQuery.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/HQL.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/HQL.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/OBJECT.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/OBJECT.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/ObjectQuery.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/ObjectQuery.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/SQL.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/SQL.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/com/common/base/dao/impl/sessionhandler/LocalSessionHandler.java" afterPath="$PROJECT_DIR$/framework/com/common/base/dao/impl/sessionhandler/LocalSessionHandler.java" />
     </list>
     <ignored path="SH.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -120,14 +72,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/ObjectQuery.java" />
-        <option value="$PROJECT_DIR$/framework/com/common/base/dao/impl/BaseDaoDB.java" />
-        <option value="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/controller/FileManagerWeb.java" />
-        <option value="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/service/FileType.java" />
-        <option value="$PROJECT_DIR$/modules/filemanager/src/com/filemanager/service/FileTypeParser.java" />
-        <option value="$PROJECT_DIR$/project/com/example/controller/Example.java" />
-        <option value="$PROJECT_DIR$/framework/com/common/framework/FileDownload.java" />
-        <option value="$PROJECT_DIR$/framework/com/common/framework/CurrentResponse.java" />
         <option value="$PROJECT_DIR$/framework/com/common/framework/CurrentRequest.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/modules/filemanager/web/WEB-INF/page/filemanager/main.jsp" />
@@ -171,6 +115,14 @@
         <option value="$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/appinfo.jsp" />
         <option value="$PROJECT_DIR$/modules/appupdate/web/appupdate/js/appinfo.js" />
         <option value="$PROJECT_DIR$/modules/appupdate/src/com/appupdate/action/AppUpdateManager.java" />
+        <option value="$PROJECT_DIR$/framework/com/common/base/dao/impl/SimpleStatment.java" />
+        <option value="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/OBJECT.java" />
+        <option value="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/CriteriaQuery.java" />
+        <option value="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/HQL.java" />
+        <option value="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/SQL.java" />
+        <option value="$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/ObjectQuery.java" />
+        <option value="$PROJECT_DIR$/framework/com/common/base/dao/impl/BaseDaoDB.java" />
+        <option value="$PROJECT_DIR$/framework/com/common/base/dao/impl/sessionhandler/LocalSessionHandler.java" />
       </list>
     </option>
   </component>
@@ -227,8 +179,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -271,7 +224,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
+              <option name="myItemId" value="framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -285,25 +242,156 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
+              <option name="myItemId" value="framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sessionhandler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="querycondition" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/appupdate/web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
     <property name="dynamic.classpath" value="false" />
@@ -902,7 +990,9 @@
       <workItem from="1454463078548" duration="26848000" />
       <workItem from="1454544556621" duration="74000" />
       <workItem from="1454554568529" duration="9326000" />
-      <workItem from="1455668959617" duration="9795000" />
+      <workItem from="1455668959617" duration="9841000" />
+      <workItem from="1455851354323" duration="704000" />
+      <workItem from="1455859128353" duration="1279000" />
     </task>
     <task id="LOCAL-00001" summary="添加tree工具">
       <created>1449559699644</created>
@@ -1108,11 +1198,17 @@
       <option name="project" value="LOCAL" />
       <updated>1455685323774</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="移除appupdate模块">
+      <created>1455687803399</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1455687803399</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123433000" />
+    <option name="totallyTimeSpent" value="125462000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -1126,16 +1222,15 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.495585" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="true" show_stripe_button="true" weight="0.5517058" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.5517058" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30063966" sideWeight="0.5106732" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20628998" sideWeight="0.48932678" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21055438" sideWeight="0.48932678" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.495585" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.510989" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.489011" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29850745" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.49117" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1147,6 +1242,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1162,7 +1258,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="TreeNode desc修改为describe" />
     <MESSAGE value="添加树示例，文档管理部分" />
     <MESSAGE value="重写stringexpression" />
     <MESSAGE value="重新定义BaseDaoDB" />
@@ -1187,7 +1282,8 @@
     <MESSAGE value="添加公共模块filemanagerMD5校验支持" />
     <MESSAGE value="修复公共模块filemanager小问题" />
     <MESSAGE value="更改filemanager模块表为module_fileentry" />
-    <option name="LAST_COMMIT_MESSAGE" value="更改filemanager模块表为module_fileentry" />
+    <MESSAGE value="移除appupdate模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="移除appupdate模块" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1223,13 +1319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/framework/com/common/framework/ContextPath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36944127">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/spring-web-4.2.1.RELEASE.jar!/org/springframework/web/context/request/RequestContextHolder.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1696113">
@@ -1248,7 +1337,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1386604">
           <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1273,14 +1361,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/weixindl.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.16333725">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/spring-web-4.2.1.RELEASE.jar!/org/springframework/web/multipart/MultipartRequest.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22826087">
@@ -1292,7 +1372,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5336374">
           <caret line="164" column="17" selection-start-line="164" selection-start-column="17" selection-end-line="164" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1300,7 +1379,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5792474">
           <caret line="163" column="16" selection-start-line="163" selection-start-column="16" selection-end-line="163" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1308,7 +1386,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.072976">
           <caret line="200" column="13" selection-start-line="200" selection-start-column="13" selection-end-line="200" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1316,54 +1393,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33295324">
           <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/appupdate/service/mobileapi/AppUpdateResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18472064">
-          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/appupdate/service/mobileapi/AppUpdateResultCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16419612">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/appupdate/dao/AppInfoDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20524515">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/appupdate/dao/model/AppVersionInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.89737743">
-          <caret line="138" column="26" selection-start-line="138" selection-start-column="26" selection-end-line="138" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/appupdate/dao/AppVersionInfoDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8415051">
-          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/filemanager/src/com/filemanager/controller/FileManagerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36944127">
-          <caret line="27" column="64" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -1374,19 +1403,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/top.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3172738">
-          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/com/example/timer/Timer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2873432">
           <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1394,7 +1414,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16419612">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1402,7 +1421,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0094007">
           <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1410,7 +1428,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35957697">
           <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1418,25 +1435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26111746">
           <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-          <folding>
-            <element signature="e#935#936#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/appupdate/dao/model/AppVersionInfo.hbm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4864865">
-          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/appupdate/dao/model/AppInfo.hbm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29612222">
-          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1444,7 +1442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1452,7 +1449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7844523">
           <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1460,7 +1456,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35347778">
           <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1468,7 +1463,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1476,7 +1470,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.59521097">
           <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1484,7 +1477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5336374">
           <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1492,7 +1484,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14840989">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1500,7 +1491,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2668187">
           <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1508,7 +1498,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37691402">
           <caret line="421" column="0" selection-start-line="421" selection-start-column="0" selection-end-line="421" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1516,94 +1505,127 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44051826">
           <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/filemanager/src/com/filemanager/controller/FileManagerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.051825676">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/com/common/framework/AnnotationOpenSessionInViewInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49828961">
+          <caret line="37" column="89" selection-start-line="37" selection-start-column="89" selection-end-line="37" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/com/common/framework/FastJsonHibernateLazyModeFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17559864">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/com/common/framework/ContextPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5689655">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/OBJECT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32611173">
+          <caret line="16" column="62" selection-start-line="13" selection-start-column="8" selection-end-line="16" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/com/common/utils/StringExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.15051311">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/HQL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/SQL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2018244">
+          <caret line="19" column="8" selection-start-line="18" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/ObjectQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5267959">
+          <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/com/common/base/dao/impl/SimpleStatment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27251995">
+          <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/com/common/base/dao/impl/querycondition/CriteriaQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33295324">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/com/common/base/dao/impl/sessionhandler/ThreadSessionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72748005">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+          <folding>
+            <element signature="e#779#780#0" expanded="true" />
+            <element signature="e#814#815#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/com/common/base/dao/impl/sessionhandler/LocalSessionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32611173">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/framework/com/common/base/dao/impl/BaseDaoDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3945268">
-          <caret line="129" column="26" selection-start-line="129" selection-start-column="26" selection-end-line="129" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.35803878">
+          <caret line="127" column="33" selection-start-line="127" selection-start-column="33" selection-end-line="127" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/appupdate/service/mobileapi/AppUpdateService.java">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83580387">
-          <caret line="146" column="8" selection-start-line="146" selection-start-column="8" selection-end-line="146" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/appupdate/dao/model/AppInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27931035">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/addappinfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61927146">
-          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/web/appupdate/js/addappinfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8768529">
-          <caret line="46" column="1" selection-start-line="3" selection-start-column="0" selection-end-line="46" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/web/WEB-INF/page/appupdate/appinfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8212996">
-          <caret line="115" column="85" selection-start-line="115" selection-start-column="72" selection-end-line="115" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/appupdate/action/AppVersionCheckAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="287" column="5" selection-start-line="273" selection-start-column="4" selection-end-line="287" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/appupdate/action/AppUpdateMobileApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24629419">
-          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/web/appupdate/js/appinfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/appupdate/action/AppUpdateManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72068965">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/appupdate/src/com/appupdate/service/manager/AppUpdateServiceManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.43103448">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        <state vertical-scroll-proportion="-1.391253">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1616,9 +1638,9 @@
           <artifact-editor>
             <show-content>
               <type id="artifact" />
+              <type id="jpa-descriptors" />
               <type id="javaee-facet-resources" />
               <type id="library" />
-              <type id="jpa-descriptors" />
             </show-content>
           </artifact-editor>
           <last-edited>SH:war exploded</last-edited>
@@ -1675,6 +1697,18 @@
               <list>
                 <option value="0.2" />
                 <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>
