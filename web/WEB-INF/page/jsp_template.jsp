@@ -39,5 +39,6 @@
 <body>
 <input type="hidden" id="basePath" value="<%=basePath%>">
 <h1>This is my firstpage</h1>
+<a href="<%=basePath%>/example/queryStuByName?name=123">测试</a>
 </body>
 </html>

@@ -1,8 +1,11 @@
 package com.common.base.dao.impl.querycondition;
 
-import com.common.base.dao.impl.SimpleStatment;
 import com.common.base.dao.impl.SessionHandler;
+import com.common.base.dao.impl.SimpleStatment;
 import com.common.utils.StringExpression;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * HQL语句适配器
@@ -13,6 +16,8 @@ public class HQL extends StringExpression implements SimpleStatment {
     private int page = -1;//页码，从1开始
     private int rows = -1;//每页行数
     private boolean retrievepages = true;//是否获取总页数
+    //change by Will at 2016年8月24日14:58:47
+    private Map<String,Object> paramMap = null;
     private SessionHandler sessionHandler = null;
 
     public HQL(SimpleStatment simpleStatment){
@@ -26,14 +31,34 @@ public class HQL extends StringExpression implements SimpleStatment {
     /**
      * 适配带可变参数的hql语句,参数用?通配符替换
      *
-     * @param hql    hql语句
+     * @param id    hql语句id
      * @param params 参数
      */
-    public HQL(String hql, Object... params) {
-        super(hql);
-        for (Object obj : params) {
-            this.r(getDftToken(), obj.toString());
+
+    //change by Will at 2016年8月24日14:58:47
+    public HQL(String id, Object... params) {
+        super(id);
+//        for (Object obj : params) {
+//            this.r(getDftToken(), obj.toString());
+//        }
+        int i = 1;
+        paramMap = new HashMap<>();
+        for (Object obj: params) {
+            String key = "a" + (i++);
+            this.r(getDftToken(), ":"+key);
+            paramMap.put(key,obj);
         }
+    }
+
+    //change by Will at 2016年8月24日14:58:47
+    /**
+     * 带参数sql
+     * @param id 例：From Student as st where st.stuid =:stuid
+     * @param paramMap 例子{key=stuid,value=1}
+     */
+    public HQL(String id,Map<String, Object> paramMap) {
+        super(id);
+        this.paramMap = paramMap;
     }
 
     /**
@@ -61,9 +86,9 @@ public class HQL extends StringExpression implements SimpleStatment {
     public HQL getCountHQL() {
         String counthql = this.toString();
         if (counthql.toLowerCase().startsWith("select")) {
-            return (HQL) new HQL(counthql).r("select", "from", " count(*) ");
+            return (HQL) new HQL(counthql,paramMap).r("select", "from", " count(*) ");
         } else if (counthql.toLowerCase().startsWith("from")) {
-            return new HQL("select count(*) " + counthql);
+            return new HQL("select count(*) " + counthql,paramMap);
         } else {
             return null;
         }
@@ -118,5 +143,13 @@ public class HQL extends StringExpression implements SimpleStatment {
     public HQL setSessionHandler(SessionHandler sessionHandler) {
         this.sessionHandler = sessionHandler;
         return this;
+    }
+
+    public Map<String, Object> getParamMap() {
+        return paramMap;
+    }
+
+    public void setParamMap(Map<String, Object> paramMap) {
+        this.paramMap = paramMap;
     }
 }

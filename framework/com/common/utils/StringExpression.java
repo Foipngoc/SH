@@ -1,9 +1,13 @@
 package com.common.utils;
 
-import java.util.ArrayList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.Exchanger;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,16 +17,24 @@ import java.util.regex.Pattern;
  * @author DongJun
  */
 public class StringExpression {
-    private String dft_token = "?";
-    private String str = null;
+    private static final Logger log = LoggerFactory.getLogger(StringExpression.class);
 
+    private static Properties properties;
+
+    private String dft_token = "?";
+    protected String str = null;
+
+    static{
+        init();
+    }
     /**
      * 默认构造
      *
-     * @param str
+     * @param sqlId
      */
-    public StringExpression(String str) {
-        this.str = str;
+    //change by Will at 2016年8月24日14:58:47
+    public StringExpression(String sqlId) {
+        this.str = getSql(sqlId);
     }
 
     /**
@@ -125,6 +137,7 @@ public class StringExpression {
      */
     @Override
     public String toString() {
+        log.info("sql:{}",str);
         return str;
     }
 
@@ -147,4 +160,26 @@ public class StringExpression {
         this.dft_token = token;
         return this;
     }
+
+
+    private String getSql(String sqlId){
+        if(properties == null){
+            init();
+        }
+        return (String) properties.get(sqlId);
+    }
+
+    private static void init(){
+
+        properties = new Properties();
+        try {
+            InputStream in = StringExpression.class.getResourceAsStream("/sql.properties");
+            properties.load(in);
+        } catch (IOException e) {
+            log.error("读取配置文件创建错误",e);
+        } catch (Exception e) {
+            log.error("other Exception",e);
+        }
+    }
+
 }

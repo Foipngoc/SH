@@ -1,9 +1,9 @@
 package com.example.dao;
 
 import com.common.base.BaseRecords;
+import com.common.base.dao.impl.BaseDaoDB;
 import com.common.base.dao.impl.querycondition.CriteriaQuery;
-import com.example.dao.model.Room;
-import com.example.dao.model.Student;
+import com.common.base.dao.impl.querycondition.HQL;
 import com.example.dao.model.Room;
 import com.example.dao.model.Student;
 import org.hibernate.Criteria;
@@ -12,10 +12,8 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.sql.JoinType;
 import org.springframework.stereotype.Repository;
 
-import com.common.base.dao.impl.BaseDaoDB;
-
 @Repository("exampleDao")
-public class ExampleDao extends BaseDaoDB {
+public class ExampleDao extends BaseDaoDB implements IExampleDao{
 
 
     public ExampleDao() {
@@ -69,5 +67,11 @@ public class ExampleDao extends BaseDaoDB {
                     }
                 }
         );
+    }
+
+    //change by Will at 2016年8月24日15:34:33
+    @Override
+    public Student queryStuByName(String name) {
+       return  (Student)super.findUnique(new HQL("student.queryByName",name));
     }
 }

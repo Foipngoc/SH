@@ -1,7 +1,5 @@
 package com.example.service;
 
-import javax.annotation.Resource;
-
 import com.common.base.BaseRecords;
 import com.common.base.service.BaseService;
 import com.example.dao.ExampleDao;
@@ -9,6 +7,8 @@ import com.example.dao.model.Room;
 import com.example.dao.model.Student;
 import org.junit.Test;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 @Service("exampleService")
 public class ExampleService extends BaseService{
@@ -36,6 +36,10 @@ public class ExampleService extends BaseService{
 
     public Student queryStu(int id) {
         return this.exampleDao.queryStu(id);
+    }
+
+    public Student queryStuByName(String name) {
+        return this.exampleDao.queryStuByName(name);
     }
 
     public BaseRecords<Room> queryRoom(int id) {

@@ -1,15 +1,16 @@
 package com.example.controller;
 
-import java.io.IOException;
-import java.util.*;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.common.base.BaseRecords;
+import com.common.base.BaseResult;
+import com.common.framework.FileDownload;
+import com.common.framework.FileUpload;
 import com.common.framework.OpenSessionInView;
+import com.common.utils.LogUtils;
+import com.example.controller.model.JSONModel;
+import com.example.controller.model.POJOModel;
 import com.example.dao.model.Room;
 import com.example.dao.model.Student;
+import com.example.service.ExampleService;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,14 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.common.base.BaseRecords;
-import com.common.base.BaseResult;
-import com.common.framework.FileDownload;
-import com.common.framework.FileUpload;
-import com.common.utils.LogUtils;
-import com.example.controller.model.JSONModel;
-import com.example.controller.model.POJOModel;
-import com.example.service.ExampleService;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/example")
@@ -218,6 +219,14 @@ public class Example {
         return rm;
     }
 
+    /**
+     * 根据姓名查找学生
+     */
+    @RequestMapping("/queryStuByName")
+    @ResponseBody
+    public Student queryStuByName(String name){
+        return exampleService.queryStuByName(name);
+    }
 
     @RequestMapping(value = "/test", method = RequestMethod.DELETE)
     @ResponseBody
