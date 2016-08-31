@@ -24,9 +24,9 @@ public class StringExpression {
     private String dft_token = "?";
     protected String str = null;
 
-    static{
-        init();
-    }
+//    static{
+//        init();
+//    }
     /**
      * 默认构造
      *
@@ -34,7 +34,7 @@ public class StringExpression {
      */
     //change by Will at 2016年8月24日14:58:47
     public StringExpression(String sqlId) {
-        this.str = getSql(sqlId);
+        this.str = sqlId;
     }
 
     /**
@@ -162,24 +162,24 @@ public class StringExpression {
     }
 
 
-    private String getSql(String sqlId){
-        if(properties == null){
-            init();
-        }
-        return (String) properties.get(sqlId);
-    }
+//    private String getSql(String sqlId){
+//        if(properties == null){
+//            init();
+//        }
+//        return (String) properties.get(sqlId);
+//    }
 
-    private static void init(){
-
-        properties = new Properties();
-        try {
-            InputStream in = StringExpression.class.getResourceAsStream("/sql.properties");
-            properties.load(in);
-        } catch (IOException e) {
-            log.error("读取配置文件创建错误",e);
-        } catch (Exception e) {
-            log.error("other Exception",e);
-        }
-    }
+//    private static void init(){
+//
+//        properties = new Properties();
+//        try {
+//            InputStream in = StringExpression.class.getResourceAsStream("/sql.properties");
+//            properties.load(in);
+//        } catch (IOException e) {
+//            log.error("读取配置文件创建错误",e);
+//        } catch (Exception e) {
+//            log.error("other Exception",e);
+//        }
+//    }
 
 }
