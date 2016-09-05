@@ -11,13 +11,12 @@ package com.common.utils.map.baidu;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.common.utils.CollectionUtils;
+import com.common.utils.PropertyLoader;
 import com.common.utils.map.GeoPoint;
 import com.common.utils.map.MapUtil;
 import org.apache.log4j.Logger;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.math.BigDecimal;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -39,26 +38,30 @@ public class BaiduUtil extends MapUtil {
 	private static Logger log = Logger.getLogger(BaiduUtil.class);
 	private static String SK ;//= "zMkeFDU6gTnkAkWMMiw8nElvYhYIGOt4";
 	private static String AK ;//= "APOCRdC8SRKgMTb5oPFqr88I";
+	private static boolean isInit = false;
 
 	static{
-		Properties properties = new Properties();
-		try {
-			InputStream in = BaiduUtil.class.getResourceAsStream("/baidu.properties");
-			properties.load(in);
-			SK = properties.getProperty("SK");
-			AK = properties.getProperty("AK");
-		} catch (IOException e) {
-			log.error("读取配置文件创建错误",e);
-		} catch (Exception e) {
-			log.error("other Exception",e);
-		}
+		init();
 	}
 
 	
 	private static BaiduUtil bu = null;//单例模式
 	
 	private BaiduUtil(){
-		
+		if(!isInit){
+			init();
+		}
+	}
+
+	private static void init(){
+		try {
+			Properties properties =  PropertyLoader.getPropertiesFromClassPath("baidu.properties","");
+			SK = properties.getProperty("SK");
+			AK = properties.getProperty("AK");
+			isInit = true;
+		} catch (Exception e) {
+			log.error("other Exception",e);
+		}
 	}
 	
 	public static BaiduUtil getBaiduUtil(){

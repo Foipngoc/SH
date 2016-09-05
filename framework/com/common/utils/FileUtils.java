@@ -205,27 +205,28 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
      * @param in
      * @return
      */
-    public static String getMd5ByFile(FileInputStream in) {
-        String value = null;
-        try {
-            MessageDigest md5 = MessageDigest.getInstance("MD5");
-            int length;
-            byte[] buffer = new byte[10240];
-            while ((length = in.read(buffer)) != -1) {
-                md5.update(buffer, 0, length);
-            }
-            BigInteger bi = new BigInteger(1, md5.digest());
-            value = bi.toString(16);
-        } catch (Exception e) {
-            return null;
-        } finally {
-            try {
-                in.close();
-            } catch (Exception e) {
-            }
-        }
-        return value;
-    }
+    //此方法与getMd5ByFile(InputStream in)重复FileInputStream extends InputStream
+//    public static String getMd5ByFile(FileInputStream in) {
+//        String value = null;
+//        try {
+//            MessageDigest md5 = MessageDigest.getInstance("MD5");
+//            int length;
+//            byte[] buffer = new byte[10240];
+//            while ((length = in.read(buffer)) != -1) {
+//                md5.update(buffer, 0, length);
+//            }
+//            BigInteger bi = new BigInteger(1, md5.digest());
+//            value = bi.toString(16);
+//        } catch (Exception e) {
+//            return null;
+//        } finally {
+//            try {
+//                in.close();
+//            } catch (Exception e) {
+//            }
+//        }
+//        return value;
+//    }
 
     /**
      * 获得文件的md5
