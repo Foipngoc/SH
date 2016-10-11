@@ -12,6 +12,13 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.sql.JoinType;
 import org.springframework.stereotype.Repository;
 
+
+/**
+ * 实体对象Dao实现类继承自BaseDaoDB并实现实体对象Dao接口
+ *
+ * @Auth Will
+ * @Date 2016 -09-05 17:28:37
+ */
 @Repository("exampleDao")
 public class ExampleDao extends BaseDaoDB implements IExampleDao{
 

@@ -2,7 +2,7 @@ package com.example.service;
 
 import com.common.base.BaseRecords;
 import com.common.base.service.BaseService;
-import com.example.dao.ExampleDao;
+import com.example.dao.IExampleDao;
 import com.example.dao.model.Room;
 import com.example.dao.model.Student;
 import org.junit.Test;
@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 @Service("exampleService")
 public class ExampleService extends BaseService{
     @Resource(name = "exampleDao")
-    private ExampleDao exampleDao;
+    private IExampleDao exampleDao;//采用接口形式
 
     public ExampleService() {
         System.out.println("ExampleService inited!");

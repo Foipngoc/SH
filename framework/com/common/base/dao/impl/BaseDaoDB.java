@@ -17,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -265,7 +266,7 @@ public class BaseDaoDB implements BaseDao {
             session = getSessionHandler(sql).openSession(getSessionFactory());
             getSessionHandler(sql).beginTransaction(session);
             Query q = session.createSQLQuery(sql.getSQLString());
-            addParam(q,sql.getParamMap());
+            addParam(q, sql.getParamMap());
             int ret = q.executeUpdate();
             getSessionHandler(sql).commitTransaction(session);
             return ret;
@@ -289,7 +290,7 @@ public class BaseDaoDB implements BaseDao {
             session = getSessionHandler(hql).openSession(getSessionFactory());
             getSessionHandler(hql).beginTransaction(session);
             Query q = session.createQuery(hql.getHQLString());
-            addParam(q,hql.getParamMap());
+            addParam(q, hql.getParamMap());
             int ret = q.executeUpdate();
             getSessionHandler(hql).commitTransaction(session);
             return ret;
@@ -312,7 +313,7 @@ public class BaseDaoDB implements BaseDao {
         try {
             session = getSessionHandler(hql).openSession(getSessionFactory());
             Query q = session.createQuery(hql.getHQLString());
-            addParam(q,hql.getParamMap());
+            addParam(q, hql.getParamMap());
             return q.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
@@ -334,7 +335,7 @@ public class BaseDaoDB implements BaseDao {
             session = getSessionHandler(hql).openSession(getSessionFactory());
             Query q = session.createQuery(hql.getHQLString());
 
-            addParam(q,hql.getParamMap());
+            addParam(q, hql.getParamMap());
             if (hql.getPage() > 0 && hql.getRows() > 0) { // 分页
                 long total = 0;
                 if (hql.ifRetrievePages())
@@ -365,7 +366,7 @@ public class BaseDaoDB implements BaseDao {
         try {
             session = getSessionHandler(sql).openSession(getSessionFactory());
             Query q = session.createSQLQuery(sql.getSQLString());
-            addParam(q,sql.getParamMap());
+            addParam(q, sql.getParamMap());
             return q.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
@@ -388,7 +389,7 @@ public class BaseDaoDB implements BaseDao {
             session = getSessionHandler(sql).openSession(getSessionFactory());
             Query q = session.createSQLQuery(sql.getSQLString());
 
-            addParam(q,sql.getParamMap());
+            addParam(q, sql.getParamMap());
 
             if (sql.getPage() > 0 && sql.getRows() > 0) { // 分页
                 long total = 0;
@@ -420,7 +421,7 @@ public class BaseDaoDB implements BaseDao {
         try {
             session = getSessionHandler(hql).openSession(getSessionFactory());
             Query q = session.createQuery(hql.getHQLString());
-            addParam(q,hql.getParamMap());
+            addParam(q, hql.getParamMap());
             Object cntObj = q.uniqueResult();
             return ((Number) cntObj).longValue();
         } catch (Exception e) {
@@ -442,7 +443,7 @@ public class BaseDaoDB implements BaseDao {
         try {
             session = getSessionHandler(sql).openSession(getSessionFactory());
             Query q = session.createSQLQuery(sql.getSQLString());
-            addParam(q,sql.getParamMap());
+            addParam(q, sql.getParamMap());
             Object cntObj = q.uniqueResult();
             return ((Number) cntObj).longValue();
         } catch (Exception e) {
@@ -533,15 +534,22 @@ public class BaseDaoDB implements BaseDao {
 
     /**
      * 为query添加参数值
+     *
      * @param query Query对象
      * @param param 具体参考{key=占位符,value=值}
      */
-    private void addParam(Query query, Map<String, Object> param){
-        if(MapUtils.isNotEmpty(param)){
-            Set<Map.Entry<String,Object>> entrys =  param.entrySet();
-            for (Map.Entry<String,Object> entry: entrys ) {
-                log.debug("param---------->{}:{}",entry.getKey(),entry.getValue());
-                query.setParameter(entry.getKey(),entry.getValue());
+    private void addParam(Query query, Map<String, Object> param) {
+        if (MapUtils.isNotEmpty(param)) {
+            Set<Map.Entry<String, Object>> entrys = param.entrySet();
+            for (Map.Entry<String, Object> entry : entrys) {
+                log.debug("param---------->{}:{}", entry.getKey(), entry.getValue());
+                if (entry.getValue() instanceof Collection) {
+                    query.setParameterList(entry.getKey(), (Collection) entry.getValue());
+                } else if (entry.getValue() instanceof Object[]) {
+                    query.setParameterList(entry.getKey(), (Object[]) entry.getValue());
+                } else {
+                    query.setParameter(entry.getKey(), entry.getValue());
+                }
             }
         }
     }
