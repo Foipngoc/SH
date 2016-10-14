@@ -3,6 +3,8 @@ package com.common.base.dao;
 import com.common.base.BaseRecords;
 import com.common.base.dao.impl.querycondition.ObjectQuery;
 
+import java.util.List;
+
 /**
  * BaseDao定义一些常用的接口
  * <p/>
@@ -45,4 +47,23 @@ public interface BaseDao {
      * 获得记录数
      */
     public long count(ObjectQuery query);
+    /**
+     * 保存对象
+     */
+    void saveALL(List list);
+
+    /**
+     * 删除对象
+     */
+    void deleteALL(List list);
+
+    /**
+     * 更新对象
+     */
+    void updateALL(List list);
+
+    /**
+     * 保存或更新对象
+     */
+     void saveOrUpdateALL(List list);
 }

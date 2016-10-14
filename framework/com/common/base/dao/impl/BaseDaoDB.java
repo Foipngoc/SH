@@ -5,10 +5,7 @@ import com.common.base.dao.BaseDao;
 import com.common.base.dao.impl.querycondition.*;
 import com.common.base.dao.impl.sessionhandler.ThreadSessionHandler;
 import com.common.utils.MapUtils;
-import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
@@ -202,6 +199,106 @@ public class BaseDaoDB implements BaseDao {
                 return criteria;
             }
         });
+    }
+
+    @Override
+    public void saveALL(List list) {
+        Session session = getSessionFactory().openSession();
+        Transaction tx = session.getTransaction();
+        tx.begin();
+        try{
+            int size = list.size();
+            for (int i = 0;i<size;i++){
+                session.save(list.get(i));
+                if(i % 100 == 0){
+                    session.flush();
+                    session.clear();
+                }
+            }
+            session.flush();
+            session.clear();
+            tx.commit();
+        }catch (HibernateException e){
+            tx.rollback();
+        }finally {
+            session.close();
+        }
+
+    }
+
+    @Override
+    public void deleteALL(List list) {
+        Session session = getSessionFactory().openSession();
+        Transaction tx = session.getTransaction();
+        tx.begin();
+        try{
+            int size = list.size();
+            for (int i = 0;i<size;i++){
+                session.delete(list.get(i));
+                if(i % 100 == 0){
+                    session.flush();
+                    session.clear();
+                }
+            }
+            session.flush();
+            session.clear();
+            tx.commit();
+        }catch (HibernateException e){
+            tx.rollback();
+        }finally {
+            session.close();
+        }
+
+    }
+
+    @Override
+    public void updateALL(List list) {
+        Session session = getSessionFactory().openSession();
+        Transaction tx = session.getTransaction();
+        tx.begin();
+        try{
+            int size = list.size();
+            for (int i = 0;i<size;i++){
+                session.update(list.get(i));
+                if(i % 100 == 0){
+                    session.flush();
+                    session.clear();
+                }
+            }
+            session.flush();
+            session.clear();
+            tx.commit();
+        }catch (HibernateException e){
+            tx.rollback();
+        }finally {
+            session.close();
+        }
+
+    }
+
+    @Override
+    public void saveOrUpdateALL(List list) {
+        Session session = getSessionFactory().openSession();
+        Transaction tx = session.getTransaction();
+        tx.begin();
+        try{
+            int size = list.size();
+            for (int i = 0;i<size;i++){
+                session.saveOrUpdate(list.get(i));
+                if(i % 100 == 0){
+                    session.flush();
+                    session.clear();
+                }
+            }
+            session.flush();
+            session.clear();
+            tx.commit();
+        }catch (HibernateException e){
+            tx.rollback();
+        }finally {
+            session.close();
+        }
+
     }
 
     /*******************************************以下方法非BaseDao定义***********************************************/
