@@ -58,7 +58,7 @@
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/jboss-logging-annotations-1.2.0.Beta1.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/hibernate-commons-annotations-4.0.5.Final.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar" />
-          <element id="library" level="application_server_libraries" name="Tomcat" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/servlet-api.jar" />
         </element>
       </element>
     </root>
